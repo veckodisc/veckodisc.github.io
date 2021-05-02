@@ -230,7 +230,7 @@ $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858',
 	    var date = js.Competition.SubCompetitions[i].Date;
 	    hr1.innerHTML += "<th colspan='3'>" + date + "</th>";
 	    hr2.innerHTML += "<th class='wide'>Kast</th><th>Poäng</th><th>Ny HCP</th>";
-	    if (js.Competition.SubCompetitions[i].Results.length > 0) {
+	    if (new Date(js.Competition.SubCompetitions[i].Date).getTime() + 20 * 3600000 < Date.now()) {
 		last_comp_index = i;
 	    }
 	    for (var j = 0; j < js.Competition.SubCompetitions[i].Results.length; j++) {
