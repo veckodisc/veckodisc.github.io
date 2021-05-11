@@ -178,7 +178,7 @@ var start_hcps = {
 	"Patrik Martinsson": 0,
 	"Pelle Andersson": 0,
 	"Per Fällgen": 4,
-	"Per Åström": -1,	
+	"Per Astrom": -1,	
 	"Peter Berg": 0,
 	"Peter Blomgren": 7,
 	"Peter Bygde": -1,
@@ -253,7 +253,10 @@ $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858',
   	    tr += "<td id=last_hcp" + ids[i] + "></td>";
 	    var scores = get_scores(js, ids[i]);
 	    var diffs = get_diffs(js, ids[i]);
-	    var last_hpc = 0;
+	    var last_hcp = 0;
+	    if (name in start_hcps) {
+		var last_hcp = start_hcps[name];
+	    }
 	    for (var j = 0; j < scores.length; j++) {
 		if (scores[j] > 0) {
 		    var old_hcp = get_hcp(j, name, diffs);
