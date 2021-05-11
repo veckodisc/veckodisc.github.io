@@ -217,6 +217,7 @@ var start_hcps = {
 	"Vilgot Rosenberg": 2,	
 	"William Gummesson": -2
 }
+var double_ids = {'41966': '41968'};
 var js;
 $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858', 
     function(data) {
@@ -230,13 +231,16 @@ $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858',
 	    var date = js.Competition.SubCompetitions[i].Date;
 	    hr1.innerHTML += "<th colspan='3'>" + date + "</th>";
 	    hr2.innerHTML += "<th class='wide'>Kast</th><th>Poäng</th><th>Ny HCP</th>";
-	    if (new Date(js.Competition.SubCompetitions[i].Date).getTime() + 18 * 3600000 < Date.now()) {
+	    if (new Date(js.Competition.SubCompetitions[i].Date).getTime() + 18.5 * 3600000 < Date.now()) {
 		last_comp_index = i;
 	    }
 	    for (var j = 0; j < js.Competition.SubCompetitions[i].Results.length; j++) {
 		idSet.add(js.Competition.SubCompetitions[i].Results[j].UserID);
 	    }
 	}
+	for (id in double_ids) {
+	    idSet.delete(double_ids[id]);
+        }
         var ids = Array.from(idSet);
 	var mod_throws_matrix = [];
 	for(var i = 0; i < ids.length; i++)  {
@@ -345,10 +349,13 @@ function get_name(js, id) {
 
 function get_scores(js, id) {
     results = [];
-	for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
-	    var score = get_score(js.Competition.SubCompetitions[i], id);
-	    results.push(score);
+    for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
+        var score = get_score(js.Competition.SubCompetitions[i], id);
+	if (score == -100 && id in double_ids) {
+	    score = get_score(js.Competition.SubCompetitions[i], double_ids[id]);
 	}
+	results.push(score);
+    }
     return results;
 }
 
@@ -363,10 +370,13 @@ function get_score(subcomp, id) {
 
 function get_diffs(js, id) {
     diffs = [];
-	for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
-	    var diff = get_diff(js.Competition.SubCompetitions[i], id);
-	    diffs.push(diff);
+    for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
+	var diff = get_diff(js.Competition.SubCompetitions[i], id);
+	if (diff == -100 && id in double_ids) {
+	    diff = get_diff(js.Competition.SubCompetitions[i], double_ids[id]);
 	}
+	diffs.push(diff);
+    }
     return diffs;
 }
 
@@ -427,7 +437,6 @@ function get_points_matrix(mod_throws_matrix) {
 	}
 	points_matrix.push(filled_points);
     }
-    var ret = transpose(points_matrix);
     return transpose(points_matrix);
 }
 
