@@ -59,48 +59,17 @@ select {
     appearance: none;
 }
 
-.center-wrapper{
-    background:#a0cecb;
-}
-
-.item{
-    display:inline-block; 
-    background:#a0cecb;
-}
-.custom-select{
-    display:inline-block; 
-    background:#a0cecb;
-    position: relative;
-}
-
-.custom-select:after {
-    content: '\0025BC';
-    font: normal normal normal 12px/1 FontAwesome;
-    color: white;
-    right: -10px;
-    top: 3px;
-    height: 26px;
-    padding: 0px 0px 0px 10px;
-    position: absolute;
-    pointer-events: none;
-}
-
 </style>
 </head>
 <body>
 <table id="table">
     <thead>
     <tr id="head1">
-    	<th colspan="4">
-    	    <div class="center-wrapper">
-    	        <div class="item">Visättra veckodisc</div>
-    	            <div class="custom-select">
-    	                <select class="select" id="year" onchange="changeYear()">
-  	                    <option value="https://veckodisc.github.io/">2021</option>
-  	                    <option value="https://veckodisc.github.io/2021">2021</option>
-	            </select>
-	        </div>  
-	    </div>
+    	<th colspan="4">Visättra veckodisc
+    	<select class="select" id="year" onchange="changeYear()">
+  	    <option value="https://veckodisc.github.io/">2021</option>
+  	    <option value="https://veckodisc.github.io/2021">2021</option>
+	</select>
     	</th>
         <th colspan='3'>Senaste</th>
     </tr>
