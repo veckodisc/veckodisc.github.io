@@ -12,6 +12,7 @@
 		        margin:0px;
 		    }
 		</style>
+		 <script src="js/rectangle.js"></script> 
 	</head>
 	<body>
 
@@ -29,7 +30,7 @@
 				return this.height * this.width;
 			  }
 			}
-			
+			console.log(Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36));
 			let rect = new Rectangle({"height": 10, "width": 20});
 			console.log(rect);
 			console.log(rect.calcArea());
@@ -37,7 +38,7 @@
 			localStorage.setItem("lastname", "Smith");
 			console.log(localStorage.getItem("lastname"));
 			
-    		let response = await fetch('https://veckodisc.github.io/data.json');
+    		let response = await fetch('https://veckodisc.github.io/json/data.json');
 			let json = await response.json();
     		console.log(json.title);
     		
@@ -138,7 +139,8 @@
         			//document.getElementById("form-id").submit();
         			console.log(intersects[0].object.userData.id);
         			localStorage.setItem('current_cube', intersects[0].object.userData.id);
-        			window.location.href = "https://veckodisc.github.io/brick.html";
+        			//window.location.href = "https://veckodisc.github.io/brick.html";
+        			window.location.href = "brick.html";
     			}
 			}
 
