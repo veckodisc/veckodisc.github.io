@@ -38,9 +38,9 @@
 			localStorage.setItem("lastname", "Smith");
 			console.log(localStorage.getItem("lastname"));
 			
-    		let response = await fetch('https://veckodisc.github.io/json/data.json');
+    		let response = await fetch('json/data.json');
 			let json = await response.json();
-    		console.log(json.title);
+    		console.log(json[0].title);
     		
     		var testObject = { 'one': 1, 'two': 2, 'three': 3 };
 

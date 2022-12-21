@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/start.css">
+		<script src="js/utils.js"></script> 
+		<script src="js/models.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+	</head>
+    <body>
+    	<script>
+			console.log(get_uid());
+			localStorage.setItem("cubes", JSON.stringify([]));
+			let cubes = JSON.parse(localStorage.getItem("cubes"));
+			let cube = new_std_cube("Min första kub.");
+			let cube2 = new_std_cube("Min andra kub.");
+			cubes.push(cube);
+			cubes.push(cube2);
+			localStorage.setItem("cubes", JSON.stringify(cubes));
+			cubes = JSON.parse(localStorage.getItem("cubes"));
+			c = new Cube(JSON.parse(JSON.stringify(cube)));
+			console.log(JSON.stringify(cubes));
+			//downloadJson(localStorage.getItem("cubes"));
+			window.onload = function() {
+			  Particles.init({
+			    selector: '.background',
+			    maxParticles: 200,
+		        color: '#333333',
+		        connectParticles: true,
+		        speed: 0.25
+			  });
+			};
+			
+		</script>
+		<div class="container">
+		  Your content here...
+		  <div class="container2">
+		  Your content here...
+		</div>
+		</div>
+
+		<canvas class="background"></canvas>
+    </body>
+</html>

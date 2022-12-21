@@ -1,0 +1,29 @@
+{
+	"std_cube": {
+		"id": "",
+		"title": "",
+		"desc": "Beskriv projektet.",
+		"sections": []
+	},
+	"std_section": {
+		"id": "",
+		"title": "",
+		"intro": "Beskriv vad som ska göras här.",
+		"position": -1,
+		"articles": [],
+		"checklists": [],
+		"fulfillment": 0,
+		"connections": []
+	},
+	"std_article": {
+		"id": "",
+		"title": "Artikel-title",
+		"tabs": []
+	},
+	"std_tab": {
+		"id": "",
+		"title": "Tab-titel",
+		"summary": "Skriv en summering här.",
+		"text": "Skriv fullständig text här."
+	}
+}
