@@ -33,6 +33,9 @@
 		<canvas class="background"></canvas>
 		
     	<script>
+    		if (!localStorage.hasOwnProperty('cubes')) {
+						localStorage.setItem("cubes", JSON.stringify([]));
+			}
 			let cubes = JSON.parse(localStorage.getItem("cubes"));
 			let pc = document.getElementById('project-container');
 			for (let i = 0; i < cubes.length; i++) {
