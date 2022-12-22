@@ -75,7 +75,6 @@ textarea {
 	-webkit-backdrop-filter: blur(4.9px);
 	border: 1px solid rgba(255, 255, 255, 0.29);
 	color: #fff;
-	overflow: scroll;
 }
 .container2 {
 	width: 95%;
