@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<title>The Second Brain</title>
 		<link rel="stylesheet" href="css/start.css">
 		<script src="js/utils.js"></script> 
 		<script src="js/models.js"></script> 
@@ -25,7 +26,7 @@
 			<div id='name_input' style="display: none;">
 				Namn:
 				<div style="font-size:1.1rem; display: flex;">         
-		   	       <textarea id= name_textarea cols="40" rows="1" type="text" name="cube_name"></textarea>
+		   	       <textarea style="width: 50%" id= name_textarea cols="40" rows="1" type="text" name="cube_name"></textarea>
 		   	       <div id='submit_btn' class='container3'>Lägg till</div>   
 	 	   		</div>
  	   		</div>
@@ -34,15 +35,15 @@
 		
     	<script>
     		if (!localStorage.hasOwnProperty('cubes')) {
-						localStorage.setItem("cubes", JSON.stringify([]));
+				localStorage.setItem("cubes", JSON.stringify([]));
 			}
 			let cubes = JSON.parse(localStorage.getItem("cubes"));
 			let pc = document.getElementById('project-container');
 			for (let i = 0; i < cubes.length; i++) {
-			  pc.innerHTML += "<div id=" + cubes[i].id + " class='container2'>" + cubes[i].title + "</div>";
+			  pc.innerHTML += "<div style='display: flex;'><div id='div_id_" + cubes[i].id + "' class='container2'>" + cubes[i].title + "</div><img id='remove_button' onclick='confirm_remove(" + i + ")' src='/images/remove.png' alt='Remove button' style='cursor:pointer; height:1.5em; padding-top:0.9em; margin-left:0.8em;'></div>";
 			}
 			for (let i = 0; i < cubes.length; i++) {
-			 	document.getElementById(cubes[i].id).addEventListener('click', (() => {
+			 	document.getElementById("div_id_" + cubes[i].id).addEventListener('click', (() => {
 					localStorage.setItem("current_cube", cubes[i].id);
 					window.location.href = "brain.html";
 				}));
@@ -63,6 +64,15 @@
 			document.getElementById("download_button").addEventListener('click', (() => {
 					downloadJson(localStorage.getItem("cubes"));
 				}));
+			function confirm_remove(index) {
+			    let text = "Är du säker på att du vill ta bort projektet?\nAllt innehåll kommer att tas bort.";
+			    if (confirm(text) == true) {
+				  let cubes = JSON.parse(localStorage.getItem("cubes"));
+				  cubes.splice(index, 1);
+				  localStorage.setItem("cubes", JSON.stringify(cubes));
+				  window.location.href = "start.html";
+			    }
+			}
 			window.onload = function() {
 			  Particles.init({
 			    selector: '.background',
