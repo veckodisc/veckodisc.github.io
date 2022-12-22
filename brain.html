@@ -30,7 +30,7 @@
 				return this.height * this.width;
 			  }
 			}
-			console.log(Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36));
+			console.log(localStorage.getItem('current_cube'));
 			let rect = new Rectangle({"height": 10, "width": 20});
 			console.log(rect);
 			console.log(rect.calcArea());

@@ -2,7 +2,6 @@ const content = {
 	"std_cube": {
 		"id": "",
 		"title": "",
-		"desc": "Beskriv projektet.",
 		"sections": []
 	},
 	"std_section": {
@@ -32,7 +31,6 @@ class Cube {
   constructor(obj) {
 	this.id = obj.id;
 	this.title = obj.title;
-	this.desc = obj.desc;
 	this.sections = [];
 	for (let i = 0; i < obj.sections.length; i++) {
 	  this.sections.push(obj.sections[i]);

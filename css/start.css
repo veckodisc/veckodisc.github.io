@@ -1,38 +1,111 @@
 html, body { height: 100% }
 
 body {
-  display: flex;
-  align-items: center;
   background-color: #f9f9f9;
+  font-family: 'Modernist'
+}
+
+@font-face {
+    font-family: 'Modernist';
+    src: url("/fonts/Sk-Modernist-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'ModernistBold';
+    src: url("/fonts/Sk-Modernist-Bold.otf") format("opentype");
+}
+
+h1 {
+	width: 50%;
+	margin: 0 auto;
+	padding: 1.5em 1.5em 0.5em 0;
+	color: #fff;
+	font-family: 'ModernistBold';
+}
+
+textarea {
+	font-family: 'Modernist';
+	padding-left: 0.4em;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.add_button .tooltiptext {
+  visibility: hidden;
+  text-align: center;
+  position: absolute;
+  font-size: 0.5em;
+  top: 1em;
+}
+
+.add_button:hover .tooltiptext {
+  visibility: visible;
+}
+
+.intro {
+	width: 50%;
+	margin: 0 auto;
+	padding: 0.5em 2.5em 1.5em 0;
+	color: #fff;
+	font-family: 'Modernist';
+}
+
+.add_button {
+	font-size: 1.5em;
+	margin-top:0.4em;
+	margin-bottom: 0;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	cursor:pointer;
 }
 
 .container {
-	  width: 50%;
-	  margin: 0 auto;
-	  padding: 50px;
-	  background-color: #fff;
-	  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
-	  background: rgba(255, 255, 255, 0.20);
-	border-radius: 16px;
+    width: 50%;
+	margin: 0 auto;
+	padding: 0.8em 2em 2em 2em;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.10);
+	border-radius: 8px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(4.9px);
 	-webkit-backdrop-filter: blur(4.9px);
 	border: 1px solid rgba(255, 255, 255, 0.29);
 	color: #fff;
+	overflow: scroll;
 }
 .container2 {
-	  width: 10%;
-	  margin: 0 auto;
-	  padding: 50px;
-	  background-color: #fff;
-	  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
-	  background: rgba(255, 255, 255, 0.20);
-	border-radius: 16px;
+	width: 95%;
+	margin-top: 0.5em;
+	padding: 0.3em 0.3em 0.5em 1em;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.20);
+	border-radius: 8px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(4.9px);
 	-webkit-backdrop-filter: blur(4.9px);
 	border: 1px solid rgba(255, 255, 255, 0.29);
+	cursor: pointer;
 
+}
+
+.container3 {
+	padding: 0.3em 0.5em 0.5em 0.5em;
+	margin-left: 1em;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.20);
+	border-radius: 8px;
+	font-size: 0.8em;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	border: 1px solid rgba(255, 255, 255, 0.29);
+	cursor: pointer;
 }
 
 .background {

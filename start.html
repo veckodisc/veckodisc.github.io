@@ -8,19 +8,58 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 	</head>
     <body>
+    	<h1>The Second Brain</h1>
+		<p class="intro">70 % av alla projekt misslyckas. Det beror på att de flesta baserar sina beslut på känslor och vanor istället för fakta och rationella överväganden. The second brain är ett verktyg som hjälper dig att ta bättre beslut och organisera dina projekt för att nå framgång.</p>
+		<div id='project-container' class='container'>
+			<div style="font-size:1.1rem; display: flex;">
+				<p>Projekt</p>
+				<div id='add_button2' class="add_button" style="margin-left:1em;">
+					+
+					<span class="tooltiptext" style="padding-bottom:0.4em;"> Lägg till projekt</span>
+				</div>
+				<div class="add_button" >
+					<img id="download_button" src="/images/download.png" alt="Download button" style="height:0.7em; padding-top:0.44em">
+					<span class="tooltiptext"> Ladda ned alla projekt</span>
+				</div>
+			</div>
+			<div id='name_input' style="display: none;">
+				Namn:
+				<div style="font-size:1.1rem; display: flex;">         
+		   	       <textarea id= name_textarea cols="40" rows="1" type="text" name="cube_name"></textarea>
+		   	       <div id='submit_btn' class='container3'>Lägg till</div>   
+	 	   		</div>
+ 	   		</div>
+		</div>
+		<canvas class="background"></canvas>
+		
     	<script>
-			console.log(get_uid());
-			localStorage.setItem("cubes", JSON.stringify([]));
 			let cubes = JSON.parse(localStorage.getItem("cubes"));
-			let cube = new_std_cube("Min första kub.");
-			let cube2 = new_std_cube("Min andra kub.");
-			cubes.push(cube);
-			cubes.push(cube2);
-			localStorage.setItem("cubes", JSON.stringify(cubes));
-			cubes = JSON.parse(localStorage.getItem("cubes"));
-			c = new Cube(JSON.parse(JSON.stringify(cube)));
-			console.log(JSON.stringify(cubes));
-			//downloadJson(localStorage.getItem("cubes"));
+			let pc = document.getElementById('project-container');
+			for (let i = 0; i < cubes.length; i++) {
+			  pc.innerHTML += "<div id=" + cubes[i].id + " class='container2'>" + cubes[i].title + "</div>";
+			}
+			for (let i = 0; i < cubes.length; i++) {
+			 	document.getElementById(cubes[i].id).addEventListener('click', (() => {
+					localStorage.setItem("current_cube", cubes[i].id);
+					window.location.href = "brain.html";
+				}));
+			}
+			document.getElementById("add_button2").addEventListener('click', (() => {
+					document.getElementById("name_input").style.display = 'block';
+				}));
+			document.getElementById("submit_btn").addEventListener('click', (() => {
+					let cube = new_std_cube(document.getElementById("name_textarea").value);
+					if (!localStorage.hasOwnProperty('cubes')) {
+						localStorage.setItem("cubes", JSON.stringify([]));
+					}
+					let cubes = JSON.parse(localStorage.getItem("cubes"));
+					cubes.push(cube);
+					localStorage.setItem("cubes", JSON.stringify(cubes));
+					window.location.href = "start.html";
+				}));
+			document.getElementById("download_button").addEventListener('click', (() => {
+					downloadJson(localStorage.getItem("cubes"));
+				}));
 			window.onload = function() {
 			  Particles.init({
 			    selector: '.background',
@@ -32,13 +71,5 @@
 			};
 			
 		</script>
-		<div class="container">
-		  Your content here...
-		  <div class="container2">
-		  Your content here...
-		</div>
-		</div>
-
-		<canvas class="background"></canvas>
     </body>
 </html>
