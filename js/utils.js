@@ -17,15 +17,18 @@ function get_uid () {
 	return Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
 }
 
-async function getJson(loc) {
-    let response = await fetch(loc);
-	return await response.json();
+async function loadAndMerge() {
+    let response = await fetch('json/saved_projects.json');
+	let saved_cubes = await response.json();
+	let current_cubes = JSON.parse(localStorage.getItem("cubes"));
+	localStorage.setItem("cubes", JSON.stringify(current_cubes.concat(saved_cubes)));
+	window.location.href = "start.html";
 }
 
 function downloadJson(exportJson) {
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(exportJson);
     var downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("href", dataStr);
     const timeElapsed = Date.now();
 	const today = new Date(timeElapsed);
     downloadAnchorNode.setAttribute("download", today.toISOString() + ".json");
