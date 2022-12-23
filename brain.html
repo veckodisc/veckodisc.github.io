@@ -12,7 +12,6 @@
 		        margin:0px;
 		    }
 		</style>
-		 <script src="js/rectangle.js"></script> 
 	</head>
 	<body>
 
@@ -21,40 +20,7 @@
 		</form>
 
 		<script type="module">
-			class Rectangle {
-			  constructor(obj) {
-				this.height = obj.height;
-				this.width = obj.width;
-			  }
-			  calcArea() {
-				return this.height * this.width;
-			  }
-			}
-			console.log(localStorage.getItem('current_cube'));
-			let rect = new Rectangle({"height": 10, "width": 20});
-			console.log(rect);
-			console.log(rect.calcArea());
-		
-			localStorage.setItem("lastname", "Smith");
-			console.log(localStorage.getItem("lastname"));
 			
-    		let response = await fetch('json/data.json');
-			let json = await response.json();
-    		console.log(json[0].title);
-    		
-    		var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-
-			// Put the object into storage
-			localStorage.setItem('testObject', JSON.stringify(rect));
-
-			// Retrieve the object from storage
-			var retrievedObject = localStorage.getItem('testObject');
-			let obj = JSON.parse(retrievedObject);
-			
-			let rect2 = new Rectangle(obj);
-			console.log(rect2.calcArea());
-
-			console.log('retrievedObject: ', JSON.parse(retrievedObject));
 		    import * as THREE from 'https://cdn.skypack.dev/three@0.136.0/build/three.module.js';
 		    import { OrbitControls } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls.js';
 		    import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/GLTFLoader.js';
@@ -65,17 +31,14 @@
 		    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		    const renderer = new THREE.WebGLRenderer( { antialias: true } );
 		    const geometry = new THREE.BoxGeometry();
-		    const material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
-		    const materialC = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
-		    const cubeA = new THREE.Mesh( geometry, material );
-		    const cubeB = new THREE.Mesh( geometry, material );
-		    const cubeC = new THREE.Mesh( geometry, materialC );
-		    cubeA.position.set( -1.2, 0, 0 );
-		    cubeB.position.set( 0, 0, 0 );
-		    cubeC.position.set( 1.2, 0, 0 );
 		    
-		    cubeC.material.transparent = true;
-		    cubeC.material.opacity = 0.5; 
+		    let cubes = JSON.parse(localStorage.getItem("cubes"));
+		    let cube = null;
+		    for (let i = 0; i < cubes.length; i++) {
+		    	if(cubes[i].id == localStorage.getItem("current_cube")) {
+		    		cube = cubes[i];
+		    	}
+		    }
 		    
 		    const controls = new OrbitControls( camera, renderer.domElement );
 		    const gltfLoader = new GLTFLoader();
@@ -87,29 +50,50 @@
 		    scene.add(light);	
 		    scene.add( new THREE.AmbientLight( 0xffffff, 0.4 ) );
 			
-		    scene.add( cubeA );
-		    scene.add( cubeB );
-		    scene.add( cubeC );
+		    let objects = [];
+		    let secs = cube.sections;
+		    for (let pos = 0; pos < secs.length; pos++) {
+		    	console.log(secs[pos]);
+		    	const material = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
+		    	const cube = new THREE.Mesh( geometry, material );
+		    	let x = 1;
+		    	let y = 1;
+		    	let z = 1;
+		    	if (pos % 3 == 0) {
+					x = -1;
+				} else if (pos % 3 == 1) {
+					x = 0;
+				}
+				if (Math.floor(pos / 3) % 3 == 0) {
+					y = -1;
+				} else if (Math.floor(pos / 3) % 3 == 1) {
+					y = 0;
+				}
+				if (Math.floor(pos / 9) == 0) {
+					z = -1;
+				} else if (Math.floor(pos / 9) == 1) {
+					z = 0;
+				}
+				const gap = 1.25;
+				cube.position.set( x * gap, y * gap, z * gap );
+				cube.material.transparent = true;
+		    	cube.material.opacity = 0.6; 
+		    	cube.userData = {
+                	id: secs[pos].id,
+                	title: secs[pos].title,
+                	intro: secs[pos].intro
+            	};
+            	scene.add( cube );
+            	objects.push(cube);
+		    }
 		    
+		    camera.position.set(5,5,5);
+		    camera.lookAt(new THREE.Vector3(0,0,0)); 
 		    let raycaster = new THREE.Raycaster();
 		    let mouse = new THREE.Vector2();
 		    renderer.setPixelRatio(window.devicePixelRatio);
-		    cubeA.userData = {
-                id: "0"
-            };
-            cubeB.userData = {
-                id: "1"
-            };
-            cubeC.userData = {
-                id: "2"
-            };
-		    var objects = [];
-		    objects.push(cubeA);
-		    objects.push(cubeB);
-		    objects.push(cubeC);
 		    
 		    renderer.setSize( window.innerWidth, window.innerHeight );
-		    camera.position.z = 5;
 		    document.body.appendChild( renderer.domElement );
 		    
 		    document.addEventListener( 'mousemove', onDocumentMouseMove );
@@ -135,11 +119,7 @@
     			raycaster.setFromCamera( mouse, camera );
 				var intersects = raycaster.intersectObjects( objects );
     			if (intersects.length > 0) {
-        			//document.getElementById("postId").value = intersects[0].object.userData.id;
-        			//document.getElementById("form-id").submit();
-        			console.log(intersects[0].object.userData.id);
-        			localStorage.setItem('current_cube', intersects[0].object.userData.id);
-        			//window.location.href = "https://veckodisc.github.io/section.html";
+        			localStorage.setItem('current_section', intersects[0].object.userData.id);
         			window.location.href = "section.html";
     			}
 			}
