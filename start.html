@@ -44,7 +44,7 @@
 			let cubes = JSON.parse(localStorage.getItem("cubes"));
 			let pc = document.getElementById('project-container');
 			for (let i = 0; i < cubes.length; i++) {
-			  pc.innerHTML += "<div style='display: flex;'><div id='div_id_" + cubes[i].id + i + "' class='container2'>" + cubes[i].title + "</div><img id='remove_button' onclick='confirm_remove(" + i + ")' src='/images/remove.png' alt='Remove button' style='cursor:pointer; height:1.5em; padding-top:0.9em; margin-left:0.8em;'></div>";
+			    pc.innerHTML += "<div style='display: flex;'><div id='div_id_" + cubes[i].id + i + "' class='container2'>" + cubes[i].title + "</div><img id='remove_button' onclick='confirm_remove(" + i + ")' src='/images/remove.png' alt='Remove button' style='cursor:pointer; height:1.5em; padding-top:0.9em; margin-left:0.8em;'></div>";
 			}
 			for (let i = 0; i < cubes.length; i++) {
 			 	document.getElementById("div_id_" + cubes[i].id + i).addEventListener('click', (() => {
@@ -53,27 +53,27 @@
 				}));
 			}
 			document.getElementById("add_button2").addEventListener('click', (() => {
-					document.getElementById("name_input").style.display = 'block';
-				}));
+				document.getElementById("name_input").style.display = 'block';
+			}));
 			document.getElementById("submit_btn").addEventListener('click', (() => {
-					let cube = new_std_cube(document.getElementById("name_textarea").value);
-					if (!localStorage.hasOwnProperty('cubes')) {
-						localStorage.setItem("cubes", JSON.stringify([]));
-					}
-					let cubes = JSON.parse(localStorage.getItem("cubes"));
-					cubes.push(cube);
-					localStorage.setItem("cubes", JSON.stringify(cubes));
-					window.location.href = "start.html";
-				}));
+				let cube = new_std_cube(document.getElementById("name_textarea").value);
+				if (!localStorage.hasOwnProperty('cubes')) {
+					localStorage.setItem("cubes", JSON.stringify([]));
+				}
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				cubes.push(cube);
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+				window.location.href = "start.html";
+			}));
 			document.getElementById("download_button").addEventListener('click', (() => {
-					downloadJson(localStorage.getItem("cubes"));
-				}));
+				downloadJson(localStorage.getItem("cubes"));
+			}));
 			document.getElementById("upload_button").addEventListener('click', (() => {
-					loadAndMerge();
-				}));
+				loadAndMerge();
+			}));
 				
 			function confirm_remove(index) {
-			    let text = "Är du säker på att du vill ta bort projektet?\nAllt innehåll kommer att tas bort.";
+			    let text = "Är du säker på att du vill ta bort projektet?\nAllt innehåll kommer att raderas.";
 			    if (confirm(text) == true) {
 				  let cubes = JSON.parse(localStorage.getItem("cubes"));
 				  cubes.splice(index, 1);
@@ -81,10 +81,11 @@
 				  window.location.href = "start.html";
 			    }
 			}
+			
 			window.onload = function() {
 			  Particles.init({
 			    selector: '.background',
-			    maxParticles: 200,
+			    maxParticles: 100,
 		        color: '#333333',
 		        connectParticles: true,
 		        speed: 0.25

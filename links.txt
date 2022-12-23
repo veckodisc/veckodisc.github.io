@@ -1,0 +1,92 @@
+Getting strted x2
+https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
+https://threejs.org/manual/#en/fundamentals (gammal men med mer info)
+
+Hur klicka på delkuber:
+https://stackoverflow.com/questions/24690731/three-js-3d-models-as-hyperlink
+http://jsfiddle.net/shivasaxena/8Z4N4/1/
+Bibliotek för att klicka på kuben:
+https://github.com/jasonChen1982/three.interaction.js
+
+Tutorials
+https://github.com/SuboptimalEng/three-js-tutorials
+
+Koden i mitt första exempel:
+https://devdojo.com/tnylea/getting-started-with-three-js
+HelloWorld exempel med html och script uppdelat
+
+static website firebase
+https://www.youtube.com/watch?v=w7xKZ5PWizs
+whole series
+https://www.youtube.com/watch?v=mmmaeHBCTOw
+
+dynamic website firebase
+https://towardsdatascience.com/host-a-dynamic-website-on-google-firebase-for-free-using-node-js-and-cloud-firestore-db-88e98239e1b9
+Bättre guide:
+https://firebase.google.com/codelabs/firebase-get-to-know-web#0
+
+firebase database vs sql videos
+https://firebase.google.com/docs/database/video-series
+
+Tab-exemplet:
+https://codepen.io/tutsplus/pen/VLeXqy
+
+Annan tab:
+https://codepen.io/mikestreety/pen/yVNNNm
+https://uicookies.com/css-tabs/
+
+Exempel på hur skapa kubklass samt for each
+https://firebase.google.com/docs/firestore/query-data/get-data
+
+
+lägg till 3D-text:
+//var loader = new FontLoader();
+//loader.load('https://cdn.skypack.dev/three@0.136.0/examples/fonts/helvetiker_bold.typeface.json',function(font) {
+//	var geometry = new TextGeometry('History\nConditions\nOrganisations', {
+//		font: font,
+//		size: 0.14,
+//		height: 0.05,
+//		curveSegments: 12,
+//		bevelEnabled: false,
+//		bevelThickness: 0.1,
+//		bevelSize: 0.1,
+//		bevelSegments: 0.1
+//	});
+//	var txt_mat = new THREE.MeshPhongMaterial({color:0xffffff});
+//	var txt_mesh = new THREE.Mesh(geometry, txt_mat);
+//	txt_mesh.position.z = 0.5;
+//	txt_mesh.position.y = 0.18;
+//	txt_mesh.position.x = -0.4;
+
+//  cubeB.add(txt_mesh);
+//});
+
+limit quota firebase
+https://cloud.google.com/docs/quota#capping_usage
+
+
+download json objects (https://stackoverflow.com/questions/19721439/download-json-object-as-a-file-from-browser):
+function downloadObjectAsJson(exportObj, exportName){
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
+  
+ embed youtube video:
+ https://www.encodedna.com/javascript/practice-ground/default.htm?pg=embed_a_youtube_video_with_mute_sound
+ 
+ Design tips till section: nr 11 pikachu, witt grått gult svart
+ https://templateyou.com/free-html-css-sliders/
+ 
+ Röda gradients:
+ https://www.eggradients.com/category/red-gradient
+ 
+ Particle js
+ https://marcbruederlin.github.io/particles.js/
+ 
+ Ritprogram:
+ https://kleki.com/
