@@ -1,7 +1,20 @@
-Rita axlar i paint online + färgskala till vänster
-Rubrik högst upp
-Titel och text hover (eller klick) popup till höger
+Område: Design och text som visas
+Område: Lägg till checklista
+Område: Lägg till video
+Område: Slider med hur arbete som återstår, styr hur genomskinlig kuben är
 
+Kopplingar: Sida för att välja jämförelseområde och gradera hur väl de överensstämmer
+
+Rita färgskala till vänster
 Partiklar efter skärmstorlek
 Läs mer på landningssidan (förklara vad det är bra för och hur det ska användas, vilka jobb man har osv)
 Blinkande kub första gången, börja här
+Släcka kuber
+Skolans värdegrund exempel
+
+
+Verktyg:
+Utbildning typ loops
+Grafer
+Google forms
+Utvärdering

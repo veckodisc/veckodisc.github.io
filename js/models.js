@@ -83,11 +83,11 @@ function new_std_section(pos) {
 		title += "Missions, ";
 	}
 	if (Math.floor(pos / 9) == 0) {
-		title += "Organisation";
+		title += "Individuals";
 	} else if (Math.floor(pos / 9) == 1) {
 		title += "Group";
 	} else {
-		title += "Individuals";
+		title += "Organisation";
 	}
 	section.title = title;
 	section.articles.push(new_std_article());

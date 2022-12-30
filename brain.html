@@ -5,15 +5,19 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>The Second Brain</title>
-		<style>
-		    body {
-		        background:#000;
-		        padding:0px;
-		        margin:0px;
-		    }
-		</style>
+		<link rel="stylesheet" href="css/brain.css">
 	</head>
 	<body>
+
+		<img class="axis_info" id="axis_info" src="images/cube_axis.png" alt="Axis explanation">
+		<img class="info_button" id="info_button" src="images/info.png" alt="Show info">
+		
+		<h1 id='title'></h1>
+		<div class='info'>
+			<h3 id='section_title'></h3>
+			<p id='section_intro'></p>
+		</div>
+		
 		<script type="module">
 			
 		    import * as THREE from 'https://cdn.skypack.dev/three@0.136.0/build/three.module.js';
@@ -34,6 +38,7 @@
 		    		cube = cubes[i];
 		    	}
 		    }
+		    document.getElementById("title").innerHTML = cube.title;
 		    
 		    const controls = new OrbitControls( camera, renderer.domElement );
 		    const gltfLoader = new GLTFLoader();
@@ -82,7 +87,7 @@
             	objects.push(cube);
 		    }
 		    
-		    camera.position.set(5,5,5);
+		    camera.position.set(4.5,3.8,4.5);
 		    camera.lookAt(new THREE.Vector3(0,0,0)); 
 		    let raycaster = new THREE.Raycaster();
 		    let mouse = new THREE.Vector2();
@@ -95,6 +100,8 @@
 			window.addEventListener( 'resize', onWindowResize );
 		    
 		    document.addEventListener( 'dblclick', onDocumentDoubleClicked, false );
+		    document.addEventListener("mousedown", onMouseDown);
+		    document.getElementById("info_button").addEventListener("mouseup", toggleInfo);
 		    
 		    
 		    function onWindowResize() {
@@ -117,6 +124,30 @@
         			localStorage.setItem('current_section', intersects[0].object.userData.id);
         			window.location.href = "section.html";
     			}
+			}
+			
+			function onMouseDown(event) {
+    			event.preventDefault();
+    			raycaster.setFromCamera( mouse, camera );
+				var intersects = raycaster.intersectObjects( objects );
+    			if (intersects.length > 0) {
+        			document.getElementById("section_title").innerHTML = intersects[0].object.userData.title;
+        			document.getElementById("section_intro").innerHTML = intersects[0].object.userData.intro;
+    			}
+			}
+			
+			function toggleInfo(event) {
+    			event.preventDefault();
+    			let axis_info = document.getElementById("axis_info");
+				if (axis_info.style.display === "none" || axis_info.style.display === "") {
+					axis_info.style.display = "block";
+					document.getElementById("section_title").innerHTML = "Klicka på ett område för mer information";
+    				document.getElementById("section_intro").innerHTML = "Dubbelklicka på området för att öppna det";
+				} else {
+					axis_info.style.display = "none";
+					document.getElementById("section_title").innerHTML = '';
+    				document.getElementById("section_intro").innerHTML = '';
+				}
 			}
 
 		    function animate() {
