@@ -3,14 +3,15 @@ Område: Lägg till checklista
 Område: Lägg till video
 Område: Slider med hur arbete som återstår, styr hur genomskinlig kuben är
 
-Kopplingar: Sida för att välja jämförelseområde och gradera hur väl de överensstämmer
+Kopplingar: Sida för att välja jämförelseområde och gradera hur väl de överensstämmer med en slider (blir färgen på kuben)
 
 Rita färgskala till vänster
 Partiklar efter skärmstorlek
-Läs mer på landningssidan (förklara vad det är bra för och hur det ska användas, vilka jobb man har osv)
+Läs mer på landningssidan (skickas till ny sida) (förklara vad det är bra för och hur det ska användas, vilka jobb man har osv)
 Blinkande kub första gången, börja här
 Släcka kuber
 Skolans värdegrund exempel
+Lägg allt i en egen github, döpt typ second brain
 
 
 Verktyg:

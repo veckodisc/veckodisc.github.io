@@ -4,9 +4,11 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="css/section.css">
 		<title>The Second Brain</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 	</head>
     <body>
-      	<script>console.log(localStorage.getItem("current_section"));</script>
+      	
       	<form action="/" method="post">
  			<fieldset>
        		<legend>Sample Form</legend>
@@ -19,26 +21,94 @@
       	       <input type="submit" value="Submit">        
 			</fieldset>
  	   	</form>
-     	   
- 	   	<div class="wrapper">
-			<div class="tabs">
-				<div class="tab">
-					<input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
-					<label for="tab-1" class="tab-label">{{text}}</label>
-					<div class="tab-content">My father had a small estate in Nottinghamshire: I was the third of five sons. He sent me to Emanuel College in Cambridge at fourteen years old, where I resided three years, and applied myself close to my studies; but the charge of maintaining me, although I had a very scanty allowance, being too great for a narrow fortune, I was bound apprentice to Mr. James Bates, an eminent surgeon in London, with whom I continued four years. </div>
-				</div>
-				<div class="tab">
-					<input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
-					<label for="tab-2" class="tab-label">{{cube.texts}}</label>
-					<div class="tab-content">My father now and then sending me small sums of money, I laid them out in learning navigation, and other parts of the mathematics, useful to those who intend to travel, as I always believed it would be, some time or other, my fortune to do. </div>
-				</div>
-				<div class="tab">
-					<input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
-					<label for="tab-3" class="tab-label">Tab Three</label>
-					<div class="tab-content">When I left Mr. Bates, I went down to my father: where, by the assistance of him and my uncle John, and some other relations, I got forty pounds, and a promise of thirty pounds a year to maintain me at Leyden: there I studied physic two years and seven months, knowing it would be useful in long voyages.</div>
-				</div>
-			</div>
-  			<p>Example line outside of tab box</p>
-		</div>  
+ 	   	
+ 	   	
+     	<h2 id='header'>Tab</h2>
+		<div class="intro">This is a tab section</div>
+
+		<div class="tab">
+		  <button class="tablinks" onclick="openCity(event, 'London', 'tablinks', ['London', 'Paris', 'Tokyo'])">London</button>
+		  <button class="tablinks" onclick="openCity(event, 'Paris', 'tablinks', ['London', 'Paris', 'Tokyo'])">Paris</button>
+		  <button class="tablinks" onclick="openCity(event, 'Tokyo', 'tablinks', ['London', 'Paris', 'Tokyo'])">Tokyo</button>
+		</div>
+
+		<div id="London" class="tabcontent">
+		  <h3>London</h3>
+		  <p>London is the capital city of England.</p>
+		</div>
+		<div id="Paris" class="tabcontent">
+		  <h3>Paris</h3>
+		  <p>Paris is the capital of France.</p> 
+		</div>
+		<div id="Tokyo" class="tabcontent">
+		  <h3>Tokyo</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>
+		
+		<h2>Checklist</h2>
+		<div class="intro">This is a checklist</div>
+
+		<div class="tab">
+		  <button class="tablinks2" onclick="openCity(event, 'TODO', 'tablinks2', ['TODO', 'Done'])">TODO</button>
+		  <button class="tablinks2" onclick="openCity(event, 'Done', 'tablinks2', ['TODO', 'Done'])">Done</button>
+		</div>
+
+		<div id="TODO" class="tabcontent">
+		  <h3>TODO</h3>
+		  <p>This has to be done.</p>
+		</div>
+		<div id="Done" class="tabcontent">
+		  <h3>Done</h3>
+		  <p>This is done.</p> 
+		</div>
+		
+		<canvas class="background"></canvas>
+		
+		<script>
+      		let cubes = JSON.parse(localStorage.getItem("cubes"));
+		    let cube = null;
+		    for (let i = 0; i < cubes.length; i++) {
+		    	if(cubes[i].id == localStorage.getItem("current_cube")) {
+		    		cube = cubes[i];
+		    	}
+		    }
+		    let section = null;
+		    for (let i = 0; i < cube.sections.length; i++) {
+		    	if(cube.sections[i].id == localStorage.getItem("current_section")) {
+		    		section = cube.sections[i];
+		    	}
+		    }
+		    document.getElementById('header').innerHTML = section.title;
+		    	
+      	</script>
+		
+		<script>
+		function openCity(evt, cityName, buttonId, l) {
+		  var i, tablinks;
+		  
+		  for (i = 0; i < l.length; i++) {
+			document.getElementById(l[i]).style.display = "none";
+		  }
+		  tablinks = document.getElementsByClassName(buttonId);
+		  for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		  }
+		  document.getElementById(cityName).style.display = "block";
+		  evt.currentTarget.className += " active";
+		}
+		document.getElementsByClassName("tablinks")[0].click();
+		document.getElementsByClassName("tablinks2")[0].click();
+		
+		let num_particles = window.innerHeight * window.innerWidth / 5000;
+		window.onload = function() {
+			  Particles.init({
+			    selector: '.background',
+			    maxParticles: num_particles.toFixed(0),
+		        color: '#777777',
+		        connectParticles: true,
+		        speed: 0,
+			  });
+			};
+		</script>
     </body>
 </html>

@@ -63,7 +63,7 @@
 				let cubes = JSON.parse(localStorage.getItem("cubes"));
 				cubes.push(cube);
 				localStorage.setItem("cubes", JSON.stringify(cubes));
-				window.location.href = "start.html";
+				location.reload();
 			}));
 			document.getElementById("download_button").addEventListener('click', (() => {
 				downloadJson(localStorage.getItem("cubes"));
@@ -78,17 +78,18 @@
 				  let cubes = JSON.parse(localStorage.getItem("cubes"));
 				  cubes.splice(index, 1);
 				  localStorage.setItem("cubes", JSON.stringify(cubes));
-				  window.location.href = "start.html";
+				  location.reload();
 			    }
 			}
 			
+			let num_particles = window.innerHeight * window.innerWidth / 5000;
 			window.onload = function() {
 			  Particles.init({
 			    selector: '.background',
-			    maxParticles: 100,
+			    maxParticles: num_particles.toFixed(0),
 		        color: '#333333',
 		        connectParticles: true,
-		        speed: 0.25
+		        speed: 0.2
 			  });
 			};
 			

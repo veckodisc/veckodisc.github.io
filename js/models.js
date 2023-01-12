@@ -41,7 +41,7 @@ class Cube {
 function new_std_cube(title) {
 	let cube = new Cube(content.std_cube);
 	cube.title = title;
-	cube.id = Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
+	cube.id = get_uid;
 	for (let i = 0; i < 27; i++) {
 	section = new_std_section(i);
 	  cube.sections.push(section);
@@ -65,7 +65,7 @@ class Section {
 
 function new_std_section(pos) {
 	section = new Section(content.std_section);
-	section.id = Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
+	section.id = get_uid;
 	section.pos = pos;
 	title = "";
 	if (pos % 3 == 0) {
@@ -100,6 +100,7 @@ class Article {
 	this.id = obj.id;
 	this.title = obj.title;
 	this.tabs = [];
+	this.tab_idx = 0;
 	for (let i = 0; i < obj.tabs.length; i++) {
 	  this.tabs.push(obj.tabs[i]);
 	}
@@ -108,7 +109,7 @@ class Article {
 
 function new_std_article() {
 	article = new Article(content.std_article);
-	article.id = Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
+	article.id = get_uid;
 	let tab = new_std_tab();
 	tab.title = "Tab 1";
 	article.tabs.push(tab);
@@ -130,12 +131,14 @@ class Tab {
 
 function new_std_tab() {
 	tab = new Tab(content.std_tab);
-	tab.id = Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
+	tab.id = get_uid;
 	
 	return tab;
 }
 
-
+function get_uid () {
+	return Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
+}
 
 
 			
