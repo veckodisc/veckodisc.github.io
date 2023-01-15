@@ -42,6 +42,7 @@
 				localStorage.setItem("cubes", JSON.stringify([]));
 			}
 			let cubes = JSON.parse(localStorage.getItem("cubes"));
+			console.log(cubes);
 			let pc = document.getElementById('project-container');
 			for (let i = 0; i < cubes.length; i++) {
 			    pc.innerHTML += "<div style='display: flex;'><div id='div_id_" + cubes[i].id + i + "' class='container2'>" + cubes[i].title + "</div><img id='remove_button' onclick='confirm_remove(" + i + ")' src='/images/remove.png' alt='Remove button' style='cursor:pointer; height:1.5em; padding-top:0.9em; margin-left:0.8em;'></div>";

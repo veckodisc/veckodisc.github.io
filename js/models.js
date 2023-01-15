@@ -41,7 +41,7 @@ class Cube {
 function new_std_cube(title) {
 	let cube = new Cube(content.std_cube);
 	cube.title = title;
-	cube.id = get_uid;
+	cube.id = get_uid();
 	for (let i = 0; i < 27; i++) {
 	section = new_std_section(i);
 	  cube.sections.push(section);
@@ -65,7 +65,7 @@ class Section {
 
 function new_std_section(pos) {
 	section = new Section(content.std_section);
-	section.id = get_uid;
+	section.id = get_uid();
 	section.pos = pos;
 	title = "";
 	if (pos % 3 == 0) {
@@ -91,6 +91,10 @@ function new_std_section(pos) {
 	}
 	section.title = title;
 	section.articles.push(new_std_article());
+	let article = new_std_article();
+	article.tabs[0].text = "Det här är den andra artikelns första text.";
+	article.tabs[1].text = "Det här är den andra artikelns andra text.<br><br><ul><li>Coffee</li><li>Tea</li><li>Milk</li></ul>";
+	section.articles.push(article);
 	
 	return section;
 }
@@ -109,12 +113,14 @@ class Article {
 
 function new_std_article() {
 	article = new Article(content.std_article);
-	article.id = get_uid;
+	article.id = get_uid();
 	let tab = new_std_tab();
 	tab.title = "Tab 1";
 	article.tabs.push(tab);
 	tab = new_std_tab();
 	tab.title = "Tab 2";
+	tab.text = "Skriv den andra fullständiga <br>texten här.";
+	console.log(tab.text);
 	article.tabs.push(tab);
 	
 	return article;
@@ -131,7 +137,7 @@ class Tab {
 
 function new_std_tab() {
 	tab = new Tab(content.std_tab);
-	tab.id = get_uid;
+	tab.id = get_uid();
 	
 	return tab;
 }

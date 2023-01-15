@@ -8,8 +8,10 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 	</head>
     <body>
+    	<h1 id='title'></h1>
+		<p id='intro' class="intro"></p>
       	
-      	<form action="/" method="post">
+      	<!--<form action="/" method="post">
  			<fieldset>
        		<legend>Sample Form</legend>
        	       First name:<br>        
@@ -20,47 +22,10 @@
       	       <br><br>         
       	       <input type="submit" value="Submit">        
 			</fieldset>
- 	   	</form>
+ 	   	</form>-->
  	   	
  	   	
-     	<h2 id='header'>Tab</h2>
-		<div class="intro">This is a tab section</div>
-
-		<div class="tab">
-		  <button class="tablinks" onclick="openCity(event, 'London', 'tablinks', ['London', 'Paris', 'Tokyo'])">London</button>
-		  <button class="tablinks" onclick="openCity(event, 'Paris', 'tablinks', ['London', 'Paris', 'Tokyo'])">Paris</button>
-		  <button class="tablinks" onclick="openCity(event, 'Tokyo', 'tablinks', ['London', 'Paris', 'Tokyo'])">Tokyo</button>
-		</div>
-
-		<div id="London" class="tabcontent">
-		  <h3>London</h3>
-		  <p>London is the capital city of England.</p>
-		</div>
-		<div id="Paris" class="tabcontent">
-		  <h3>Paris</h3>
-		  <p>Paris is the capital of France.</p> 
-		</div>
-		<div id="Tokyo" class="tabcontent">
-		  <h3>Tokyo</h3>
-		  <p>Tokyo is the capital of Japan.</p>
-		</div>
-		
-		<h2>Checklist</h2>
-		<div class="intro">This is a checklist</div>
-
-		<div class="tab">
-		  <button class="tablinks2" onclick="openCity(event, 'TODO', 'tablinks2', ['TODO', 'Done'])">TODO</button>
-		  <button class="tablinks2" onclick="openCity(event, 'Done', 'tablinks2', ['TODO', 'Done'])">Done</button>
-		</div>
-
-		<div id="TODO" class="tabcontent">
-		  <h3>TODO</h3>
-		  <p>This has to be done.</p>
-		</div>
-		<div id="Done" class="tabcontent">
-		  <h3>Done</h3>
-		  <p>This is done.</p> 
-		</div>
+		<div id='articles'></div>
 		
 		<canvas class="background"></canvas>
 		
@@ -78,29 +43,40 @@
 		    		section = cube.sections[i];
 		    	}
 		    }
-		    document.getElementById('header').innerHTML = section.title;
-		    	
-      	</script>
-		
-		<script>
-		function openCity(evt, cityName, buttonId, l) {
-		  var i, tablinks;
-		  
-		  for (i = 0; i < l.length; i++) {
-			document.getElementById(l[i]).style.display = "none";
-		  }
-		  tablinks = document.getElementsByClassName(buttonId);
-		  for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-		  }
-		  document.getElementById(cityName).style.display = "block";
-		  evt.currentTarget.className += " active";
-		}
-		document.getElementsByClassName("tablinks")[0].click();
-		document.getElementsByClassName("tablinks2")[0].click();
-		
-		let num_particles = window.innerHeight * window.innerWidth / 5000;
-		window.onload = function() {
+		    document.getElementById('title').innerHTML = section.title;
+		    document.getElementById('intro').innerHTML = section.intro;
+		    
+		    let html = document.getElementById('articles').innerHTML;
+		    for (let i = 0; i < section.articles.length; i++) {
+		    	html += "<h2>" + section.articles[i].title + "</h2><div class='tab'>";
+		    	let tabs_list = "";
+		    	for (let j = 0; j < section.articles[i].tabs.length; j++) {
+		    		tabs_list += "'" + section.articles[i].tabs[j].id + "'";
+		    		if(j < section.articles[i].tabs.length - 1) {
+		    			tabs_list += ", ";
+		    		}
+		    	}
+		    	for (let j = 0; j < section.articles[i].tabs.length; j++) {
+		    		s = 'onclick="';
+		    		s += "openTab(event, '" + section.articles[i].tabs[j].id + "', '" + section.articles[i].id + "', [" + tabs_list + "])";
+		    		s += '"';
+		    		html += "<button class='" + section.articles[i].id + "' " + s + ">" + section.articles[i].tabs[j].title + "</button>";
+		    	}
+		    	html += "</div>";
+		    	for (let j = 0; j < section.articles[i].tabs.length; j++) {
+		    		html += "<div id='" + section.articles[i].tabs[j].id + "' class='tabcontent'><h3>" + section.articles[i].tabs[j].title + "</h3><p>" + section.articles[i].tabs[j].text + "</p></div>";
+		    	}
+		    }
+		    console.log(html);
+		    document.getElementById('articles').innerHTML = html;
+			
+			
+			for (let i = 0; i < section.articles.length; i++) {
+				document.getElementsByClassName(section.articles[i].id)[0].click();
+			}
+			
+			let num_particles = window.innerHeight * window.innerWidth / 5000;
+			window.onload = function() {
 			  Particles.init({
 			    selector: '.background',
 			    maxParticles: num_particles.toFixed(0),
@@ -109,6 +85,20 @@
 		        speed: 0,
 			  });
 			};
+			
+			function openTab(evt, tabId, buttonId, tabs) {
+			  var i, tablinks;
+			  
+			  for (i = 0; i < tabs.length; i++) {
+				document.getElementById(tabs[i]).style.display = "none";
+			  }
+			  tablinks = document.getElementsByClassName(buttonId);
+			  for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			  }
+			  document.getElementById(tabId).style.display = "block";
+			  evt.currentTarget.className += " active";
+			}
 		</script>
     </body>
 </html>

@@ -25,11 +25,20 @@ p {
   	padding: 0 0.8em;
 }
 
+h1 {
+	width: 50%;
+	margin: 0 auto;
+	padding: 1em 0;
+	color: #fff;
+	font-family: 'ModernistBold';
+}
+
 h2 {
   	width: 50%;
 	margin: 0 auto;
 	font-family: 'ModernistBold';
 	padding-top: 1em;
+	padding-bottom: 0.5em;
 }
 
 form {
@@ -39,9 +48,11 @@ form {
 }
 
 .intro {
-  	width: 50%;
+	width: 50%;
 	margin: 0 auto;
-	padding: .8em 0;
+
+	color: #fff;
+	font-family: 'Modernist';
 }
 
 .tab {
