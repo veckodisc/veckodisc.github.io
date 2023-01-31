@@ -36,4 +36,30 @@ function downloadJson(exportJson) {
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
 }
+
+function getCurrentCube() {
+	let cubes = JSON.parse(localStorage.getItem("cubes"));
+    for (let i = 0; i < cubes.length; i++) {
+    	if(cubes[i].id == localStorage.getItem("current_cube")) {
+    		return cubes[i];
+    	}
+    }
+}
+
+function getCurrentSection() {
+	let cube = getCurrentCube();
+    for (let i = 0; i < cube.sections.length; i++) {
+    	if(cube.sections[i].id == localStorage.getItem("current_section")) {
+    		return cube.sections[i];
+    	}
+    }
+}
+
+function getCurrentArticle(section) {
+    for (let i = 0; i < section.articles.length; i++) {
+    	if(section.articles[i].id == localStorage.getItem("current_article")) {
+    		return section.articles[i];
+    	}
+    }
+}
 			

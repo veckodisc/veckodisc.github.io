@@ -5,50 +5,56 @@
 		<link rel="stylesheet" href="css/section.css">
 		<title>The Second Brain</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/utils.js"></script> 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 	</head>
     <body>
     	<h1 id='title'></h1>
 		<p id='intro' class="intro"></p>
+		<button id='open_add_article' class='add_article_button'>Lägg till artikel</button>
       	
-      	<!--<form action="/" method="post">
- 			<fieldset>
-       		<legend>Sample Form</legend>
-       	       First name:<br>        
-       	       <textarea cols="40" rows="5" type="text" name="firstname" ></textarea>
-       	       <br>
-       	       Last name:<br>
-       	       <textarea cols="40" rows="5" type="text" name="lastname" ></textarea>
-      	       <br><br>         
-      	       <input type="submit" value="Submit">        
-			</fieldset>
- 	   	</form>-->
- 	   	
+		<fieldset id='tab_form' class='tab_form'>
+   		   <legend id='tab_legend'></legend>
+   	       Titel<br>        
+   	       <textarea style='width:50%' rows="1" type="text" id="tab_title" ></textarea>
+   	       <br>
+   	       Text<br>
+   	       <textarea style='width:99%' rows="8" type="text" id="tab_text" ></textarea>
+  	       <br>   
+  	       <button class='submit_button' onclick="addTab()">Lägg till flik</button> 
+		</fieldset>
+		
+		<fieldset id='article_form' class='article_form'>
+   		   <legend id='article_legend'></legend>
+   	       Titel<br>        
+   	       <textarea style='width:50%' rows="1" type="text" id="article_title" ></textarea>
+   	       <br>
+   	       Flik-titel<br>        
+   	       <textarea style='width:50%' rows="1" type="text" id="article_tab_title" ></textarea>
+   	       <br>
+   	       Text<br>
+   	       <textarea style='width:99%' rows="8" type="text" id="article_tab_text" ></textarea>
+  	       <br>   
+  	       <button class='submit_button' onclick="addArticle()">Lägg till artikel</button> 
+		</fieldset>
  	   	
 		<div id='articles'></div>
 		
 		<canvas class="background"></canvas>
 		
 		<script>
-      		let cubes = JSON.parse(localStorage.getItem("cubes"));
-		    let cube = null;
-		    for (let i = 0; i < cubes.length; i++) {
-		    	if(cubes[i].id == localStorage.getItem("current_cube")) {
-		    		cube = cubes[i];
-		    	}
-		    }
-		    let section = null;
-		    for (let i = 0; i < cube.sections.length; i++) {
-		    	if(cube.sections[i].id == localStorage.getItem("current_section")) {
-		    		section = cube.sections[i];
-		    	}
-		    }
+		    let section = getCurrentSection();
+		    
+		    console.log(section);
+		    
 		    document.getElementById('title').innerHTML = section.title;
 		    document.getElementById('intro').innerHTML = section.intro;
 		    
 		    let html = document.getElementById('articles').innerHTML;
 		    for (let i = 0; i < section.articles.length; i++) {
-		    	html += "<h2>" + section.articles[i].title + "</h2><div class='tab'>";
+		    	html += "<div style='display: flex; width: 60%; margin: 2em auto 1em auto;'><div class='article_header'>" + section.articles[i].title + "</div>";
+		    	html +=  "<img id='remove_button' onclick='confirm_remove(" + i + ")' src='/images/remove.png' alt='Remove button' style='cursor:pointer; height:1.3em; margin-left:1.8em; margin-top:0.25em;'></div>";
+		    	html += "<div class='tab'>";
 		    	let tabs_list = "";
 		    	for (let j = 0; j < section.articles[i].tabs.length; j++) {
 		    		tabs_list += "'" + section.articles[i].tabs[j].id + "'";
@@ -62,17 +68,33 @@
 		    		s += '"';
 		    		html += "<button class='" + section.articles[i].id + "' " + s + ">" + section.articles[i].tabs[j].title + "</button>";
 		    	}
+		    	html +=  "<button style='width:2.5em;' class='add_button' id='" + section.articles[i].id + "'>+<span class='tooltiptext' style='padding-bottom:0.4em;'> Lägg till flik</span></button>";
 		    	html += "</div>";
 		    	for (let j = 0; j < section.articles[i].tabs.length; j++) {
-		    		html += "<div id='" + section.articles[i].tabs[j].id + "' class='tabcontent'><h3>" + section.articles[i].tabs[j].title + "</h3><p>" + section.articles[i].tabs[j].text + "</p></div>";
+		    		html += "<div id='" + section.articles[i].tabs[j].id + "' class='tabcontent'><p>" + section.articles[i].tabs[j].text + "</p></div>";
 		    	}
 		    }
-		    console.log(html);
 		    document.getElementById('articles').innerHTML = html;
-			
+		    
+		    document.getElementById('open_add_article').addEventListener('click', (() => {
+			 		document.getElementById('article_form').style.display = 'block';
+			 		document.getElementById('article_legend').innerHTML = "Ny artikel";
+					document.getElementById('open_add_article').style.display = 'none';
+				}));
+		    
+		    for (let i = 0; i < section.articles.length; i++) {
+			 	document.getElementById(section.articles[i].id + "").addEventListener('click', (() => {
+			 		document.getElementById('tab_form').style.display = 'block';
+			 		document.getElementById('tab_legend').innerHTML = "Ny flik: " + section.articles[i].title;
+					localStorage.setItem("current_article", section.articles[i].id);
+					window.scrollTo(0, 0);
+				}));
+			}
 			
 			for (let i = 0; i < section.articles.length; i++) {
-				document.getElementsByClassName(section.articles[i].id)[0].click();
+				if (document.getElementsByClassName(section.articles[i].id).length > 0) {
+					document.getElementsByClassName(section.articles[i].id)[0].click();
+				}
 			}
 			
 			let num_particles = window.innerHeight * window.innerWidth / 5000;
@@ -86,19 +108,102 @@
 			  });
 			};
 			
-			function openTab(evt, tabId, buttonId, tabs) {
-			  var i, tablinks;
-			  
-			  for (i = 0; i < tabs.length; i++) {
-				document.getElementById(tabs[i]).style.display = "none";
-			  }
-			  tablinks = document.getElementsByClassName(buttonId);
-			  for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			  }
-			  document.getElementById(tabId).style.display = "block";
-			  evt.currentTarget.className += " active";
+			function confirm_remove(index) {
+				let text = "Är du säker på att du vill ta bort artikeln?\nAllt innehåll kommer att raderas.";
+			    if (confirm(text) == true) {
+					let cube, section;
+					let cubes = JSON.parse(localStorage.getItem("cubes"));
+					for (let i = 0; i < cubes.length; i++) {
+						if(cubes[i].id == localStorage.getItem("current_cube")) {
+							cube = cubes[i];
+						}
+					}
+					for (let i = 0; i < cube.sections.length; i++) {
+						if(cube.sections[i].id == localStorage.getItem("current_section")) {
+							section = cube.sections[i];
+						}
+					}
+					section.articles.splice(index, 1);
+					localStorage.setItem("cubes", JSON.stringify(cubes));
+					location.reload();
+			    }
 			}
+			
+			function addTab(evt) {
+				const tab = {
+					"id": get_uid(),
+					"title": document.getElementById("tab_title").value,
+					"text": document.getElementById("tab_text").value
+				}
+				let cube, section, article;
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].id == localStorage.getItem("current_section")) {
+						section = cube.sections[i];
+					}
+				}
+				for (let i = 0; i < section.articles.length; i++) {
+					if(section.articles[i].id == localStorage.getItem("current_article")) {
+						article = section.articles[i];
+					}
+				}
+				article.tabs.push(tab);
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+				document.getElementById("tab_title").value = "";
+				document.getElementById("tab_text").value = "";
+				location.reload(); 
+			}
+			
+			function addArticle(evt) {
+				const article = {
+					"id": get_uid(),
+					"title": document.getElementById("article_title").value,
+					"tabs": []
+				}
+				const tab = {
+					"id": get_uid(),
+					"title": document.getElementById("article_tab_title").value,
+					"text": document.getElementById("article_tab_text").value
+				}
+				article.tabs.push(tab);
+				let cube, section;
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].id == localStorage.getItem("current_section")) {
+						section = cube.sections[i];
+					}
+				}
+				section.articles.push(article);
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+				document.getElementById("article_title").value = "";
+				document.getElementById("article_tab_title").value = "";
+				document.getElementById("article_tab_text").value = "";
+				document.getElementById('open_add_article').style.display = 'block';
+				location.reload(); 
+			}
+			
+			function openTab(evt, tabId, buttonId, tabs) {
+				var i, tablinks;
+				for (i = 0; i < tabs.length; i++) {
+					document.getElementById(tabs[i]).style.display = "none";
+				}
+				tablinks = document.getElementsByClassName(buttonId);
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(tabId).style.display = "block";
+				evt.currentTarget.className += " active";
+				}
 		</script>
     </body>
 </html>

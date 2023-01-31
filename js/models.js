@@ -22,7 +22,6 @@ const content = {
 	"std_tab": {
 		"id": "",
 		"title": "Tab-titel",
-		"summary": "Skriv en summering här.",
 		"text": "Skriv fullständig text här."
 	}
 };
@@ -92,8 +91,8 @@ function new_std_section(pos) {
 	section.title = title;
 	section.articles.push(new_std_article());
 	let article = new_std_article();
-	article.tabs[0].text = "Det här är den andra artikelns första text.";
-	article.tabs[1].text = "Det här är den andra artikelns andra text.<br><br><ul><li>Coffee</li><li>Tea</li><li>Milk</li></ul>";
+	//article.tabs[0].text = "Det här är den andra artikelns första text.";
+	//article.tabs[1].text = "Det här är den andra artikelns andra text.<br><br><ul><li>Coffee</li><li>Tea</li><li>Milk</li></ul>";
 	section.articles.push(article);
 	
 	return section;
@@ -104,7 +103,6 @@ class Article {
 	this.id = obj.id;
 	this.title = obj.title;
 	this.tabs = [];
-	this.tab_idx = 0;
 	for (let i = 0; i < obj.tabs.length; i++) {
 	  this.tabs.push(obj.tabs[i]);
 	}
@@ -116,12 +114,11 @@ function new_std_article() {
 	article.id = get_uid();
 	let tab = new_std_tab();
 	tab.title = "Tab 1";
-	article.tabs.push(tab);
+	//article.tabs.push(tab);
 	tab = new_std_tab();
 	tab.title = "Tab 2";
 	tab.text = "Skriv den andra fullständiga <br>texten här.";
-	console.log(tab.text);
-	article.tabs.push(tab);
+	//article.tabs.push(tab);
 	
 	return article;
 }
@@ -130,7 +127,6 @@ class Tab {
   constructor(obj) {
 	this.id = obj.id;
 	this.title = obj.title;
-	this.summary = obj.summary;
 	this.text = obj.text;
   }
 }
@@ -138,7 +134,6 @@ class Tab {
 function new_std_tab() {
 	tab = new Tab(content.std_tab);
 	tab.id = get_uid();
-	
 	return tab;
 }
 

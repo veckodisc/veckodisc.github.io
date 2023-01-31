@@ -30,10 +30,6 @@ textarea {
 	padding-left: 0.4em;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
 
 .add_button .tooltiptext {
   visibility: hidden;

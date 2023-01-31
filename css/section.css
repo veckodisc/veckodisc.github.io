@@ -26,7 +26,7 @@ p {
 }
 
 h1 {
-	width: 50%;
+	width: 60%;
 	margin: 0 auto;
 	padding: 1em 0;
 	color: #fff;
@@ -34,21 +34,29 @@ h1 {
 }
 
 h2 {
-  	width: 50%;
+  	width: 60%;
 	margin: 0 auto;
 	font-family: 'ModernistBold';
 	padding-top: 1em;
 	padding-bottom: 0.5em;
 }
 
-form {
-  	width: 50%;
+.tab_form {
+  	width: 58%;
 	margin: 0 auto;
 	font-family: 'Modernist';
+	display: none;
+}
+
+.article_form {
+  	width: 58%;
+	margin: 0 auto;
+	font-family: 'Modernist';
+	display: none;
 }
 
 .intro {
-	width: 50%;
+	width: 60%;
 	margin: 0 auto;
 
 	color: #fff;
@@ -66,24 +74,54 @@ form {
 	backdrop-filter: blur(4.9px);
 	-webkit-backdrop-filter: blur(4.9px);
 	border: 1px solid rgba(255, 255, 255, 0.29);
-  width: 50%;
-  margin: 0 auto;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.submit_button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	margin-right: 1px;
+	margin-top: 1em;
+	cursor: pointer;
+	padding: 0.5em 0.5em;
+	border-radius: 4px;
+	transition: 0.3s;
+	font-size: 14px;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	color:#fff;
+}
+
+.submit_button:hover {
+background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
 }
 
 /* Style the buttons inside the tab */
 .tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  margin-right: 1px;
-  cursor: pointer;
-  padding: 0.5em 0.5em;
-  border-top-left-radius: 4px;
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	margin-right: 1px;
+	cursor: pointer;
+	padding: 0.5em 0.5em;
+	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
-  transition: 0.3s;
-  font-size: 17px;
-  background-color: #fff;
+	transition: 0.3s;
+	font-size: 17px;
+	background-color: #fff;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.1);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -94,17 +132,17 @@ form {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-background-color: #fff;
+	background-color: #fff;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.28);
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4.9px);
 	-webkit-backdrop-filter: blur(4.9px);
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-background-color: #fff;
+	background-color: #fff;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.28);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -114,15 +152,15 @@ background-color: #fff;
 
 /* Style the tab content */
 .tabcontent {
-  display: none;
-  font-family: 'Arial';
-  border: 1px solid #ccc;
-  border-top: none;
-  background-color: #fff;
-  color: #000;
-  width: 50%;
-  margin: 0 auto;
-  background-color: #fff;
+	display: none;
+	font-family: 'Arial';
+	border: 1px solid #ccc;
+	border-top: none;
+	background-color: #fff;
+	color: #000;
+	width: 60%;
+	margin: 0 auto;
+	background-color: #fff;
 	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.95);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -134,13 +172,60 @@ background-color: #fff;
 }
 
 .background {
-  position: fixed;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  background-image: linear-gradient(to bottom right, #295094, #a2d566);
+	position: fixed;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	background-image: linear-gradient(to bottom right, #295094, #a2d566);
+}
+
+.add_button .tooltiptext {
+	visibility: hidden;
+	text-align: center;
+	position: absolute;
+	width: 10em;
+	font-size: 0.8em;
+}
+
+.add_button:hover .tooltiptext {
+	visibility: visible;
+}
+
+.article_header {
+	font-family: 'ModernistBold';
+	font-size: 1.4em;
+}
+
+.add_article_button {
+	font-family: 'Modernist';
+	margin-left: 20%;
+	margin-top: 1em;
+	margin-bottom: 0.6em;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0.5em;
+	border-radius: 4px;
+	transition: 0.3s;
+	font-size: 0.9em;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	color:#fff;
+}
+
+.add_article_button:hover {
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.28);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
 }

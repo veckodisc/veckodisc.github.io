@@ -7,5 +7,6 @@
 5 timmar: Startsida med alla projekt, projektbeskrivning, nedladdningsfunktion och länk till 3D-modellen
 4 timmar: Startsidan färdig med funktioner för lägg till, download, upload och remove. Fullständig 3D-modell ritas ut från data
 3 timmar: 3D-modellen relativt färdig med rubrik, områdesinfo och förklaring av axlarna
-6 timmar: Områdessida, design och textfunktion
+6 timmar: Områdessida, design och rendering
 1 timmar: Debugging
+5 timmar: Områdessida, lägg till tab, lägg till artikel, ta bort artikel

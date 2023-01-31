@@ -2,7 +2,6 @@
 	"std_cube": {
 		"id": "",
 		"title": "",
-		"desc": "Beskriv projektet.",
 		"sections": []
 	},
 	"std_section": {
@@ -17,13 +16,12 @@
 	},
 	"std_article": {
 		"id": "",
-		"title": "Artikel-title",
+		"title": "Artikel-titel",
 		"tabs": []
 	},
 	"std_tab": {
 		"id": "",
 		"title": "Tab-titel",
-		"summary": "Skriv en summering här.",
 		"text": "Skriv fullständig text här."
 	}
 }
