@@ -1,0 +1,190 @@
+@font-face {
+    font-family: 'Modernist';
+    src: url("/fonts/Sk-Modernist-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: 'ModernistBold';
+    src: url("/fonts/Sk-Modernist-Bold.otf") format("opentype");
+}
+
+body {
+  	font-family: "Modernist";
+	background: linear-gradient(to bottom right, #295094, #a2d566);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  	color: #ecf0f1;
+  	line-height: 1.618em;
+}
+
+h3 {
+  	width: 50%;
+  	text-align: center;
+	margin: 0 auto;
+	color: #fff;
+	font-family: 'ModernistBold';
+	padding-top: 2em;
+}
+
+p {
+  	padding: 0 0.8em;
+}
+
+h1 {
+	width: 50%;
+	margin: 0 auto;
+	padding: 1em 0;
+	color: #fff;
+	font-family: 'ModernistBold';
+}
+
+h2 {
+  	width: 90%;
+	margin: 0 auto;
+	font-family: 'ModernistBold';
+	padding-top: 1em;
+}
+
+.intro {
+	width: 50%;
+	margin: 0 auto;
+	color: #fff;
+	font-family: 'Modernist';
+}
+
+.section_intro {
+	width: 90%;
+	margin: 0 auto;
+	color: #fff;
+	font-family: 'Modernist';
+}
+
+.tab {
+  overflow: hidden;
+  background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	border: 1px solid rgba(255, 255, 255, 0.29);
+	width: 90%;
+	margin: 0 auto;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	margin-right: 1px;
+	cursor: pointer;
+	padding: 0.5em 0.5em;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	transition: 0.3s;
+	font-size: 17px;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	color:#fff;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.28);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.28);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	font-family: 'Arial';
+	border: 1px solid #ccc;
+	border-top: none;
+	background-color: #fff;
+	color: #000;
+	width: 90%;
+	margin: 0 auto;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.95);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	border: 1px solid rgba(255, 255, 255, 0.29);
+}
+
+.background {
+	position: fixed;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: -1;
+	background-image: linear-gradient(to bottom right, #295094, #a2d566);
+}
+
+.article_header {
+	font-family: 'ModernistBold';
+	font-size: 1.4em;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 10px;
+}
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.connection-container {
+	display: flex;
+	height: 3em;;
+	width: 50%;
+	margin: 0 auto;
+	align-items: center;
+    justify-content: center;
+}
+
+.connection-text {
+  	text-align: center;
+  	font-size: 1.2em;
+	color: #fff;
+	font-family: 'Modernist';
+
+}
+
+img {
+	height: 1.6em;
+	padding: 1.6em;
+	cursor: pointer;
+}

@@ -2,7 +2,8 @@ const content = {
 	"std_cube": {
 		"id": "",
 		"title": "",
-		"sections": []
+		"sections": [],
+		"connections": []
 	},
 	"std_section": {
 		"id": "",
@@ -23,18 +24,27 @@ const content = {
 		"id": "",
 		"title": "Tab-titel",
 		"text": "Skriv fullständig text här."
+	},
+	"std_connection": {
+		"id": "",
+		"section_ids": [],
+		"strength": 0
 	}
 };
 
 class Cube {
-  constructor(obj) {
-	this.id = obj.id;
-	this.title = obj.title;
-	this.sections = [];
-	for (let i = 0; i < obj.sections.length; i++) {
-	  this.sections.push(obj.sections[i]);
+	constructor(obj) {
+		this.id = obj.id;
+		this.title = obj.title;
+		this.sections = [];
+		for (let i = 0; i < obj.sections.length; i++) {
+			this.sections.push(obj.sections[i]);
+		}
+		this.connections = [];
+		for (let i = 0; i < obj.connections.length; i++) {
+			this.connections.push(obj.connections[i]);
+		}
 	}
-  }
 }
 
 function new_std_cube(title) {
@@ -42,10 +52,19 @@ function new_std_cube(title) {
 	cube.title = title;
 	cube.id = get_uid();
 	for (let i = 0; i < 27; i++) {
-	section = new_std_section(i);
-	  cube.sections.push(section);
+		section = new_std_section(i);
+		cube.sections.push(section);
 	}
-	
+	let connections = getConnections(cube.sections);
+	cube.connections = connections;
+	for (let i = 0; i < cube.sections.length; i++) {
+		for (let j = 0; j < connections.length; j++) {
+		  	if(connections[j].section_ids.includes(cube.sections[i].id)) {
+		  		cube.sections[i].connections.push(connections[j].id);
+		  	}
+		}
+	}
+
 	return cube;
 }
 
@@ -58,6 +77,10 @@ class Section {
 	this.articles = [];
 	for (let i = 0; i < obj.articles.length; i++) {
 	  this.articles.push(obj.articles[i]);
+	}
+	this.connections = [];
+	for (let i = 0; i < obj.connections.length; i++) {
+	  this.connections.push(obj.connections[i]);
 	}
   }
 }
@@ -137,8 +160,73 @@ function new_std_tab() {
 	return tab;
 }
 
+class Connection {
+  constructor(obj) {
+	this.id = obj.id;
+	this.section_ids = obj.section_ids;
+	this.strength = obj.strength;
+  }
+}
+
+function new_std_connection() {
+	let connection = new Connection(content.std_connection);
+	connection.id = get_uid();
+	return connection;
+}
+
 function get_uid () {
 	return Date.now().toString(36) + Math.floor(Math.pow(10, 12) + Math.random() * 9*Math.pow(10, 12)).toString(36);
+}
+
+function getConnections(sections) {
+	let connections = [];
+
+	connections.push(getConnection(sections, 0, 2));
+	connections.push(getConnection(sections, 1, 2));
+	connections.push(getConnection(sections, 2, 5));
+	connections.push(getConnection(sections, 2, 8));
+	connections.push(getConnection(sections, 2, 11));
+	connections.push(getConnection(sections, 3, 5));
+	connections.push(getConnection(sections, 4, 5));
+	connections.push(getConnection(sections, 5, 8));
+	connections.push(getConnection(sections, 5, 14));
+	connections.push(getConnection(sections, 6, 8));
+	connections.push(getConnection(sections, 7, 8));
+	connections.push(getConnection(sections, 8, 17));
+	
+	connections.push(getConnection(sections, 9, 11));
+	connections.push(getConnection(sections, 10, 11));
+	connections.push(getConnection(sections, 11, 14));
+	connections.push(getConnection(sections, 11, 17));
+	connections.push(getConnection(sections, 11, 20));
+	connections.push(getConnection(sections, 12, 14));
+	connections.push(getConnection(sections, 13, 14));
+	connections.push(getConnection(sections, 14, 17));
+	connections.push(getConnection(sections, 14, 15));
+	connections.push(getConnection(sections, 15, 17));
+	connections.push(getConnection(sections, 16, 17));
+	connections.push(getConnection(sections, 17, 26));
+	
+	connections.push(getConnection(sections, 18, 20));
+	connections.push(getConnection(sections, 19, 20));
+	connections.push(getConnection(sections, 20, 23));
+	connections.push(getConnection(sections, 20, 26));
+
+	connections.push(getConnection(sections, 21, 23));
+	connections.push(getConnection(sections, 22, 23));
+	connections.push(getConnection(sections, 23, 26));
+
+	connections.push(getConnection(sections, 24, 26));
+	connections.push(getConnection(sections, 25, 26));
+	
+
+	return connections;
+}
+
+function getConnection(sections, pos1, pos2) {
+	let connection = new_std_connection();
+	connection.section_ids = [sections[pos1].id, sections[pos2].id];
+	return connection;
 }
 
 

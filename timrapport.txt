@@ -10,3 +10,4 @@
 6 timmar: Områdessida, design och rendering
 1 timmar: Debugging
 5 timmar: Områdessida, lägg till tab, lägg till artikel, ta bort artikel
+6 timmar: Kopplingssida, visa och byt områden

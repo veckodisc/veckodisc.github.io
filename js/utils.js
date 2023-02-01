@@ -55,11 +55,34 @@ function getCurrentSection() {
     }
 }
 
+function getSection(id) {
+	let cube = getCurrentCube();
+    for (let i = 0; i < cube.sections.length; i++) {
+    	if(cube.sections[i].id == id) {
+    		return cube.sections[i];
+    	}
+    }
+}
+
 function getCurrentArticle(section) {
     for (let i = 0; i < section.articles.length; i++) {
     	if(section.articles[i].id == localStorage.getItem("current_article")) {
     		return section.articles[i];
     	}
     }
+}
+
+function getCurrentConnections() {
+	let cube = getCurrentCube();
+	let connections = [];
+	let section = getCurrentSection();
+    for (let i = 0; i < section.connections.length; i++) {
+    	for (let j = 0; j < cube.connections.length; j++) {
+    		if(cube.connections[j].id == section.connections[i]) {
+    			connections.push(cube.connections[j]);
+    		}
+    	}
+    }
+    return connections;
 }
 			

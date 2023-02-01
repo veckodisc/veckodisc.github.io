@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/connection.css">
+		<title>The Second Brain</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/utils.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+	</head>
+    <body>
+    	<h1 id='title'></h1>
+		<p id='intro' class="intro"></p>
+		<h3 >Connection</h3>
+		<div class='connection-container'>
+			<img id="left_button" src="/images/left.png" alt="Left button">
+			<div class='connection-text' id='connection'></div>
+			<img id="right_button" src="/images/right.png" alt="Right button">
+		</div>
+		<div class="grid-container">
+			<div id='articles' class="item1"></div>
+			<div id='articles2' class="item2"></div>
+		</div>
+ 	   	
+		<canvas class="background"></canvas>
+		
+		<script>
+		    let section = getCurrentSection();
+		    if (!localStorage.hasOwnProperty('connection_index')) {
+				localStorage.setItem("connection_index", "0");
+			}
+
+			let connections = getCurrentConnections();
+			
+		    let connection = connections[parseInt(localStorage.getItem("connection_index"))];
+		    let other_section;
+		    for(let i = 0; i < connection.section_ids.length; i++) {
+		    	if(connection.section_ids[i] != section.id) {
+		    		other_section = getSection(connection.section_ids[i]);
+		    	}
+		    }
+		    
+		    sections = [section, other_section];
+		    cols = ['articles', 'articles2'];
+		    
+		    document.getElementById('title').innerHTML = section.title;
+		    document.getElementById('intro').innerHTML = section.intro;
+		    document.getElementById('connection').innerHTML = other_section.title;
+		    
+		    for(let k = 0; k < 2; k++) {
+		    
+		    	section = sections[k];
+		    
+				document.getElementById(cols[k]).innerHTML = "<h2>" + section.title + "</h2>";
+				document.getElementById(cols[k]).innerHTML += "<div class='section_intro'>" + section.intro + "</div>";
+				let html = document.getElementById(cols[k]).innerHTML;
+				for (let i = 0; i < section.articles.length; i++) {
+					html += "<div style='display: flex; width: 90%; margin: 2em auto 1em auto;'><div class='article_header'>" +
+					section.articles[i].title + "</div></div>";
+					html += "<div class='tab'>";
+					let tabs_list = "";
+					for (let j = 0; j < section.articles[i].tabs.length; j++) {
+						tabs_list += "'" + section.articles[i].tabs[j].id + "'";
+						if(j < section.articles[i].tabs.length - 1) {
+							tabs_list += ", ";
+						}
+					}
+					for (let j = 0; j < section.articles[i].tabs.length; j++) {
+						s = 'onclick="';
+						s += "openTab(event, '" + section.articles[i].tabs[j].id + "', '" + section.articles[i].id +
+						"', [" + tabs_list + "])";
+						s += '"';
+						html += "<button class='" + section.articles[i].id + "' " + s + ">" +
+						section.articles[i].tabs[j].title + "</button>";
+					}
+					html += "</div>";
+					for (let j = 0; j < section.articles[i].tabs.length; j++) {
+						html += "<div id='" + section.articles[i].tabs[j].id +"' class='tabcontent'><p>"
+						+ section.articles[i].tabs[j].text + "</p></div>";
+					}
+				}
+				document.getElementById(cols[k]).innerHTML = html;
+				
+				for (let i = 0; i < section.articles.length; i++) {
+					if (document.getElementsByClassName(section.articles[i].id).length > 0) {
+						document.getElementsByClassName(section.articles[i].id)[0].click();
+					}
+				}
+			}
+			
+			document.getElementById("left_button").addEventListener('click', (() => {
+				let index = parseInt(localStorage.getItem("connection_index"));
+				if(index == 0) {
+					index = connections.length - 1;
+				} else {
+					index -= 1;
+				}
+				localStorage.setItem("connection_index", index + "");
+				location.reload();
+			}));
+			
+			document.getElementById("right_button").addEventListener('click', (() => {
+				let index = parseInt(localStorage.getItem("connection_index"));
+				index = (index + 1) % connections.length;
+				localStorage.setItem("connection_index", index + "");
+				location.reload();
+			}));
+			
+			let num_particles = window.innerHeight * window.innerWidth / 5000;
+			window.onload = function() {
+			  Particles.init({
+			    selector: '.background',
+			    maxParticles: num_particles.toFixed(0),
+		        color: '#777777',
+		        connectParticles: true,
+		        speed: 0,
+			  }).pauseAnimation();
+			};
+			
+			function openTab(evt, tabId, buttonId, tabs) {
+				var i, tablinks;
+				for (i = 0; i < tabs.length; i++) {
+					document.getElementById(tabs[i]).style.display = "none";
+				}
+				tablinks = document.getElementsByClassName(buttonId);
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(tabId).style.display = "block";
+				evt.currentTarget.className += " active";
+				}
+		</script>
+    </body>
+</html>
