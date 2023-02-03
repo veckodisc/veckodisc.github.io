@@ -1,13 +1,14 @@
 4 timmar: Få igång three.js med exempel och lös web
 6 timmar: 3D-modellen: Skiss för delkuber som bildar en stor kub, färger, transparens, klickbar, zoombar, vridbar, textpopups
 4 timmar: Skiss för delkubssida samt ihopkoppling av kubsidan med delkubssidan
-4 timmar: Filstruktur, json, local storage funktioner
+6 timmar: Filstruktur, json, local storage funktioner
 6 timmar: Databasstruktur, skapa tom kub
-1 timmar: Design, startsida
-5 timmar: Startsida med alla projekt, projektbeskrivning, nedladdningsfunktion och länk till 3D-modellen
+2 timmar: Design
+6 timmar: Startsida med alla projekt, projektbeskrivning, nedladdningsfunktion och länk till 3D-modellen
 4 timmar: Startsidan färdig med funktioner för lägg till, download, upload och remove. Fullständig 3D-modell ritas ut från data
-3 timmar: 3D-modellen relativt färdig med rubrik, områdesinfo och förklaring av axlarna
+4 timmar: 3D-modellen relativt färdig med rubrik, områdesinfo och förklaring av axlarna
 6 timmar: Områdessida, design och rendering
 1 timmar: Debugging
 5 timmar: Områdessida, lägg till tab, lägg till artikel, ta bort artikel
 6 timmar: Kopplingssida, visa och byt områden
+5 timmar: Kopplingssida, innehåll i kuber och förklarande texter

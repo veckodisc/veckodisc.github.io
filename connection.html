@@ -11,7 +11,7 @@
     <body>
     	<h1 id='title'></h1>
 		<p id='intro' class="intro"></p>
-		<h3 >Connection</h3>
+		<h3 id='connection_header'>Kopplat område</h3>
 		<div class='connection-container'>
 			<img id="left_button" src="/images/left.png" alt="Left button">
 			<div class='connection-text' id='connection'></div>
@@ -22,7 +22,7 @@
 			<div id='articles2' class="item2"></div>
 		</div>
  	   	
-		<canvas class="background"></canvas>
+		<!--<canvas class="background"></canvas>-->
 		
 		<script>
 		    let section = getCurrentSection();
@@ -31,8 +31,14 @@
 			}
 
 			let connections = getCurrentConnections();
+			let connection_idx = parseInt(localStorage.getItem("connection_index"));
+			if(connection_idx >= connections.length) {
+				connection_idx = 0;
+			}
 			
-		    let connection = connections[parseInt(localStorage.getItem("connection_index"))];
+			document.getElementById('connection_header').innerHTML += "  (" + (connection_idx + 1) + "/" + connections.length + ")";
+			
+		    let connection = connections[connection_idx];
 		    let other_section;
 		    for(let i = 0; i < connection.section_ids.length; i++) {
 		    	if(connection.section_ids[i] != section.id) {
@@ -44,7 +50,7 @@
 		    cols = ['articles', 'articles2'];
 		    
 		    document.getElementById('title').innerHTML = section.title;
-		    document.getElementById('intro').innerHTML = section.intro;
+		    document.getElementById('intro').innerHTML = 'Det finns ' + connections.length + ' områden kopplade till området "' + section.title + '". Bedöm hur väl dessa områden överensstämmer med varandra.<ul><li>Hur realistiska är målen utifrån de aktuella förutsättningarna?</li><li>Är handlingsplanen baserad på erfarenheter från tidigare stadier i projektet?</li><li>Stämmer det aktuella området överens med forskning och fakta på området?</li></ul>';
 		    document.getElementById('connection').innerHTML = other_section.title;
 		    
 		    for(let k = 0; k < 2; k++) {
@@ -52,7 +58,7 @@
 		    	section = sections[k];
 		    
 				document.getElementById(cols[k]).innerHTML = "<h2>" + section.title + "</h2>";
-				document.getElementById(cols[k]).innerHTML += "<div class='section_intro'>" + section.intro + "</div>";
+				//document.getElementById(cols[k]).innerHTML += "<div class='section_intro'>" + section.intro + "</div>";
 				let html = document.getElementById(cols[k]).innerHTML;
 				for (let i = 0; i < section.articles.length; i++) {
 					html += "<div style='display: flex; width: 90%; margin: 2em auto 1em auto;'><div class='article_header'>" +
@@ -89,20 +95,18 @@
 			}
 			
 			document.getElementById("left_button").addEventListener('click', (() => {
-				let index = parseInt(localStorage.getItem("connection_index"));
-				if(index == 0) {
-					index = connections.length - 1;
+				if(connection_idx == 0) {
+					connection_idx = connections.length - 1;
 				} else {
-					index -= 1;
+					connection_idx -= 1;
 				}
-				localStorage.setItem("connection_index", index + "");
+				localStorage.setItem("connection_index", connection_idx + "");
 				location.reload();
 			}));
 			
 			document.getElementById("right_button").addEventListener('click', (() => {
-				let index = parseInt(localStorage.getItem("connection_index"));
-				index = (index + 1) % connections.length;
-				localStorage.setItem("connection_index", index + "");
+				connection_idx = (connection_idx + 1) % connections.length;
+				localStorage.setItem("connection_index", connection_idx + "");
 				location.reload();
 			}));
 			

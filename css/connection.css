@@ -10,7 +10,7 @@
 
 body {
   	font-family: "Modernist";
-	background: linear-gradient(to bottom right, #295094, #a2d566);
+	background: linear-gradient(to bottom right, #A40606, #D98324);
     background-repeat: no-repeat;
     background-attachment: fixed;
   	color: #ecf0f1;
@@ -146,7 +146,7 @@ h2 {
 	left: 0;
 	right: 0;
 	z-index: -1;
-	background-image: linear-gradient(to bottom right, #295094, #a2d566);
+	background-image: linear-gradient(to bottom right, #A40606, #D98324);
 }
 
 .article_header {

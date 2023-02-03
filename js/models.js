@@ -8,22 +8,21 @@ const content = {
 	"std_section": {
 		"id": "",
 		"title": "",
-		"intro": "Beskriv vad som ska göras här.",
+		"intro": "",
 		"position": -1,
 		"articles": [],
-		"checklists": [],
 		"fulfillment": 0,
 		"connections": []
 	},
 	"std_article": {
 		"id": "",
-		"title": "Artikel-titel",
+		"title": "",
 		"tabs": []
 	},
 	"std_tab": {
 		"id": "",
-		"title": "Tab-titel",
-		"text": "Skriv fullständig text här."
+		"title": "",
+		"text": ""
 	},
 	"std_connection": {
 		"id": "",
@@ -91,32 +90,29 @@ function new_std_section(pos) {
 	section.pos = pos;
 	title = "";
 	if (pos % 3 == 0) {
-		title += "History, ";
+		title += "Historik över ";
 	} else if (pos % 3 == 1) {
-		title += "Test Plans, ";
+		title += "Fakta kring ";
 	} else {
-		title += "Revised Plans, ";
+		title += "Aktuella ";
 	}
 	if (Math.floor(pos / 3) % 3 == 0) {
-		title += "Conditions, ";
+		title += "förutsättningar ";
 	} else if (Math.floor(pos / 3) % 3 == 1) {
-		title += "Actions, ";
+		title += "handlingsplaner ";
 	} else {
-		title += "Missions, ";
+		title += "mål ";
 	}
 	if (Math.floor(pos / 9) == 0) {
-		title += "Individuals";
+		title += "på individnivå";
 	} else if (Math.floor(pos / 9) == 1) {
-		title += "Group";
+		title += "på gruppnivå";
 	} else {
-		title += "Organisation";
+		title += "på organisationsnivå";
 	}
 	section.title = title;
+	section.intro = 'Här finns en kort beskrivning av området "' + title + '". Texten förklarar området och beskriver arbetet som ska utföras här.';
 	section.articles.push(new_std_article());
-	let article = new_std_article();
-	//article.tabs[0].text = "Det här är den andra artikelns första text.";
-	//article.tabs[1].text = "Det här är den andra artikelns andra text.<br><br><ul><li>Coffee</li><li>Tea</li><li>Milk</li></ul>";
-	section.articles.push(article);
 	
 	return section;
 }
@@ -135,13 +131,31 @@ class Article {
 function new_std_article() {
 	article = new Article(content.std_article);
 	article.id = get_uid();
+	article.title = "Exempelartikel";
 	let tab = new_std_tab();
-	tab.title = "Tab 1";
-	//article.tabs.push(tab);
+	tab.title = "Flikar";
+	tab.text = 'En artikel kan innehålla flera flikar och se ut i princip hur som helst. Klicka på flikarna för att se exempel på vad de kan innehålla.';
+	article.tabs.push(tab);
 	tab = new_std_tab();
-	tab.title = "Tab 2";
-	tab.text = "Skriv den andra fullständiga <br>texten här.";
-	//article.tabs.push(tab);
+	tab.title = "Listor";
+	tab.text = "En artikel kan innehålla punktlistor, t.ex. över vad som ska göras eller har gjorts.<br><ul><li>Använd The Second Brain</li><li>Utveckla din organisation</li><li>Nå framgång</li></ul>";
+	article.tabs.push(tab);
+	tab = new_std_tab();
+	tab.title = "Länkar";
+	tab.text = "Artikeln kan också innehålla länkar till utbildningar, fakta eller andra viktiga saker.<br><a href='https://veckodisc.github.io/start.html'>The Second Brain</a><br><a href='https://www.zebrain.se/sv/'>Zebrain</a>";
+	article.tabs.push(tab);
+	tab = new_std_tab();
+	tab.title = "Bilder";
+	tab.text = "Det går att lägga till snygga bilder.<br><img style='height: 20em;' src='/images/brain-cube.jpg' alt='Brain cube'>";
+	article.tabs.push(tab);
+	tab = new_std_tab();
+	tab.title = "Diagram";
+	tab.text = "Eller förklarande diagram.<br><img style='height: 26em;' src='/images/diagram.png' alt='Diagram'>";
+	article.tabs.push(tab);
+	tab = new_std_tab();
+	tab.title = "Video";
+	tab.text = 'Det går också att bädda in videor, t.ex. i utbildningssyfte.<br><iframe width="498" height="280" src="https://www.youtube.com/embed/K7QBnuF6dHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+	article.tabs.push(tab);
 	
 	return article;
 }
@@ -202,7 +216,7 @@ function getConnections(sections) {
 	connections.push(getConnection(sections, 12, 14));
 	connections.push(getConnection(sections, 13, 14));
 	connections.push(getConnection(sections, 14, 17));
-	connections.push(getConnection(sections, 14, 15));
+	connections.push(getConnection(sections, 14, 23));
 	connections.push(getConnection(sections, 15, 17));
 	connections.push(getConnection(sections, 16, 17));
 	connections.push(getConnection(sections, 17, 26));

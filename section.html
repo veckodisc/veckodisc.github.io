@@ -11,7 +11,10 @@
     <body>
     	<h1 id='title'></h1>
 		<p id='intro' class="intro"></p>
-		<button id='open_add_article' class='add_article_button'>Lägg till artikel</button>
+		
+			<button id='open_add_article' class='add_article_button'>Lägg till artikel</button>
+			<button id='open_connections' class='add_article_button' style='float:right; margin-right: 20%'>Hantera kopplade områden</button>
+
       	
 		<fieldset id='tab_form' class='tab_form'>
    		   <legend id='tab_legend'></legend>
@@ -78,6 +81,11 @@
 			 		document.getElementById('article_form').style.display = 'block';
 			 		document.getElementById('article_legend').innerHTML = "Ny artikel";
 					document.getElementById('open_add_article').style.display = 'none';
+				}));
+				
+			document.getElementById('open_connections').addEventListener('click', (() => {
+			 		localStorage.setItem("connection_index", "0");
+			 		window.location.href = "connection.html";
 				}));
 		    
 		    for (let i = 0; i < section.articles.length; i++) {

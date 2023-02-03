@@ -25,6 +25,11 @@ p {
   	padding: 0 0.8em;
 }
 
+textarea {
+	font-family: 'Modernist';
+	padding-left: 0.4em;
+}
+
 h1 {
 	width: 60%;
 	margin: 0 auto;

@@ -7,21 +7,20 @@
 	"std_section": {
 		"id": "",
 		"title": "",
-		"intro": "Beskriv vad som ska göras här.",
+		"intro": "",
 		"position": -1,
 		"articles": [],
-		"checklists": [],
 		"fulfillment": 0,
 		"connections": []
 	},
 	"std_article": {
 		"id": "",
-		"title": "Artikel-titel",
+		"title": "",
 		"tabs": []
 	},
 	"std_tab": {
 		"id": "",
-		"title": "Tab-titel",
-		"text": "Skriv fullständig text här."
+		"title": "",
+		"text": ""
 	}
 }
