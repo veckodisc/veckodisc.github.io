@@ -83,15 +83,28 @@
 			}
 			
 			let num_particles = window.innerHeight * window.innerWidth / 5000;
-			window.onload = function() {
-			  Particles.init({
+			window.setTimeout(test, 1000);
+			//window.onload = function() {
+			
+			  //Particles.init({
+			   // selector: '.background',
+			    //maxParticles: num_particles.toFixed(0),
+		        //color: '#333333',
+		        //connectParticles: true,
+		        //speed: 0.2
+			  //})
+			//};
+			
+			function test() {
+				let num_particles = window.innerHeight * window.innerWidth / 5000;
+				Particles.init({
 			    selector: '.background',
 			    maxParticles: num_particles.toFixed(0),
 		        color: '#333333',
 		        connectParticles: true,
 		        speed: 0.2
-			  })
-			};
+			  });
+			}
 			
 		</script>
     </body>
