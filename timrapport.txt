@@ -13,3 +13,4 @@
 6 timmar: Kopplingssida, visa och byt områden
 5 timmar: Kopplingssida, innehåll i kuber och förklarande texter
 2 timmar: Möte
+2 timmar: Range slider på kopplingssidan och fungerande partiklar

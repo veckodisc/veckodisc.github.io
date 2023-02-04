@@ -188,3 +188,46 @@ img {
 	padding: 1.6em;
 	cursor: pointer;
 }
+
+
+.slidecontainer {
+  margin: auto;
+  width: 20%;
+}
+
+.demo {
+  display: table;
+    margin: 0 auto;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background: #fff;
+  outline: none;
+}
+
+
+/* for chrome/safari */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+/* for firefox */
+.slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 50%;
+}

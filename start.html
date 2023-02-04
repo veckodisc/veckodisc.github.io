@@ -83,6 +83,11 @@
 			}
 			
 			let num_particles = window.innerHeight * window.innerWidth / 5000;
+			let body = document.body, html = document.documentElement;
+
+			let height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+			document.getElementById('background').style.height = height;
 			window.onload = function() {
 			
 			  Particles.init({
@@ -92,7 +97,7 @@
 		        connectParticles: true,
 		        speed: 0.2
 			  });
-			  document.getElementById('background').style.position = "fixed";
+			  
 			};
 			
 		</script>

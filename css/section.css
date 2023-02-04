@@ -177,7 +177,7 @@ background-color: #fff;
 }
 
 .background {
-	position: fixed;
+	position: absolute;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	top: 0;

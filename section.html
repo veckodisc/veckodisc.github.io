@@ -43,7 +43,7 @@
  	   	
 		<div id='articles'></div>
 		
-		<canvas class="background"></canvas>
+		<canvas id="background"; class="background"></canvas>
 		
 		<script>
 		    let section = getCurrentSection();
@@ -112,6 +112,7 @@
 		        connectParticles: true,
 		        speed: 0,
 			  }).pauseAnimation();
+			  document.getElementById('background').style.position = "fixed";
 			};
 			
 			function confirm_remove(index) {

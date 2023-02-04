@@ -17,6 +17,10 @@
 			<div class='connection-text' id='connection'></div>
 			<img id="right_button" src="/images/right.png" alt="Right button">
 		</div>
+		<div class="slidecontainer">
+			<span id="demo" class="demo"></span>
+		  <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+		</div>
 		<div class="grid-container">
 			<div id='articles' class="item1"></div>
 			<div id='articles2' class="item2"></div>
@@ -109,6 +113,14 @@
 				localStorage.setItem("connection_index", connection_idx + "");
 				location.reload();
 			}));
+			
+			let slider = document.getElementById("myRange");
+			let output = document.getElementById("demo");
+			output.innerHTML = slider.value;
+
+			slider.oninput = function() {
+			  output.innerHTML = this.value;
+}
 			
 			let num_particles = window.innerHeight * window.innerWidth / 5000;
 			window.onload = function() {
