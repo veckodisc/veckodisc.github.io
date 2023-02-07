@@ -27,7 +27,8 @@ const content = {
 	"std_connection": {
 		"id": "",
 		"section_ids": [],
-		"strength": 0
+		"strength": 0,
+		"intro": ""
 	}
 };
 
@@ -181,6 +182,7 @@ class Connection {
 	this.id = obj.id;
 	this.section_ids = obj.section_ids;
 	this.strength = obj.strength;
+	this.intro = obj.intro;
   }
 }
 
@@ -197,51 +199,52 @@ function get_uid () {
 function getConnections(sections) {
 	let connections = [];
 
-	connections.push(getConnection(sections, 0, 2));
-	connections.push(getConnection(sections, 1, 2));
-	connections.push(getConnection(sections, 2, 5));
-	connections.push(getConnection(sections, 2, 8));
-	connections.push(getConnection(sections, 2, 11));
-	connections.push(getConnection(sections, 3, 5));
-	connections.push(getConnection(sections, 4, 5));
-	connections.push(getConnection(sections, 5, 8));
-	connections.push(getConnection(sections, 5, 14));
-	connections.push(getConnection(sections, 6, 8));
-	connections.push(getConnection(sections, 7, 8));
-	connections.push(getConnection(sections, 8, 17));
+	connections.push(getConnection(sections, 0, 2, "I vilken grad har de aktuella förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 1, 2, "I vilken grad har förutsättningarna utformats utifrån forskning och fakta kring hur förutsättningarna bör utformas?"));
+	connections.push(getConnection(sections, 2, 5, "Hur väl överensstämmer förutsättningarna och handlingsplanerna? I vilken grad finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
+	connections.push(getConnection(sections, 2, 8, "Hur väl överensstämmer förutsättningarna och målen? I vilken grad finns det förutsättningar för att målen ska kunna uppnås?"));
+	connections.push(getConnection(sections, 2, 11, "Hu väl överensstämmer förutsättningarna på individnivå med förutsättningarna på gruppnivå?"));
+	connections.push(getConnection(sections, 3, 5, ""));
+	connections.push(getConnection(sections, 4, 5, ""));
+	connections.push(getConnection(sections, 5, 8, ""));
+	connections.push(getConnection(sections, 5, 14, ""));
+	connections.push(getConnection(sections, 6, 8, ""));
+	connections.push(getConnection(sections, 7, 8, ""));
+	connections.push(getConnection(sections, 8, 17, ""));
 	
-	connections.push(getConnection(sections, 9, 11));
-	connections.push(getConnection(sections, 10, 11));
-	connections.push(getConnection(sections, 11, 14));
-	connections.push(getConnection(sections, 11, 17));
-	connections.push(getConnection(sections, 11, 20));
-	connections.push(getConnection(sections, 12, 14));
-	connections.push(getConnection(sections, 13, 14));
-	connections.push(getConnection(sections, 14, 17));
-	connections.push(getConnection(sections, 14, 23));
-	connections.push(getConnection(sections, 15, 17));
-	connections.push(getConnection(sections, 16, 17));
-	connections.push(getConnection(sections, 17, 26));
+	connections.push(getConnection(sections, 9, 11, ""));
+	connections.push(getConnection(sections, 10, 11, ""));
+	connections.push(getConnection(sections, 11, 14, ""));
+	connections.push(getConnection(sections, 11, 17, ""));
+	connections.push(getConnection(sections, 11, 20, ""));
+	connections.push(getConnection(sections, 12, 14, ""));
+	connections.push(getConnection(sections, 13, 14, ""));
+	connections.push(getConnection(sections, 14, 17, ""));
+	connections.push(getConnection(sections, 14, 23, ""));
+	connections.push(getConnection(sections, 15, 17, ""));
+	connections.push(getConnection(sections, 16, 17, ""));
+	connections.push(getConnection(sections, 17, 26, ""));
 	
-	connections.push(getConnection(sections, 18, 20));
-	connections.push(getConnection(sections, 19, 20));
-	connections.push(getConnection(sections, 20, 23));
-	connections.push(getConnection(sections, 20, 26));
+	connections.push(getConnection(sections, 18, 20, ""));
+	connections.push(getConnection(sections, 19, 20, ""));
+	connections.push(getConnection(sections, 20, 23, ""));
+	connections.push(getConnection(sections, 20, 26, ""));
 
-	connections.push(getConnection(sections, 21, 23));
-	connections.push(getConnection(sections, 22, 23));
-	connections.push(getConnection(sections, 23, 26));
+	connections.push(getConnection(sections, 21, 23, ""));
+	connections.push(getConnection(sections, 22, 23, ""));
+	connections.push(getConnection(sections, 23, 26, ""));
 
-	connections.push(getConnection(sections, 24, 26));
-	connections.push(getConnection(sections, 25, 26));
+	connections.push(getConnection(sections, 24, 26, ""));
+	connections.push(getConnection(sections, 25, 26, ""));
 	
 
 	return connections;
 }
 
-function getConnection(sections, pos1, pos2) {
+function getConnection(sections, pos1, pos2, intro) {
 	let connection = new_std_connection();
 	connection.section_ids = [sections[pos1].id, sections[pos2].id];
+	connection.intro = intro;
 	return connection;
 }
 

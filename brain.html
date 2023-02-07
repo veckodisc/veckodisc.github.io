@@ -181,7 +181,7 @@
 			
 			function getColor(section) {
 				if(!section.active) {
-					return {color: "#111"}
+					return {color: "#333"}
 				}
 				let strength = getStrength(section);
 				let r, g;
@@ -200,7 +200,7 @@
 						r = "0" + r;
 					}
 				}
-				const colorString = "#" + r + g + "00";
+				const colorString = "#" + r + "00" + g ;
 				return {color: colorString};
 			}
 

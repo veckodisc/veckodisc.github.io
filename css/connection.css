@@ -69,6 +69,7 @@ h2 {
 	margin: 0 auto;
 	color: #fff;
 	font-family: 'Modernist';
+	padding-bottom: 2em;
 }
 
 .section_intro {
@@ -252,7 +253,7 @@ img {
 }
 
 .connection-div {
-	width: 60%;
+	width: 55%;
 	margin: 0 auto;
 	padding: 0.8em 2em 2em 2em;
 	background-color: #fff;

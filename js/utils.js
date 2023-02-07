@@ -102,10 +102,27 @@ function getSectionConnections(id) {
 
 function getStrength(section) {
 	let strength = 0;
+	let num_connections = 0
 	const connections = getSectionConnections(section.id);
 	for (let i = 0; i < connections.length; i++) {
-		strength += parseInt(connections[i].strength);
+		if(isActive(connections[i])) {
+			strength += parseInt(connections[i].strength);
+			num_connections++;
+		}
 	}
-	return Math.round(strength / connections.length);
+	if(num_connections == 0) {
+		return 0;
+	} else {
+		return Math.round(strength / num_connections);
+	}
+}
+
+function isActive(connection) {
+	for(let i = 0; i < connection.section_ids.length; i++) {
+		if(!getSection(connection.section_ids[i]).active) {
+			return false;
+		}
+	}
+	return true;
 }
 			

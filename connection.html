@@ -20,10 +20,10 @@
 				<div class='connection-text' id='connection'></div>
 				<img id="right_button" src="/images/right.png" alt="Right button">
 			</div>
-			<p id='intro' style='text-align:center'>Hej här ska det stå en text</p>
+			<p id='slide-intro' style='text-align:center; width: 80%; margin:0 auto; padding-bottom: 1em;'></p>
 			<div class="slidecontainer">
-				<input type="range" min="0" max="100" value="0" class="slider" id="myRange">
 				<span id="demo" class="demo"></span>
+				<input type="range" min="0" max="100" value="0" class="slider" id="myRange">
 			</div>
 		</div>
 		
@@ -47,6 +47,7 @@
 			document.getElementById('connection_header').innerHTML += "  (" + (connection_idx + 1) + "/" + connections.length + ")";
 			
 		    let connection = connections[connection_idx];
+		    document.getElementById('slide-intro').innerHTML = connection.intro;
 		    let other_section;
 		    for(let i = 0; i < connection.section_ids.length; i++) {
 		    	if(connection.section_ids[i] != section.id) {
@@ -58,7 +59,7 @@
 		    cols = ['articles', 'articles2'];
 		    
 		    document.getElementById('title').innerHTML = section.title;
-		    document.getElementById('intro').innerHTML = 'Det finns ' + connections.length + ' områden kopplade till området "' + section.title + '". Bedöm hur väl dessa områden överensstämmer med varandra.<ul><li>Hur realistiska är målen utifrån de aktuella förutsättningarna?</li><li>Är handlingsplanen baserad på erfarenheter från tidigare stadier i projektet?</li><li>Stämmer det aktuella området överens med forskning och fakta på området?</li></ul>';
+		    document.getElementById('intro').innerHTML = 'Det finns ' + connections.length + ' områden kopplade till området "' + section.title + '". Jämför dessa områden och besvara frågan i rutan nedan. Att två områden inte stämmer överens indikerar att det behövs mer arbete inom något av dessa områden. Fundera på vad som kan förbättras eller förändras för att samtliga områden ska fungera tillsammans.';
 		    document.getElementById('connection').innerHTML = other_section.title;
 		    
 		    for(let k = 0; k < 2; k++) {
