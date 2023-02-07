@@ -74,6 +74,7 @@ textarea {
 	border: 1px solid rgba(255, 255, 255, 0.29);
 	color: #fff;
 }
+
 .container2 {
 	width: 95%;
 	margin-top: 0.5em;
@@ -87,7 +88,15 @@ textarea {
 	-webkit-backdrop-filter: blur(4.9px);
 	border: 1px solid rgba(255, 255, 255, 0.29);
 	cursor: pointer;
+}
 
+.container2:hover {
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.35);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
 }
 
 .container3 {
@@ -103,6 +112,15 @@ textarea {
 	-webkit-backdrop-filter: blur(4.9px);
 	border: 1px solid rgba(255, 255, 255, 0.29);
 	cursor: pointer;
+}
+
+.container3:hover {
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.35);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
 }
 
 .background {

@@ -10,8 +10,8 @@ const content = {
 		"title": "",
 		"intro": "",
 		"position": -1,
+		"active": "true",
 		"articles": [],
-		"fulfillment": 0,
 		"connections": []
 	},
 	"std_article": {
@@ -73,6 +73,7 @@ class Section {
 	this.title = obj.title;
 	this.intro = obj.intro;
 	this.pos = obj.pos;
+	this.active = obj.active;
 	this.articles = [];
 	for (let i = 0; i < obj.articles.length; i++) {
 	  this.articles.push(obj.articles[i]);
@@ -88,9 +89,10 @@ function new_std_section(pos) {
 	section = new Section(content.std_section);
 	section.id = get_uid();
 	section.pos = pos;
+	section.active = 1;
 	title = "";
 	if (pos % 3 == 0) {
-		title += "Historik över ";
+		title += "Tidigare ";
 	} else if (pos % 3 == 1) {
 		title += "Fakta kring ";
 	} else {

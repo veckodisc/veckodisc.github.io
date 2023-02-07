@@ -85,4 +85,27 @@ function getCurrentConnections() {
     }
     return connections;
 }
+
+function getSectionConnections(id) {
+	let cube = getCurrentCube();
+	let connections = [];
+	let section = getSection(id);
+    for (let i = 0; i < section.connections.length; i++) {
+    	for (let j = 0; j < cube.connections.length; j++) {
+    		if(cube.connections[j].id == section.connections[i]) {
+    			connections.push(cube.connections[j]);
+    		}
+    	}
+    }
+    return connections;
+}
+
+function getStrength(section) {
+	let strength = 0;
+	const connections = getSectionConnections(section.id);
+	for (let i = 0; i < connections.length; i++) {
+		strength += parseInt(connections[i].strength);
+	}
+	return Math.round(strength / connections.length);
+}
 			

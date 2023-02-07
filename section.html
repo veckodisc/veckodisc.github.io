@@ -9,12 +9,26 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 	</head>
     <body>
+    	<img class="home-button" id="home" src="/favicon.ico" alt="Go home">
     	<h1 id='title'></h1>
 		<p id='intro' class="intro"></p>
-		
-			<button id='open_add_article' class='add_article_button'>Lägg till artikel</button>
-			<button id='open_connections' class='add_article_button' style='float:right; margin-right: 20%'>Hantera kopplade områden</button>
-
+		<div class="grid-container">
+			<div class="grid-item">
+				<button id='open_add_article' class='add_article_button'>Lägg till artikel</button>
+			</div>
+			<div class="grid-center">
+				<div class="switch-field">
+					<input type="radio" id="radio-one" name="switch-one" value="Aktiv" checked/>
+					<label for="radio-one">Aktiv</label>
+					<input type="radio" id="radio-two" name="switch-one" value="Inaktiv" />
+					<label for="radio-two">Inaktiv</label>
+				</div>
+			</div>
+			<div class="grid-right">
+				<button id='open_connections' class='add_article_button'>Hantera kopplade områden</button>
+			</div>
+		</div>
+			
       	
 		<fieldset id='tab_form' class='tab_form'>
    		   <legend id='tab_legend'></legend>
@@ -47,6 +61,11 @@
 		
 		<script>
 		    let section = getCurrentSection();
+		    if(section.active) {
+		    	document.getElementById('radio-one').checked = true;
+		    } else {
+		    	document.getElementById('radio-two').checked = true;
+		    };
 		    
 		    document.getElementById('title').innerHTML = section.title;
 		    document.getElementById('intro').innerHTML = section.intro;
@@ -86,7 +105,45 @@
 			document.getElementById('open_connections').addEventListener('click', (() => {
 			 		localStorage.setItem("connection_index", "0");
 			 		window.location.href = "connection.html";
-				}));
+			}));
+				
+			document.getElementById('home').addEventListener('click', (() => {
+			 		window.location.href = "brain.html";
+			}));
+				
+			document.getElementById('radio-one').addEventListener("click", (() => {
+		        let cube, section;
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].id == localStorage.getItem("current_section")) {
+						section = cube.sections[i];
+					}
+				}
+				section.active = 1;
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+            }));
+            
+            document.getElementById('radio-two').addEventListener("click", (() => {
+		        let cube, section;
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					if(cube.sections[i].id == localStorage.getItem("current_section")) {
+						section = cube.sections[i];
+					}
+				}
+				section.active = 0;
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+            }));
 		    
 		    for (let i = 0; i < section.articles.length; i++) {
 			 	document.getElementById(section.articles[i].id + "").addEventListener('click', (() => {

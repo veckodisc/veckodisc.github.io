@@ -14,3 +14,5 @@
 5 timmar: Kopplingssida, innehåll i kuber och förklarande texter
 2 timmar: Möte
 2 timmar: Range slider på kopplingssidan och fungerande partiklar
+3 timmar: Ihopkoppling range slider med färger i kuben samt att varje område lyser upp när man klickar på det
+4 timmar: Släck kuber, hemknapp, UX

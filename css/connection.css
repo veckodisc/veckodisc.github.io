@@ -18,12 +18,12 @@ body {
 }
 
 h3 {
-  	width: 50%;
+  	width: 90%;
   	text-align: center;
 	margin: 0 auto;
 	color: #fff;
 	font-family: 'ModernistBold';
-	padding-top: 2em;
+	padding-top: 0.5em;
 }
 
 p {
@@ -43,6 +43,25 @@ h2 {
 	margin: 0 auto;
 	font-family: 'ModernistBold';
 	padding-top: 1em;
+}
+
+.home-button {
+  	position: absolute;
+  	width: 50px;
+  	height: 50px;
+  	top: 20px;
+  	right: 20px;
+  	padding: 10px;
+}
+
+.home-button:hover {
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	border-radius: 4px;
 }
 
 .intro {
@@ -169,7 +188,7 @@ h2 {
 .connection-container {
 	display: flex;
 	height: 3em;;
-	width: 50%;
+	width: 90%;
 	margin: 0 auto;
 	align-items: center;
     justify-content: center;
@@ -192,7 +211,7 @@ img {
 
 .slidecontainer {
   margin: auto;
-  width: 20%;
+  width: 35%;
 }
 
 .demo {
@@ -230,4 +249,19 @@ img {
   cursor: pointer;
   border: 2px solid white;
   border-radius: 50%;
+}
+
+.connection-div {
+	width: 60%;
+	margin: 0 auto;
+	padding: 0.8em 2em 2em 2em;
+	background-color: #fff;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+	background: rgba(255, 255, 255, 0.10);
+	border-radius: 4px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	border: 1px solid rgba(255, 255, 255, 0.29);
+	color: #fff;
 }

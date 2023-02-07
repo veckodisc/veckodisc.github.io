@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>The Second Brain</title>
 		<link rel="stylesheet" href="css/brain.css">
+		<script src="js/utils.js"></script>
 	</head>
 	<body>
-
 		<img class="axis_info" id="axis_info" src="images/cube_axis.png" alt="Axis explanation">
 		<img class="info_button" id="info_button" src="images/info.png" alt="Show info">
 		
@@ -53,8 +53,8 @@
 		    let objects = [];
 		    let secs = cube.sections;
 		    for (let pos = 0; pos < secs.length; pos++) {
-		    	console.log(secs[pos]);
-		    	const material = new THREE.MeshPhongMaterial( { color: 0xff0000 } );
+		    	const cube_color = getColor(secs[pos]);
+		    	const material = new THREE.MeshPhongMaterial( cube_color );
 		    	const cube = new THREE.Mesh( geometry, material );
 		    	let x = 1;
 		    	let y = 1;
@@ -77,11 +77,16 @@
 				const gap = 1.25;
 				cube.position.set( x * gap, y * gap, z * gap );
 				cube.material.transparent = true;
-		    	cube.material.opacity = 0.6; 
+		    	cube.material.opacity = 0.7; 
+		    	if(!secs[pos].active) {
+		    		cube.material.opacity = 0.5; 
+		    	}
 		    	cube.userData = {
                 	id: secs[pos].id,
                 	title: secs[pos].title,
-                	intro: secs[pos].intro
+                	intro: secs[pos].intro,
+                	active: secs[pos].active,
+                	strength: getStrength(secs[pos])
             	};
             	scene.add( cube );
             	objects.push(cube);
@@ -130,9 +135,33 @@
     			event.preventDefault();
     			raycaster.setFromCamera( mouse, camera );
 				var intersects = raycaster.intersectObjects( objects );
+				for (let i = 0; i < objects.length; i++) {
+					let opacity;
+					if(objects[i].userData.active) {
+						opacity = 0.7;
+					} else {
+						opacity = 0.5;
+					}
+    				const material = new THREE.MeshPhongMaterial( { color: "#ff0000" } );
+    				material.color = objects[i].material.color;
+    				material.transparent = true;
+    				material.opacity = opacity; 
+    				objects[i].material = material;
+    			}
     			if (intersects.length > 0) {
         			document.getElementById("section_title").innerHTML = intersects[0].object.userData.title;
         			document.getElementById("section_intro").innerHTML = intersects[0].object.userData.intro;
+        			intersects[0].object.material.opacity = 1; 
+        			if(intersects[0].object.userData.active) {
+        				intersects[0].object.material.emissive = intersects[0].object.material.color; 
+        				document.getElementById("section_title").innerHTML += " (" + intersects[0].object.userData.strength + "&nbsp%)";
+        			} else {
+        				document.getElementById("section_title").innerHTML += " (Inaktiv)";
+        				intersects[0].object.material.opacity = 0.7; 
+        			};
+    			} else {
+    				document.getElementById("section_title").innerHTML = "";
+        			document.getElementById("section_intro").innerHTML = "";
     			}
 			}
 			
@@ -148,6 +177,31 @@
 					document.getElementById("section_title").innerHTML = '';
     				document.getElementById("section_intro").innerHTML = '';
 				}
+			}
+			
+			function getColor(section) {
+				if(!section.active) {
+					return {color: "#111"}
+				}
+				let strength = getStrength(section);
+				let r, g;
+				if(strength <= 50) {
+					r = "ff";
+					g = (255 * strength) / 50;
+					g = Math.round(g).toString(16);
+					if(g.length == 1) {
+						g = "0" + g;
+					}
+				} else {
+					g = "ff";
+					r = (255 * (100 - strength)) / 50;
+					r = Math.round(r).toString(16);
+					if(r.length == 1) {
+						r = "0" + r;
+					}
+				}
+				const colorString = "#" + r + g + "00";
+				return {color: colorString};
 			}
 
 		    function animate() {
