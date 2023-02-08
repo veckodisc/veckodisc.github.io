@@ -59,5 +59,10 @@ h1 {
 	width:2em;
 	margin-top: 3em;
   	z-index: 2;
+  	opacity: 0.8;
+}
+
+.info_button:hover {
+	opacity: 1;
 }
 

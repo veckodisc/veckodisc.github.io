@@ -16,3 +16,17 @@
 2 timmar: Range slider på kopplingssidan och fungerande partiklar
 3 timmar: Ihopkoppling range slider med färger i kuben samt att varje område lyser upp när man klickar på det
 4 timmar: Släck kuber, hemknapp, UX
+2 timmar: Släck kuber, individuella kopplingstexter
+1 timmar: Text- och rubriker
+1 timmar: Kubfärger
+
+Härnäst: 
+- arkivera aktuella artiklar
+- skapa presentationsläge med ny kub och text som förändras beroende på vad man klickar på
+- skriv 27 egna texter, se slides, under fakta görs undersökingar och analyser av liknande projekt
+- klättringskub
+- skolvärderingskub
+- second-brainkub
+- personlig utvecklingskub
+- motiverande text på egen läs-mer-sida
+- ny skiss: Historik, Fakta, Aktuellt, Förutsättningar, Handlingsplaner, Målsättningar, Organisation, Grupp, Individ

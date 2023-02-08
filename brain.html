@@ -26,6 +26,9 @@
 		    import { FontLoader } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/loaders/FontLoader.js';
 		    import { TextGeometry } from 'https://cdn.skypack.dev/three@0.136.0/examples/jsm/geometries/TextGeometry.js';
 		    
+		    const start_color = [255, 5, 5];
+		    const end_color = [0, 50, 255];
+		    
 		    const scene = new THREE.Scene();
 		    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		    const renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -74,12 +77,12 @@
 				} else if (Math.floor(pos / 9) == 1) {
 					z = 0;
 				}
-				const gap = 1.25;
+				const gap = 1.26;
 				cube.position.set( x * gap, y * gap, z * gap );
 				cube.material.transparent = true;
-		    	cube.material.opacity = 0.7; 
+		    	cube.material.opacity = 0.85; 
 		    	if(!secs[pos].active) {
-		    		cube.material.opacity = 0.5; 
+		    		cube.material.opacity = 0.35; 
 		    	}
 		    	cube.userData = {
                 	id: secs[pos].id,
@@ -138,9 +141,9 @@
 				for (let i = 0; i < objects.length; i++) {
 					let opacity;
 					if(objects[i].userData.active) {
-						opacity = 0.7;
+						opacity = 0.85;
 					} else {
-						opacity = 0.5;
+						opacity = 0.35;
 					}
     				const material = new THREE.MeshPhongMaterial( { color: "#ff0000" } );
     				material.color = objects[i].material.color;
@@ -157,7 +160,7 @@
         				document.getElementById("section_title").innerHTML += " (" + intersects[0].object.userData.strength + "&nbsp%)";
         			} else {
         				document.getElementById("section_title").innerHTML += " (Inaktiv)";
-        				intersects[0].object.material.opacity = 0.7; 
+        				intersects[0].object.material.opacity = 0.55; 
         			};
     			} else {
     				document.getElementById("section_title").innerHTML = "";
@@ -181,10 +184,11 @@
 			
 			function getColor(section) {
 				if(!section.active) {
-					return {color: "#333"}
+					return {color: "#222"}
 				}
 				let strength = getStrength(section);
 				let r, g;
+				let b = "00";
 				if(strength <= 50) {
 					r = "ff";
 					g = (255 * strength) / 50;
@@ -196,11 +200,31 @@
 					g = "ff";
 					r = (255 * (100 - strength)) / 50;
 					r = Math.round(r).toString(16);
+					b = (50 * (strength - 50)) / 50;
+					b = Math.round(b).toString(16);
 					if(r.length == 1) {
 						r = "0" + r;
 					}
+					if(b.length == 1) {
+						b = "0" + b;
+					}
 				}
-				const colorString = "#" + r + "00" + g ;
+				
+				let rr = Math.round(start_color[0] + ((end_color[0] - start_color[0]) / 100) * strength).toString(16);
+				if(rr.length == 1) {
+					rr = "0" + rr;
+				}
+				let gg = Math.round(start_color[1] + ((end_color[1] - start_color[1]) / 100) * strength).toString(16);
+				if(gg.length == 1) {
+					gg = "0" + gg;
+				}
+				let bb = Math.round(start_color[2] + ((end_color[2] - start_color[2]) / 100) * strength).toString(16);
+				if(bb.length == 1) {
+					bb = "0" + bb;
+				}
+				
+				let colorString = "#" + r + g + b;
+				colorString = "#" + rr + gg + bb;
 				return {color: colorString};
 			}
 

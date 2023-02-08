@@ -18,7 +18,7 @@ function get_uid () {
 }
 
 async function loadAndMerge() {
-    let response = await fetch('json/saved_projects_v3.json');
+    let response = await fetch('json/saved_projects_v4.json');
 	let saved_cubes = await response.json();
 	let current_cubes = JSON.parse(localStorage.getItem("cubes"));
 	localStorage.setItem("cubes", JSON.stringify(current_cubes.concat(saved_cubes)));

@@ -96,15 +96,22 @@ function new_std_section(pos) {
 		title += "Tidigare ";
 	} else if (pos % 3 == 1) {
 		title += "Fakta kring ";
-	} else {
-		title += "Aktuella ";
 	}
 	if (Math.floor(pos / 3) % 3 == 0) {
 		title += "förutsättningar ";
+		if (pos % 3 == 2) {
+			title = "Förutsättningar ";
+		}
 	} else if (Math.floor(pos / 3) % 3 == 1) {
 		title += "handlingsplaner ";
+		if (pos % 3 == 2) {
+			title = "Handlingsplaner ";
+		}
 	} else {
-		title += "mål ";
+		title += "målsättningar ";
+		if (pos % 3 == 2) {
+			title = "Målsättningar ";
+		}
 	}
 	if (Math.floor(pos / 9) == 0) {
 		title += "på individnivå";
@@ -199,45 +206,44 @@ function get_uid () {
 function getConnections(sections) {
 	let connections = [];
 
-	connections.push(getConnection(sections, 0, 2, "I vilken grad har de aktuella förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 1, 2, "I vilken grad har förutsättningarna utformats utifrån forskning och fakta kring hur förutsättningarna bör utformas?"));
-	connections.push(getConnection(sections, 2, 5, "Hur väl överensstämmer förutsättningarna och handlingsplanerna? I vilken grad finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
-	connections.push(getConnection(sections, 2, 8, "Hur väl överensstämmer förutsättningarna och målen? I vilken grad finns det förutsättningar för att målen ska kunna uppnås?"));
-	connections.push(getConnection(sections, 2, 11, "Hu väl överensstämmer förutsättningarna på individnivå med förutsättningarna på gruppnivå?"));
-	connections.push(getConnection(sections, 3, 5, ""));
-	connections.push(getConnection(sections, 4, 5, ""));
-	connections.push(getConnection(sections, 5, 8, ""));
-	connections.push(getConnection(sections, 5, 14, ""));
-	connections.push(getConnection(sections, 6, 8, ""));
-	connections.push(getConnection(sections, 7, 8, ""));
-	connections.push(getConnection(sections, 8, 17, ""));
+	connections.push(getConnection(sections, 0, 2, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 1, 2, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 2, 5, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
+	connections.push(getConnection(sections, 2, 8, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
+	connections.push(getConnection(sections, 2, 11, "Stämmer förutsättningarna på grupp- och individnivå väl överens?"));
+	connections.push(getConnection(sections, 3, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
+	connections.push(getConnection(sections, 4, 5, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 5, 8, "Leder handlingsplanerna till att målsättningarna uppnås?"));
+	connections.push(getConnection(sections, 5, 14, "Stämmer handlingsplanerna på grupp- och individnivå väl överens?"));
+	connections.push(getConnection(sections, 6, 8, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
+	connections.push(getConnection(sections, 7, 8, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 8, 17, "Stämmer målsättningarna på grupp- och individnivå väl överens?"));
 	
-	connections.push(getConnection(sections, 9, 11, ""));
-	connections.push(getConnection(sections, 10, 11, ""));
-	connections.push(getConnection(sections, 11, 14, ""));
-	connections.push(getConnection(sections, 11, 17, ""));
-	connections.push(getConnection(sections, 11, 20, ""));
-	connections.push(getConnection(sections, 12, 14, ""));
-	connections.push(getConnection(sections, 13, 14, ""));
-	connections.push(getConnection(sections, 14, 17, ""));
-	connections.push(getConnection(sections, 14, 23, ""));
-	connections.push(getConnection(sections, 15, 17, ""));
-	connections.push(getConnection(sections, 16, 17, ""));
-	connections.push(getConnection(sections, 17, 26, ""));
+	connections.push(getConnection(sections, 9, 11, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 10, 11, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 11, 14, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
+	connections.push(getConnection(sections, 11, 17, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
+	connections.push(getConnection(sections, 11, 20, "Stämmer förutsättningarna på grupp- och organisationsnivå väl överens?"));
+	connections.push(getConnection(sections, 12, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
+	connections.push(getConnection(sections, 13, 14, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 14, 17, "Leder handlingsplanerna till att målsättningarna uppnås?"));
+	connections.push(getConnection(sections, 14, 23, "Stämmer handlingsplanerna på grupp- och organisationsnivå väl överens?"));
+	connections.push(getConnection(sections, 15, 17, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
+	connections.push(getConnection(sections, 16, 17, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 17, 26, "Stämmer målsättningarna på grupp- och organisationsnivå väl överens?"));
 	
-	connections.push(getConnection(sections, 18, 20, ""));
-	connections.push(getConnection(sections, 19, 20, ""));
-	connections.push(getConnection(sections, 20, 23, ""));
-	connections.push(getConnection(sections, 20, 26, ""));
+	connections.push(getConnection(sections, 18, 20, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 19, 20, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 20, 23, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
+	connections.push(getConnection(sections, 20, 26, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
 
-	connections.push(getConnection(sections, 21, 23, ""));
-	connections.push(getConnection(sections, 22, 23, ""));
-	connections.push(getConnection(sections, 23, 26, ""));
+	connections.push(getConnection(sections, 21, 23, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
+	connections.push(getConnection(sections, 22, 23, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 23, 26, "Leder handlingsplanerna till att målsättningarna uppnås?"));
 
-	connections.push(getConnection(sections, 24, 26, ""));
-	connections.push(getConnection(sections, 25, 26, ""));
+	connections.push(getConnection(sections, 24, 26, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
+	connections.push(getConnection(sections, 25, 26, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
 	
-
 	return connections;
 }
 
