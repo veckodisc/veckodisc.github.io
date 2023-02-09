@@ -55,8 +55,8 @@ function getCurrentSection() {
     }
 }
 
-function getSection(id) {
-	let cube = getCurrentCube();
+function getSection(cube, id) {
+	//let cube = getCurrentCube();
     for (let i = 0; i < cube.sections.length; i++) {
     	if(cube.sections[i].id == id) {
     		return cube.sections[i];
@@ -86,10 +86,10 @@ function getCurrentConnections() {
     return connections;
 }
 
-function getSectionConnections(id) {
-	let cube = getCurrentCube();
+function getSectionConnections(cube, id) {
+	//let cube = getCurrentCube();
 	let connections = [];
-	let section = getSection(id);
+	let section = getSection(cube, id);
     for (let i = 0; i < section.connections.length; i++) {
     	for (let j = 0; j < cube.connections.length; j++) {
     		if(cube.connections[j].id == section.connections[i]) {
@@ -100,12 +100,12 @@ function getSectionConnections(id) {
     return connections;
 }
 
-function getStrength(section) {
+function getStrength(cube, section) {
 	let strength = 0;
 	let num_connections = 0
-	const connections = getSectionConnections(section.id);
+	const connections = getSectionConnections(cube, section.id);
 	for (let i = 0; i < connections.length; i++) {
-		if(isActive(connections[i])) {
+		if(isActive(cube, connections[i])) {
 			strength += parseInt(connections[i].strength);
 			num_connections++;
 		}
@@ -117,9 +117,9 @@ function getStrength(section) {
 	}
 }
 
-function isActive(connection) {
+function isActive(cube, connection) {
 	for(let i = 0; i < connection.section_ids.length; i++) {
-		if(!getSection(connection.section_ids[i]).active) {
+		if(!getSection(cube, connection.section_ids[i]).active) {
 			return false;
 		}
 	}

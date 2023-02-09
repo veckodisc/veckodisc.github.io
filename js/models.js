@@ -17,6 +17,7 @@ const content = {
 	"std_article": {
 		"id": "",
 		"title": "",
+		"archive_date": null,
 		"tabs": []
 	},
 	"std_tab": {
@@ -69,21 +70,21 @@ function new_std_cube(title) {
 }
 
 class Section {
-  constructor(obj) {
-	this.id = obj.id;
-	this.title = obj.title;
-	this.intro = obj.intro;
-	this.pos = obj.pos;
-	this.active = obj.active;
-	this.articles = [];
-	for (let i = 0; i < obj.articles.length; i++) {
-	  this.articles.push(obj.articles[i]);
+	constructor(obj) {
+		this.id = obj.id;
+		this.title = obj.title;
+		this.intro = obj.intro;
+		this.pos = obj.pos;
+		this.active = obj.active;
+		this.articles = [];
+		for (let i = 0; i < obj.articles.length; i++) {
+			this.articles.push(obj.articles[i]);
+		}
+		this.connections = [];
+		for (let i = 0; i < obj.connections.length; i++) {
+			this.connections.push(obj.connections[i]);
+		}
 	}
-	this.connections = [];
-	for (let i = 0; i < obj.connections.length; i++) {
-	  this.connections.push(obj.connections[i]);
-	}
-  }
 }
 
 function new_std_section(pos) {
@@ -128,14 +129,15 @@ function new_std_section(pos) {
 }
 
 class Article {
-  constructor(obj) {
-	this.id = obj.id;
-	this.title = obj.title;
-	this.tabs = [];
-	for (let i = 0; i < obj.tabs.length; i++) {
-	  this.tabs.push(obj.tabs[i]);
+	constructor(obj) {
+		this.id = obj.id;
+		this.title = obj.title;
+		this.archive_date = obj.archive_date;
+		this.tabs = [];
+		for (let i = 0; i < obj.tabs.length; i++) {
+			this.tabs.push(obj.tabs[i]);
+		}
 	}
-  }
 }
 
 function new_std_article() {
@@ -171,11 +173,11 @@ function new_std_article() {
 }
 
 class Tab {
-  constructor(obj) {
-	this.id = obj.id;
-	this.title = obj.title;
-	this.text = obj.text;
-  }
+	constructor(obj) {
+		this.id = obj.id;
+		this.title = obj.title;
+		this.text = obj.text;
+	}
 }
 
 function new_std_tab() {
@@ -185,18 +187,28 @@ function new_std_tab() {
 }
 
 class Connection {
-  constructor(obj) {
-	this.id = obj.id;
-	this.section_ids = obj.section_ids;
-	this.strength = obj.strength;
-	this.intro = obj.intro;
-  }
+	constructor(obj) {
+		this.id = obj.id;
+		this.section_ids = obj.section_ids;
+		this.strength = obj.strength;
+		this.intro = obj.intro;
+	}
 }
 
 function new_std_connection() {
 	let connection = new Connection(content.std_connection);
 	connection.id = get_uid();
 	return connection;
+}
+
+class Presentation {
+	constructor(pos, title, text, active_list, strength_list) {
+		this.pos = pos;
+		this.title = title;
+		this.text = text;
+		this.active_list = active_list;
+		this.strength_list = strength_list;
+	}
 }
 
 function get_uid () {

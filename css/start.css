@@ -65,7 +65,6 @@ textarea {
 	margin: 0 auto;
 	padding: 0.8em 2em 2em 2em;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.10);
 	border-radius: 4px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -80,7 +79,6 @@ textarea {
 	margin-top: 0.5em;
 	padding: 0.3em 0.3em 0.5em 1em;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.20);
 	border-radius: 4px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -92,7 +90,6 @@ textarea {
 
 .container2:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.35);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(4.9px);
@@ -103,7 +100,6 @@ textarea {
 	padding: 0.3em 0.5em 0.5em 0.5em;
 	margin-left: 1em;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.20);
 	border-radius: 4px;
 	font-size: 0.8em;
@@ -116,7 +112,6 @@ textarea {
 
 .container3:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.35);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(4.9px);

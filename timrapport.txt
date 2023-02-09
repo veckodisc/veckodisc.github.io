@@ -18,15 +18,19 @@
 4 timmar: Släck kuber, hemknapp, UX
 2 timmar: Släck kuber, individuella kopplingstexter
 1 timmar: Text- och rubriker
-1 timmar: Kubfärger
+2 timmar: Kubfärger och innehåll
+2 timmar: Arkiveringsfunktion som flyttar artiklar från Aktuellt till Historik
+6 timmar: Presentationsläge
 
 Härnäst: 
-- arkivera aktuella artiklar
-- skapa presentationsläge med ny kub och text som förändras beroende på vad man klickar på
-- skriv 27 egna texter, se slides, under fakta görs undersökingar och analyser av liknande projekt
+- skapa presentationsläge med ny kub och text (se slides) som förändras beroende på vad man klickar på
+- skriv 27 egna texter, se slides, under fakta görs undersökingar och analyser av liknande projekt. Under handlingsplaner finns verktyg för ekonomi, budget, affärsplaner. Resultatet av medarbetarundersökningar hamnar under utvärdering av historik samt förutsättningar
+- fotbollslagskub
 - klättringskub
 - skolvärderingskub
 - second-brainkub
 - personlig utvecklingskub
 - motiverande text på egen läs-mer-sida
+- färgförklaringsgradient
 - ny skiss: Historik, Fakta, Aktuellt, Förutsättningar, Handlingsplaner, Målsättningar, Organisation, Grupp, Individ
+- flytta allt till ny github

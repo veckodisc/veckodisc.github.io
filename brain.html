@@ -7,6 +7,7 @@
 		<title>The Second Brain</title>
 		<link rel="stylesheet" href="css/brain.css">
 		<script src="js/utils.js"></script>
+		<script src="js/models.js"></script>
 	</head>
 	<body>
 		<img class="axis_info" id="axis_info" src="images/cube_axis.png" alt="Axis explanation">
@@ -14,6 +15,11 @@
 		
 		<h1 id='title'></h1>
 		<div class='info'>
+			<div id='info-container' class='connection-container'>
+				<img class="arrow" id="left_button" src="/images/left.png" alt="Left button">
+				<h3 id='section_title_pres'></h3>
+				<img class="arrow" id="right_button" src="/images/right.png" alt="Right button">
+			</div>
 			<h3 id='section_title'></h3>
 			<p id='section_intro'></p>
 		</div>
@@ -35,14 +41,18 @@
 		    const geometry = new THREE.BoxGeometry();
 		    
 		    let cubes = JSON.parse(localStorage.getItem("cubes"));
-		    let cube = null;
+		    let current_cube;
 		    for (let i = 0; i < cubes.length; i++) {
-		    	if(cubes[i].id == localStorage.getItem("current_cube")) {
-		    		cube = cubes[i];
-		    	}
-		    }
-		    document.getElementById("title").innerHTML = cube.title;
-		    
+				if(cubes[i].id == localStorage.getItem("current_cube")) {
+					current_cube = cubes[i];
+				}
+			}
+			document.getElementById("title").innerHTML = current_cube.title;
+			if (parseInt(localStorage.getItem("pres_idx")) >= 0) {
+				current_cube = JSON.parse(localStorage.getItem("pres_cube"));
+				showPresentation(parseInt(localStorage.getItem("pres_idx")), current_cube)
+			}
+			
 		    const controls = new OrbitControls( camera, renderer.domElement );
 		    const gltfLoader = new GLTFLoader();
 		    
@@ -54,9 +64,9 @@
 		    scene.add( new THREE.AmbientLight( 0xffffff, 0.4 ) );
 			
 		    let objects = [];
-		    let secs = cube.sections;
+		    let secs = current_cube.sections;
 		    for (let pos = 0; pos < secs.length; pos++) {
-		    	const cube_color = getColor(secs[pos]);
+		    	const cube_color = getColor(current_cube, secs[pos]);
 		    	const material = new THREE.MeshPhongMaterial( cube_color );
 		    	const cube = new THREE.Mesh( geometry, material );
 		    	let x = 1;
@@ -89,7 +99,7 @@
                 	title: secs[pos].title,
                 	intro: secs[pos].intro,
                 	active: secs[pos].active,
-                	strength: getStrength(secs[pos])
+                	strength: getStrength(current_cube, secs[pos])
             	};
             	scene.add( cube );
             	objects.push(cube);
@@ -104,13 +114,30 @@
 		    renderer.setSize( window.innerWidth, window.innerHeight );
 		    document.body.appendChild( renderer.domElement );
 		    
-		    document.addEventListener( 'mousemove', onDocumentMouseMove );
+
 			window.addEventListener( 'resize', onWindowResize );
 		    
 		    document.addEventListener( 'dblclick', onDocumentDoubleClicked, false );
 		    document.addEventListener("mousedown", onMouseDown);
-		    document.getElementById("info_button").addEventListener("mouseup", toggleInfo);
+		    document.getElementById("info_button").addEventListener("click", toggleInfo);
 		    
+		    document.getElementById("left_button").addEventListener('click', (() => {
+		    	let idx = parseInt(localStorage.getItem("pres_idx"));
+				if(idx == 0) {
+					idx = 8;
+				} else {
+					idx -= 1;
+				}
+				localStorage.setItem("pres_idx", idx + "");
+				location.reload();
+			}));
+			
+			document.getElementById("right_button").addEventListener('click', (() => {
+				let idx = parseInt(localStorage.getItem("pres_idx"));
+				idx = (idx + 1) % 9;
+				localStorage.setItem("pres_idx", idx + "");
+				location.reload();
+			}));
 		    
 		    function onWindowResize() {
 				camera.aspect = window.innerWidth / window.innerHeight;
@@ -118,24 +145,26 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 
-			function onDocumentMouseMove( event ) {
-				event.preventDefault();
-				mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-			}
+			
 			
 			function onDocumentDoubleClicked(event) {
-    			event.preventDefault();
-    			raycaster.setFromCamera( mouse, camera );
-				var intersects = raycaster.intersectObjects( objects );
-    			if (intersects.length > 0) {
-        			localStorage.setItem('current_section', intersects[0].object.userData.id);
-        			window.location.href = "section.html";
+				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+					event.preventDefault();
+					mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+					mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+					raycaster.setFromCamera( mouse, camera );
+					var intersects = raycaster.intersectObjects( objects );
+					if (intersects.length > 0) {
+		    			localStorage.setItem('current_section', intersects[0].object.userData.id);
+		    			window.location.href = "section.html";
+					}
     			}
 			}
 			
 			function onMouseDown(event) {
     			event.preventDefault();
+    			mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
     			raycaster.setFromCamera( mouse, camera );
 				var intersects = raycaster.intersectObjects( objects );
 				for (let i = 0; i < objects.length; i++) {
@@ -162,31 +191,169 @@
         				document.getElementById("section_title").innerHTML += " (Inaktiv)";
         				intersects[0].object.material.opacity = 0.55; 
         			};
-    			} else {
-    				document.getElementById("section_title").innerHTML = "";
-        			document.getElementById("section_intro").innerHTML = "";
     			}
 			}
-			
+
 			function toggleInfo(event) {
     			event.preventDefault();
     			let axis_info = document.getElementById("axis_info");
-				if (axis_info.style.display === "none" || axis_info.style.display === "") {
-					axis_info.style.display = "block";
-					document.getElementById("section_title").innerHTML = "Klicka på ett område för mer information";
-    				document.getElementById("section_intro").innerHTML = "Dubbelklicka på området för att öppna det";
+				if (parseInt(localStorage.getItem("pres_idx")) < 0) {
+					localStorage.setItem("pres_idx", "0");
+					let pres_cube = new_std_cube("");
+					localStorage.setItem("pres_cube", JSON.stringify(pres_cube));
+					location.reload();
 				} else {
-					axis_info.style.display = "none";
-					document.getElementById("section_title").innerHTML = '';
-    				document.getElementById("section_intro").innerHTML = '';
+					localStorage.setItem("pres_idx", "-1");
+					location.reload();
 				}
 			}
 			
-			function getColor(section) {
+			function showPresentation(idx, cube) {
+				axis_info.style.display = "block";
+				let title = "Guide (";
+				document.getElementById("left_button").style.display = "block";
+				document.getElementById("right_button").style.display = "block";
+				document.getElementById("info-container").style.alignItems = "center";
+				document.getElementById("info-container").style.justifyContent = "center";
+				document.getElementById("section_title_pres").style.textAlign = "center";
+				document.getElementById("section_title_pres").style.textAlign = "center";
+				document.getElementById("section_title_pres").style.width = "200px";
+				switch (idx) {
+					case 0:
+						document.getElementById("section_title_pres").innerHTML = "Förutsättningar";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 1:
+						document.getElementById("section_title_pres").innerHTML = "Handlingsplaner";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 2:
+						document.getElementById("section_title_pres").innerHTML = "Mål och visioner";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 2) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 3:
+						document.getElementById("section_title_pres").innerHTML = "Historik";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i % 3 == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 4:
+						document.getElementById("section_title_pres").innerHTML = "Fakta";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i % 3 == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 5:
+						document.getElementById("section_title_pres").innerHTML = "Aktuellt";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i % 3 == 2) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 6:
+						document.getElementById("section_title_pres").innerHTML = "Individnivå";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 7:
+						document.getElementById("section_title_pres").innerHTML = "Gruppnivå";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 8:
+						document.getElementById("section_title_pres").innerHTML = "Organisationsnivå";
+						document.getElementById("section_intro").innerHTML = "";
+						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 9) == 2) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+				}
+				title += "/9)";
+				document.getElementById("title").innerHTML = title;
+			}
+			
+			function restore_active() {
+				let active_list = JSON.parse(localStorage.getItem("active_list"));
+				let cube;
+				let cubes = JSON.parse(localStorage.getItem("cubes"));
+				for (let i = 0; i < cubes.length; i++) {
+					if(cubes[i].id == localStorage.getItem("current_cube")) {
+						cube = cubes[i];
+					}
+				}
+				for (let i = 0; i < cube.sections.length; i++) {
+					cube.sections[i].active = active_list[i];
+				}
+				localStorage.setItem("cubes", JSON.stringify(cubes));
+				localStorage.setItem("pres_idx", "-1");
+				location.reload();
+			}
+			
+			function getColor(cube, section) {
 				if(!section.active) {
 					return {color: "#222"}
 				}
-				let strength = getStrength(section);
+				let strength = getStrength(cube, section);
 				let r, g;
 				let b = "00";
 				if(strength <= 50) {

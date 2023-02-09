@@ -57,7 +57,6 @@ h2 {
 
 .home-button:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.1);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4.9px);
@@ -90,7 +89,6 @@ h2 {
 .tab {
 	overflow: hidden;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.1);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	border-top-left-radius: 4px;
@@ -103,7 +101,6 @@ h2 {
 }
 
 .submit_button {
-	background-color: inherit;
 	float: left;
 	border: none;
 	outline: none;
@@ -115,7 +112,6 @@ h2 {
 	transition: 0.3s;
 	font-size: 14px;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.3);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(4.9px);
@@ -125,7 +121,6 @@ h2 {
 
 .submit_button:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.5);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4.9px);
@@ -134,7 +129,6 @@ h2 {
 
 /* Style the buttons inside the tab */
 .tab button {
-	background-color: inherit;
 	float: left;
 	border: none;
 	outline: none;
@@ -146,7 +140,6 @@ h2 {
 	transition: 0.3s;
 	font-size: 17px;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.1);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(4.9px);
@@ -157,7 +150,6 @@ h2 {
 /* Change background color of buttons on hover */
 .tab button:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.4);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4.9px);
@@ -167,7 +159,6 @@ h2 {
 /* Create an active/current tablink class */
 .tab button.active {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.4);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(4.9px);
@@ -180,12 +171,10 @@ h2 {
 	font-family: 'Arial';
 	border: 1px solid #ccc;
 	border-top: none;
-	background-color: #fff;
 	color: #000;
 	width: 60%;
 	margin: 0 auto;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.95);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	border-bottom-left-radius: 4px;
@@ -234,7 +223,6 @@ h2 {
 	transition: 0.3s;
 	font-size: 0.9em;
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.25);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(4.9px);
@@ -244,7 +232,6 @@ h2 {
 
 .add_article_button:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.4);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 	backdrop-filter: blur(4.9px);
@@ -262,12 +249,10 @@ h2 {
 }
 .grid-center {
 	display: flex;
-
 	justify-content: center;
 }
 .grid-right {
 	display: flex;
-
 	justify-content: right;
 }
       
@@ -309,7 +294,6 @@ h2 {
 
 .switch-field:hover {
 	background-color: #fff;
-	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
 	background: rgba(255, 255, 255, 0.1);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
 	backdrop-filter: blur(4.9px);

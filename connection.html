@@ -51,7 +51,7 @@
 		    let other_section;
 		    for(let i = 0; i < connection.section_ids.length; i++) {
 		    	if(connection.section_ids[i] != section.id) {
-		    		other_section = getSection(connection.section_ids[i]);
+		    		other_section = getSection(getCurrentCube(), connection.section_ids[i]);
 		    	}
 		    }
 		    
@@ -59,7 +59,7 @@
 		    cols = ['articles', 'articles2'];
 		    
 		    document.getElementById('title').innerHTML = section.title;
-		    document.getElementById('intro').innerHTML = 'Det finns ' + connections.length + ' områden kopplade till området "' + section.title + '". Jämför dessa områden och besvara frågan i rutan nedan. Att två områden inte stämmer överens indikerar att det behövs mer arbete inom något av dessa områden. Fundera på vad som kan förbättras eller förändras för att samtliga områden ska fungera tillsammans.';
+		    document.getElementById('intro').innerHTML = 'Det finns ' + connections.length + ' områden kopplade till "' + section.title + '". Studera artiklarna och besvara frågan i rutan nedan. Att två områden inte stämmer väl överens indikerar att det krävs mer arbete. Vad kan förändras för att samtliga områden ska fungera tillsammans?';
 		    document.getElementById('connection').innerHTML = other_section.title;
 		    
 		    for(let k = 0; k < 2; k++) {

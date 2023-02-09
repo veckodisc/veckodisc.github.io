@@ -41,6 +41,11 @@
     		if (!localStorage.hasOwnProperty('cubes')) {
 				localStorage.setItem("cubes", JSON.stringify([]));
 			}
+			if (!localStorage.hasOwnProperty('pres_cube')) {
+				let cube = new_std_cube("Presentation");
+				localStorage.setItem("pres_cube", JSON.stringify(cube));
+			}
+			localStorage.setItem("pres_idx", "-1");
 			let cubes = JSON.parse(localStorage.getItem("cubes"));
 			let pc = document.getElementById('project-container');
 			for (let i = 0; i < cubes.length; i++) {
@@ -97,7 +102,7 @@
 		        connectParticles: true,
 		        speed: 0.2
 			  });
-			  
+
 			};
 			
 		</script>
