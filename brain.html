@@ -35,6 +35,21 @@
 		    const start_color = [255, 5, 5];
 		    const end_color = [0, 50, 255];
 		    
+		    const pres_titles = ["The Second Brain", "Områden", "Mål och visioner", "Handlingsplaner", "Förutsättningar", "Historik", "Forskning och fakta", "Aktuellt", "Individnivå", "Gruppnivå", "Organisationsnivå", "Kopplingar", "Sätt igång"];
+		    const pres_texts = ["The Second Brain är ett strukturerat stöd för att arbeta effektivt mot ett uppsatt mål. En digital lösning som hanterar gemensamma och individuella förutsättningar, arbetssätt, strategier, mål och visioner.<br><br>Varje del av kuben representerar ett område som är viktigt att ta hänsyn till och arbeta med. The Second Brain Cube: <ol><li>Skapar förståelse för projektets alla delar.</li><li>Säkerställer att varje apsekt uppmärksammas.</li><li>Synliggör hur olika områden samverkar med varandra.</li></ol>",
+		    					"Inom varje område finns det olika uppgifter som ska genomföras. The Second Brain erbjuder möjlighet att arbeta strukturerat inom varje område. Det kan vara att: <ol><li>Sätta upp kort- eller långsiktiga mål.</li><li>Samla bakgrundsinformation.</li><li>Göra någon typ av analys.</li><li>Skriva en handlingsplan på kort eller lång sikt.</li><li>Utvärdera ett tidigare stadie i projektet.</li></ol>Klicka på ett område för mer information om vilken typ av arbete som ska utföras där. Närmast följer en närmare beskrivning av kubens olika nivåer.",
+		    					"På den här nivån behandlas projektets mål och visioner, exempelvis: <ul><li>Affärsidé</li><li>Verksamhetsidé</li><li>Affärsmodell</li><li>Värderingar</li><li>Framtidsvision</li><li>Kortsiktiga mål</li><li>Övergripande mål</li></ul>",
+		    					"Här upprättas konkreta handlingsplaner för vad som ska göras för att uppnå målen. Det är viktigt att handlingsplanerna är realistiska med tanke på förutsättningarna samt att de är baserade på fakta, analyser av liknande företeelser och lärdomar av tidigare stadier.<br><br>Handlingsplanerna kan vara konkreta planer för vad som ska göras den närmaste tiden eller mer övergripande strategier och åtgärdsplaner.",
+		    					"Här analyseras vilka förutsättningar som krävs för att målen ska uppnås och utvärderas vilka förutsättningar som finns för tillfället. Det kan handla om förutsättningar gällande:<ul><li>Marknaden</li><li>Konkurrenter</li><li>Kompetens</li><li>Tidsaspekter</li><li>Lokaler</li><li>Ekonomi</li><li>Kultur</li><li>Personliga egenskaper</li></ul>",
+		    					"Ett projekt bygger som regel på en iterativ process där tidiga versioner ersätts av mer utvecklade, komplexa eller förfinade versioner. På den här nivån finns arkiverade versioner av projektet som har eller ska utvärderats och analyserats, exempelvis genom användartestning eller SWOT-analys.<ul><li>Vad har inte fungerat och varför?</li><li>Vilka styrkor kan bibehållas?</li><li>Vilka svagheter behöver förbättras?</li><li>Vad funktioner eller kompetenser saknas?</li>",
+		    					"Här samlas fakta och forskning som grund för utformningen av förutsättningar, mål och handlingsplaner. Det kan vara:<ul><li>Internutbildningar</li><li>Marknadsanalyser</li><li>Expertråd</li><li>Organisationsmodeller</li><li>Workshops</li><li>Forskningsrapporter</li><li>Kund- och medarbetarundersökningar</li></ul>",
+		    					"Här sker det största arbetet. Aktuella förutsättningar, handlingsplaner och mål uppdateras och revideras i takt med projektets framsteg eller motgångar. Om förutsättningarna förändras behöver ofta mål och handlingsplaner anpassas efter de nya förutsättningarna. Samtidigt ska arbetet på den här nivån anpassas efter forskning, fakta och analyser tidigare stadier.<br><br>The Second Brain väver samman alla dessa kopplingar. Alla perspektiv tas i beaktande och eventuella brister synliggörs.<br><br>När en version av projektet inte längre är aktuell utvärderas och analyseras den och arkiveras därefter till Historiken.",
+		    					"På den här nivån uppmärksammas varje individ. Vilka kompetenser finns och vilka saknas? Hur ska varje enskild individ arbeta för att uppnå både personliga och mer övergripande målsättningar?",
+		    					"Här analyseras projektet på gruppnivå. Hur arbetas det på gruppnivå och vilken funktion fyller gruppen? Vilka grupper samverkar med varandra och hur? Gruppens arbete måste var anpassat efter individuella förutsättningar och samtidigt sträva efter att uppnå övergripande målsättningar.<br><br>En grupp kan till exempel vara:<ul><li>Dotterbolag</li><li>Avdelning</li><li>Team</li><li>Årskull</li><li>Ledningsgrupp</li></ul>",
+		    					"På den här nivån definieras de övegripande målen och visionerna. Här sker också det övergripande strategiska arbetet.<br><br>Mål och strategier ska genomsyra arbetet på lägre nivåer samtidigt som de behöver anpassas efter aktuella förusättningar för att vara realistisika och genomförbara.",
+		    					"Projektets områden samverkar med varandra på olika sätt och över flera nivåer. The Second Brain hanterar områden som är starkt kopplade till varandra och ger möjlighet att bedöma hur väl kopplade områden fungerar tillsammans.<br><br>Områden som samverkar väl markeras med blått och områden som inte fungerar tillsammans med andra markeras med rött.<br><br>Röd färg indikerar att området kräver mer arbete eller att kopplade områden behöver förändras.",
+		    					'The Second Brain Cube är en digital lösning för planering, genomförande, utveckling och uppföljning av alla stadier i ett projekt. Det är ett kraftfullt verktyg som strukturerar komplexa saker på tydliga sätt.<br><br>The Second Brain fungerar i många olika sammanhang eftersom liknande strukturer och mekanismer ligger till grund för att ett mål ska uppnås.<br><br>Ett lämpligt första steg är att definiera projektets mål och visioner på kort och lång sikt. Stäng guiden, dubbelklicka på området "Målsättningar på organisationsnivå" och lägg till en artikel kring projektets mål och visioner.'];
+		    
 		    const scene = new THREE.Scene();
 		    const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		    const renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -92,7 +107,7 @@
 				cube.material.transparent = true;
 		    	cube.material.opacity = 0.85; 
 		    	if(!secs[pos].active) {
-		    		cube.material.opacity = 0.35; 
+		    		cube.material.opacity = 0.4; 
 		    	}
 		    	cube.userData = {
                 	id: secs[pos].id,
@@ -124,7 +139,7 @@
 		    document.getElementById("left_button").addEventListener('click', (() => {
 		    	let idx = parseInt(localStorage.getItem("pres_idx"));
 				if(idx == 0) {
-					idx = 8;
+					idx = pres_texts.length - 1;
 				} else {
 					idx -= 1;
 				}
@@ -134,7 +149,7 @@
 			
 			document.getElementById("right_button").addEventListener('click', (() => {
 				let idx = parseInt(localStorage.getItem("pres_idx"));
-				idx = (idx + 1) % 9;
+				idx = (idx + 1) % pres_texts.length;
 				localStorage.setItem("pres_idx", idx + "");
 				location.reload();
 			}));
@@ -172,7 +187,7 @@
 					if(objects[i].userData.active) {
 						opacity = 0.85;
 					} else {
-						opacity = 0.35;
+						opacity = 0.4;
 					}
     				const material = new THREE.MeshPhongMaterial( { color: "#ff0000" } );
     				material.color = objects[i].material.color;
@@ -189,7 +204,7 @@
         				document.getElementById("section_title").innerHTML += " (" + intersects[0].object.userData.strength + "&nbsp%)";
         			} else {
         				document.getElementById("section_title").innerHTML += " (Inaktiv)";
-        				intersects[0].object.material.opacity = 0.55; 
+        				intersects[0].object.material.opacity = 0.7; 
         			};
     			}
 			}
@@ -218,35 +233,11 @@
 				document.getElementById("section_title_pres").style.textAlign = "center";
 				document.getElementById("section_title_pres").style.textAlign = "center";
 				document.getElementById("section_title_pres").style.width = "200px";
+				document.getElementById("section_title_pres").innerHTML = pres_titles[idx];
+				document.getElementById("section_intro").innerHTML = pres_texts[idx];
+				title += (idx + 1) + "";
 				switch (idx) {
-					case 0:
-						document.getElementById("section_title_pres").innerHTML = "Förutsättningar";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
-						for (let i = 0; i < cube.sections.length; i++) {
-							if(Math.floor(i / 3) % 3 == 0) {
-								cube.sections[i].active = 1;
-							} else {
-								cube.sections[i].active = 0;
-							}
-						}
-					break;
-					case 1:
-						document.getElementById("section_title_pres").innerHTML = "Handlingsplaner";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
-						for (let i = 0; i < cube.sections.length; i++) {
-							if(Math.floor(i / 3) % 3 == 1) {
-								cube.sections[i].active = 1;
-							} else {
-								cube.sections[i].active = 0;
-							}
-						}
-					break;
 					case 2:
-						document.getElementById("section_title_pres").innerHTML = "Mål och visioner";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 3) % 3 == 2) {
 								cube.sections[i].active = 1;
@@ -256,9 +247,24 @@
 						}
 					break;
 					case 3:
-						document.getElementById("section_title_pres").innerHTML = "Historik";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 1) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 4:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(Math.floor(i / 3) % 3 == 0) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
+					case 5:
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(i % 3 == 0) {
 								cube.sections[i].active = 1;
@@ -267,10 +273,7 @@
 							}
 						}
 					break;
-					case 4:
-						document.getElementById("section_title_pres").innerHTML = "Fakta";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
+					case 6:
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(i % 3 == 1) {
 								cube.sections[i].active = 1;
@@ -279,10 +282,7 @@
 							}
 						}
 					break;
-					case 5:
-						document.getElementById("section_title_pres").innerHTML = "Aktuellt";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
+					case 7:
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(i % 3 == 2) {
 								cube.sections[i].active = 1;
@@ -291,10 +291,7 @@
 							}
 						}
 					break;
-					case 6:
-						document.getElementById("section_title_pres").innerHTML = "Individnivå";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
+					case 8:
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 9) == 0) {
 								cube.sections[i].active = 1;
@@ -303,10 +300,7 @@
 							}
 						}
 					break;
-					case 7:
-						document.getElementById("section_title_pres").innerHTML = "Gruppnivå";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
+					case 9:
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 9) == 1) {
 								cube.sections[i].active = 1;
@@ -315,10 +309,7 @@
 							}
 						}
 					break;
-					case 8:
-						document.getElementById("section_title_pres").innerHTML = "Organisationsnivå";
-						document.getElementById("section_intro").innerHTML = "";
-						title += (idx + 1) + "";
+					case 10:
 						for (let i = 0; i < cube.sections.length; i++) {
 							if(Math.floor(i / 9) == 2) {
 								cube.sections[i].active = 1;
@@ -327,8 +318,29 @@
 							}
 						}
 					break;
+					case 11:
+						for (let i = 0; i < cube.sections.length; i++) {
+						let connections = getSectionConnections(cube, cube.sections[i].id)
+							for (let j = 0; j < connections.length; j++) {
+								if(Math.random() < 0.5) {
+									connections[j].strength = 0;
+								} else {
+									connections[j].strength = 100;
+								}
+							}
+						}
+					break;
+					case 12:
+						for (let i = 0; i < cube.sections.length; i++) {
+							if(i == 26) {
+								cube.sections[i].active = 1;
+							} else {
+								cube.sections[i].active = 0;
+							}
+						}
+					break;
 				}
-				title += "/9)";
+				title += "/" + pres_texts.length + ")";
 				document.getElementById("title").innerHTML = title;
 			}
 			
@@ -351,7 +363,7 @@
 			
 			function getColor(cube, section) {
 				if(!section.active) {
-					return {color: "#222"}
+					return {color: "#333"}
 				}
 				let strength = getStrength(cube, section);
 				let r, g;

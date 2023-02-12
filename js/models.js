@@ -223,10 +223,13 @@ function getConnections(sections) {
 	connections.push(getConnection(sections, 2, 5, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 2, 8, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
 	connections.push(getConnection(sections, 2, 11, "Stämmer förutsättningarna på grupp- och individnivå väl överens?"));
+	connections.push(getConnection(sections, 2, 14, "Finns det förutsättningar på individnivå för att handlingsplanerna på grupnivå ska kunna genomföras?"));
 	connections.push(getConnection(sections, 3, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
 	connections.push(getConnection(sections, 4, 5, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 5, 8, "Leder handlingsplanerna till att målsättningarna uppnås?"));
 	connections.push(getConnection(sections, 5, 14, "Stämmer handlingsplanerna på grupp- och individnivå väl överens?"));
+	connections.push(getConnection(sections, 5, 17, "Leder handlingsplanerna på individnivå till att målsättningarna på gruppnivå uppnås?"));
+	connections.push(getConnection(sections, 5, 26, "Leder handlingsplanerna på individnivå till att målsättningarna på organisationsnivå uppnås?"));
 	connections.push(getConnection(sections, 6, 8, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
 	connections.push(getConnection(sections, 7, 8, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 8, 17, "Stämmer målsättningarna på grupp- och individnivå väl överens?"));
@@ -236,10 +239,12 @@ function getConnections(sections) {
 	connections.push(getConnection(sections, 11, 14, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 11, 17, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
 	connections.push(getConnection(sections, 11, 20, "Stämmer förutsättningarna på grupp- och organisationsnivå väl överens?"));
+	connections.push(getConnection(sections, 11, 26, "Finns det förutsättningar på gruppnivå för att handlingsplanerna på organisationsnivå ska kunna genomföras?"));
 	connections.push(getConnection(sections, 12, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
 	connections.push(getConnection(sections, 13, 14, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 14, 17, "Leder handlingsplanerna till att målsättningarna uppnås?"));
 	connections.push(getConnection(sections, 14, 23, "Stämmer handlingsplanerna på grupp- och organisationsnivå väl överens?"));
+	connections.push(getConnection(sections, 14, 26, "Leder handlingsplanerna på gruppnivå till att målsättningarna på organisationsnivå uppnås?"));
 	connections.push(getConnection(sections, 15, 17, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
 	connections.push(getConnection(sections, 16, 17, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 17, 26, "Stämmer målsättningarna på grupp- och organisationsnivå väl överens?"));

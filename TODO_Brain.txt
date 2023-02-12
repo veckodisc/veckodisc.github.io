@@ -19,3 +19,233 @@ Utbildning typ loops
 Grafer
 Google forms
 Utvärdering
+
+En digital lösning som hanterar individers, gruppers och organisationers resurser, drivkrafter, motivation och prestationer i Dåtid-Nutid-Framtid. Ett verktyg för att strukturera gemensamma och individuella förutsättningar, arbetssätt, strategier, visioner, mål och ambitioner. 
+
+
+1. The Second Brain: The Second Brain är ett strukturerat stöd för att arbeta effektivt mot ett uppsatt mål. En digital lösning som hanterar individers, gruppers och organisationers resurser, drivkrafter, motivation och prestationer i Dåtid-Nutid-Framtid. Detta integreras med gemensamma och individuella förutsättningar, arbetssätt, strategier, mål och visioner. 
+
+Varje del av kuben representerar ett område som är viktigt att ta hänsyn till och arbeta med. The Second Brain Cube:
+
+	1. Skapar förståelse för projektets alla delar.
+	2. Säkerställer att varje apsekt uppmärksammas.
+	3. Synliggör hur olika områden samverkar med varandra.
+	
+	
+2. Områden: Inom varje område finns det olika uppgifter som ska genomföras. The Second Brain erbjuder möjlighet att arbeta strukturerat inom varje område. Det kan vara att:
+
+	1. Sätta upp kort- eller långsiktiga mål.
+	2. Samla bakgrundsinformation.
+	3. Göra någon typ av analys.
+	4. Skriva en handlingsplan på kort eller lång sikt.
+	5. Utvärdera ett tidigare stadie i projektet.
+	
+Klicka på ett område för mer information om vilken typ av arbete som ska utföras där. Närmast följer en närmare beskrivning av kubens olika nivåer.
+
+
+3. Mål och visioner: På den här nivån behandlas projektets mål och visioner, exempelvis:
+
+* Affärsidé
+* Verksamhetsidé
+* Affärsmodell
+* Värderingar
+* Framtidsvision
+* Kortsiktiga mål
+* Övergripande mål
+
+
+4. Handlingsplaner: Här upprättas konkreta handlingsplaner för vad som ska göras för att uppnå målen. Det är viktigt att handlingsplanerna är realistiska med tanke på förutsättningarna samt att de är baserade på fakta, analyser av liknande företeelser och lärdomar av tidigare stadier.
+
+Handlingsplanerna kan vara konkreta planer för vad som ska göras den närmaste tiden eller mer övergripande strategier och åtgärdsplaner.
+
+
+5. Förutsättningar: Här analyseras vilka förutsättningar som krävs för att målen ska uppnås och utvärderas vilka förutsättningar som finns för tillfället. Det kan handla om förutsättningar gällande:
+
+* Marknaden
+* Konkurrenter
+* Kompetens
+* Tidsaspekter
+* Lokaler
+* Ekonomi
+* Kultur
+* Personliga egenskaper
+
+
+6. Historik: Ett projekt bygger som regel på en iterativ process där tidiga versioner ersätts av mer utvecklade, komplexa eller förfinade versioner. På den här nivån finns arkiverade versioner av projektet som kan utvärderas och analyseras, till exempel i form av användartestning. Vad har inte fungerat och varför? Vilka styrkor kan bibehållas? 
+
+
+7. Fakta och forskning: Här samlas fakta och forskning som grund för utformningen av förutsättningar, mål och handlingsplaner. Det kan vara:
+
+* Internutbildningar
+* Marknadsanalyser
+* Expertråd
+* Organisationsmodeller
+* Workshops
+* Forskningsrapporter
+* Resultat från kund- och medarbetarundersökningar
+
+
+8. Aktuellt: Här sker det största arbetet. Aktuella förutsättningar, handlingsplaner och mål uppdateras och revideras i takt med projektets framsteg eller motgångar. Om förutsättningarna förändras behöver ofta mål och handlingsplaner anpassas efter de nya förutsättningarna. Samtidigt ska arbetet på den här nivån anpassas efter forskning, fakta och analyser tidigare stadier.
+
+The Second Brain väver samman alla dessa kopplingar. Alla perspektiv tas i beaktande och eventuella brister synliggörs.
+
+När en version av projektet inte längre är aktuell analyseras den och arkiveras till Historiken.
+
+
+9. Individnivå: På den här nivån uppmärksammas varje individ. Vilka kompetenser finns och vilka saknas? Hur ska varje enskild individ arbeta för att uppnå både personliga och mer övergripande målsättningar?
+
+
+10. Gruppnivå: Här analyseras projektet på gruppnivå. Hur arbetas det på gruppnivå och vilken funktion fyller gruppen? Vilka grupper samverkar med varandra och hur? Gruppens arbete måste var anpassat efter individuella förutsättningar och samtidigt sträva efter att uppnå övergripande målsättningar.
+
+En grupp kan till exempel vara:
+
+* Dotterbolag
+* Avdelning
+* Team
+* Årskull
+* Ledningsgrupp
+
+
+11. Organisationsnivå: På den här nivån definieras de övegripande målen och visionerna. Här sker också det övergripande strategiska arbetet. Mål och strategier ska genomsyra arbetet på lägre nivåer samtidigt som de behöver anpassas efter aktuella förusättningar för att vara realistisika och genomförbara.
+
+
+
+12. Kopplingar: Projektets alla områden samverkar med varandra på olika sätt och över flera nivåer. The Second Brain hanterar områden som är starkt kopplade till varandra ger möjlighet att bedöma hur väl kopplade områden fungerar tillsammans. Områden som samverkar väl markeras med blått och områden som inte fungerar tillsammans med andra markeras med rött. 
+
+Röd färg indikerar att området kräver mer arbete eller att kopplade områden behöver förändras.
+
+
+13. Sätt igång: The Second Brain Cube är en digital lösning för planering, genomförande, utveckling och uppföljning av alla stadier i ett projekt. Det är ett kraftfullt verktyg som strukturerar komplexa saker på tydliga sätt. 
+
+The Second Brain fungerar i många olika sammanhang eftersom liknande strukturer och mekanismer ligger till grund för att ett mål ska uppnås.
+
+Ett lämpligt första steg är att definiera projektets mål och visioner på kort och lång sikt. Stäng guiden, dubbelklicka på området "Målsättningar på organisationsnivå" och lägg till en artikel kring projektets mål och visioner.
+
+	
+	
+	
+
+
+3 Dimensioner som
+interagerar
+Plans Y-axeln =
+Vad skall göras o
+Uppnås?
+Process X axeln =
+Hur skall det göras?
+People Z-axeln =
+Vilka skall göra detta?
+
+
+Plans
+Första
+dimensionen
+Y-axeln:
+Mission =
+Vad skall göras och
+uppnås?
+”Vad ska jag/vi hålla på med och vad skall vi
+uppnå med detta?”
+
+Mission
+Mission Statement
+Affärsidé /
+Verksamhetsidé
+Affärsmodell
+Värderingar
+Framtidsvision?
+Vardagsvision?
+Analyser: SWOT m Actions
+Övergripande Mål
+
+Actions =
+Vad behöver göras
+konkret för att lyckas?
+
+Actions =
+Strategier
+Taktik
+Åtgärder
+VAD? = Inriktning
+HUR MYCKET? =
+Kvantitet
+HUR BRA? = Kvalitet
+
+Conditions =
+Vad krävs för att vi skall
+göra detta?
+”Vad krävs för att jag/vi skall lyckas?”
+
+Conditions External
+
+Practical
+
+Market, Competitors, Economy. Structures etc
+
+Personel/Psychological/Cultural
+
+Culture, Attitudes, Pains and Pleasures, Needs etc
+Conditions Internal
+
+Practical
+
+Economy and other practical resourses
+
+Personel/Psychological/Cultural
+
+Competens: Knowledge, Understanding, Skills
+
+Cultur: What the organization does and stands for be seen in
+various expressions that follow certain patterns
+
+Behavior patterns: 10-12 different areas
+
+Personel Potential: Self-awareness - Basic balance - Motivation -
+Self-leadership – ”Tid/Djup/Strategi
+
+
+
+
+Process
+Andra dimensionen
+X-axeln:
+History =
+Tidigare Planer och
+Resultat
+
+Test Plans =
+Forskning, Fakta, Tips
+samt kolla upp de tre
+Plans-stegen
+Revised plans =
+Nya realistiska Planer
+	
+
+People
+Tredje dimensionen
+Z-axeln:
+Organisation =
+Hela företaget eller
+organisationen
+Groups=
+Dotterbolag,
+avdelningar,team,
+grupper
+etc
+Individuals =
+Individer	
+	
+	
+The Second Brain Cube är en digital lösning för planering, genomförande,
+utveckling och uppföljning av alla stadier i ett projetk. Det är ett kraftfullt verktyg som strukturerar komplexa saker på tydliga sätt. The Second Brain fungerar i många olika sammanhang eftersom liknande strukturer och mekanismer ligger till grund för att ett mål ska uppnås.
+
+En digital lösning som håller koll på individers, gruppers och
+organisationers resurser, drivkrafter, motivation och
+prestationer i Historik-Nutid-Framtid. Allt integrerat med gemensamma och individuella ambitioner,
+visioner, mål, strategier, actions och förutsättningar
+
+Både i det privata och på arbetet drömmer vi om
+och strävar efter förändringar som sällan eller
+aldrig blir av. Vi fortsätter med samma
+beteenden om och om igen trots att de
+inte leder till det vi verkligen vill.
