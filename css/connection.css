@@ -258,3 +258,36 @@ img {
 	border: 1px solid rgba(255, 255, 255, 0.29);
 	color: #fff;
 }
+
+.home-container {
+	position: absolute;
+	font-family: 'ModernistBold';
+	color: #fff;
+	padding:0.5em;
+	margin:0.5em;
+	cursor: pointer;
+}
+
+.home_1 {
+	font-size:1.0em;
+}
+
+.home_2 {
+	font-size: 1.9em;
+	margin:-0.2em 0 -0.1em 0;
+}
+
+.home_3 {
+	font-size:1.5em;
+	float:right;
+}
+
+.home-container:hover {
+	background-color: #fff;
+	background: rgba(255, 255, 255, 0.08);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(4.9px);
+	-webkit-backdrop-filter: blur(4.9px);
+	border-radius: 4px;
+}
+

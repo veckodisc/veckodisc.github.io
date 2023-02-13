@@ -22,6 +22,7 @@
 2 timmar: Arkiveringsfunktion som flyttar artiklar från Aktuellt till Historik
 6 timmar: Presentationsläge
 3 timmar: Presentationsinnehåll
+2 timmar: Hem-knapp, stäng guide-knapp, färgförklaringsgradient, svensk axelförklaring
 
 Härnäst: 
 - skapa presentationsläge med ny kub och text (se slides) som förändras beroende på vad man klickar på
