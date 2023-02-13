@@ -158,7 +158,7 @@ function new_std_article() {
 	article.tabs.push(tab);
 	tab = new_std_tab();
 	tab.title = "Bilder";
-	tab.text = "Det går att lägga till snygga bilder.<br><img style='height: 20em;' src='/images/brain-cube.jpg' alt='Brain cube'>";
+	tab.text = "Det går att lägga till snygga bilder.<br><div class='fill'><img src='/images/brain-cube.jpg' alt='Brain' /></div>";
 	article.tabs.push(tab);
 	tab = new_std_tab();
 	tab.title = "Diagram";

@@ -1,3 +1,8 @@
+<div class="fill">
+    <img src="/images/brain-cube.jpg" alt="" />
+</div>
+
+
 Område: Design och text som visas
 Område: Lägg till checklista
 Område: Lägg till video

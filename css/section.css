@@ -332,4 +332,15 @@ h2 {
 	border-radius: 4px;
 }
 
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+.fill img {
+    min-width: 100%;
+    min-height: 100%
+}
+
 
