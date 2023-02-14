@@ -1,3 +1,10 @@
+<div style="display: flex; margin:10px;">
+  <div>wrwr w wry wrearh awrhaeth areh aerh rwh aerh aerh aerh awrhawrh aerhaerh aerh aerh aerwh arwhawrhaerh aeth aerh aer harwh awr hawrh wr hyawrh wrh WR</div>
+  <div><img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/diagram.png' alt='Diagram'></div>
+</div>
+
+<img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/diagram.png' alt='Diagram'>
+
 <div class="fill">
     <img src="/images/brain-cube.jpg" alt="" />
 </div>

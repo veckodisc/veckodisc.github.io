@@ -99,8 +99,8 @@ h1 {
 	margin-left: 192px;
 	margin-top: 224px;
   	z-index: 2;
-	height: 10em;
-	width: 1em;
+	height: 160px;
+	width: 16px;
 	background-image: linear-gradient(rgb(0, 50, 255), rgb(255, 5, 5));
 }
 
