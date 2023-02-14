@@ -24,6 +24,7 @@
 3 timmar: Presentationsinnehåll
 3 timmar: Hem-knapp, stäng guide-knapp, färgförklaringsgradient, svensk axelförklaring, småfix
 1 timmar: Mockup United
+1 timmar: Småfix och Use Cases
 
 Härnäst: 
 - skapa presentationsläge med ny kub och text (se slides) som förändras beroende på vad man klickar på

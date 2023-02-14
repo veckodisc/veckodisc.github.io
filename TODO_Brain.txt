@@ -1,6 +1,23 @@
+<div style='display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; margin: 10px;'>
+	<div style='margin-right: 10px;'>
+		Hej här ska texten stå.
+	</div>
+	<div>
+    	<img style='width: 100%; height: 100%; object-fit: cover;' src='/images/diagram.png'>
+    </div>
+</div>
+
+
+
+
 <div style="display: flex; margin:10px;">
   <div>wrwr w wry wrearh awrhaeth areh aerh rwh aerh aerh aerh awrhawrh aerhaerh aerh aerh aerwh arwhawrhaerh aeth aerh aer harwh awr hawrh wr hyawrh wrh WR</div>
   <div><img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/diagram.png' alt='Diagram'></div>
+</div>
+
+<div style="display: flex; margin:10px;">
+  <div>Position: Mittfältare<br>Ålder: 29<br>Tid i klubben: 3 år<br><br>En slitvarg på mittfält som bidrar med positiv anda och alltid ger allt på träningarna. Behöver ett rappare steg för att platsa i Allsvenskan.</div>
+  <div><img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/john_doe.jpg' alt='John Doe'></div>
 </div>
 
 <img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/diagram.png' alt='Diagram'>

@@ -1,0 +1,65 @@
+Fet text:
+<b>Hej</b>
+
+<br><br>
+
+Kursiv text:
+<i>Hej</i>
+
+<br><br>
+
+Ny rad:
+<br>
+
+<br><br>
+
+Rubriker:
+<h3>Hej</h3>
+
+<br><br>
+
+Oordnad lista:
+<ul>
+	<li>Hej</li>
+	<li>Hej</li>
+	<li>Hej</li>
+</ul>
+
+<br><br>
+
+Ordnad lista:
+<ol>
+	<li>Hej</li>
+	<li>Hej</li>
+	<li>Hej</li>
+</ol>
+
+<br><br>
+
+Länk:
+<a href='https://www.zebrain.se/'>Zebrain</a>
+
+<br><br>
+
+Bild som fyller hela rutan (ladda ned ny bild, döp den och skicka till mig så läggs den in i systemet. Den här bilden heter brain.jpg och är redan inlagd, därför fungerar den):
+<img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/brain.jpg'>
+
+<br><br>
+
+Text och bild bredvid varandra:
+<div style='display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; margin: 10px;'>
+	<div style='margin-right: 10px;'>
+		Här ska texten stå.
+	</div>
+	<div>
+    	<img style='width: 100%; height: 100%; object-fit: cover;' src='/images/brain.jpg'>
+    </div>
+</div>
+
+<br><br>
+
+Inbäddad Youtube-video (ändra K7QBnuF6dHg i länken till koden för videon (finns sist i url:en)):
+<div style= 'text-align: center; background: #000';>
+<iframe style= 'display: inline-block' width="500" height="300" src="https://www.youtube.com/embed/K7QBnuF6dHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
