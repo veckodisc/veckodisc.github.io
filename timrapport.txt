@@ -24,13 +24,31 @@
 3 timmar: Presentationsinnehåll
 3 timmar: Hem-knapp, stäng guide-knapp, färgförklaringsgradient, svensk axelförklaring, småfix
 1 timmar: Mockup United
-1 timmar: Småfix och Use Cases
-2 timmar: Artikelmanual och Use Cases
+1 timmar: Småfix
+2 timmar: Artikelmanual
+5 timmar: Lägg till artikel på index, kopplingar visas inte om de är inaktiva, klättringskub i sparade projekt
 
-Härnäst: 
-- fotbollslagskub
-- klättringskub
-- skolvärderingskub
-- second-brainkub
-- personlig utvecklingskub
-- flytta allt till ny github
+Totalt: 104 timmar
+
+Möte: 
+- Fotbollslagskub
+- Klättringskub
+- Generell sportkub
+- Skolvärderingskub
+- Second-brainkub
+- Personlig utvecklingskub
+- Flytta allt till ny github. Namn?
+- Texter vs artiklar
+- Guide vs powerpoint
+- Artikelmanual
+- Peters jobb: Lägg in de 27 texterna
+- Jannes jobb:
+1. Färdigställ guiden som du vill ha den
+2. Gör säljslides av befintliga slides
+3. Tänk på en bra mock-up. Måste inte vara något i alla 27 områden, men det som är där ska vara snyggt och övertygande, inte bara en wall of text. Bilder, diagram, video, listor, skisser, tydligt innehåll. Ska visa mervärdet med kopplingar
+
+Arbetsätt:
+1. Skapa ny kub
+2. Lägg till artiklar mha artikelmanualen. OBS! Spara texten i ett textdokument innan du skapar artikeln, för om det blir fel finns inte html-texten kvar.
+3. Ladda lite då och då ned den sparade kuben och spara någonstans eller skicka till mig. Skicka även bilder som ska in till mig.
+

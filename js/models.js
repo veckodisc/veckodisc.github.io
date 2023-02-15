@@ -219,6 +219,7 @@ function getConnections(sections) {
 	let connections = [];
 
 	connections.push(getConnection(sections, 0, 2, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 0, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
 	connections.push(getConnection(sections, 1, 2, "Har förutsättningarna utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 2, 5, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 2, 8, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
@@ -235,6 +236,7 @@ function getConnections(sections) {
 	connections.push(getConnection(sections, 8, 17, "Stämmer målsättningarna på grupp- och individnivå väl överens?"));
 	
 	connections.push(getConnection(sections, 9, 11, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 9, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
 	connections.push(getConnection(sections, 10, 11, "Har förutsättningarna utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 11, 14, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 11, 17, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
@@ -250,6 +252,7 @@ function getConnections(sections) {
 	connections.push(getConnection(sections, 17, 26, "Stämmer målsättningarna på grupp- och organisationsnivå väl överens?"));
 	
 	connections.push(getConnection(sections, 18, 20, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 18, 23, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
 	connections.push(getConnection(sections, 19, 20, "Har förutsättningarna utformats utifrån forskning och fakta?"));
 	connections.push(getConnection(sections, 20, 23, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 20, 26, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
