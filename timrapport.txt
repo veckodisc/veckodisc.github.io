@@ -25,16 +25,12 @@
 3 timmar: Hem-knapp, stäng guide-knapp, färgförklaringsgradient, svensk axelförklaring, småfix
 1 timmar: Mockup United
 1 timmar: Småfix och Use Cases
+2 timmar: Artikelmanual och Use Cases
 
 Härnäst: 
-- skapa presentationsläge med ny kub och text (se slides) som förändras beroende på vad man klickar på
-- skriv 27 egna texter, se slides, under fakta görs undersökingar och analyser av liknande projekt. Under handlingsplaner finns verktyg för ekonomi, budget, affärsplaner. Resultatet av medarbetarundersökningar hamnar under utvärdering av historik samt förutsättningar
 - fotbollslagskub
 - klättringskub
 - skolvärderingskub
 - second-brainkub
 - personlig utvecklingskub
-- motiverande text på egen läs-mer-sida
-- färgförklaringsgradient
-- ny skiss: Historik, Fakta, Aktuellt, Förutsättningar, Handlingsplaner, Målsättningar, Organisation, Grupp, Individ
 - flytta allt till ny github

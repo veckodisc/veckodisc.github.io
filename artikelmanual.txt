@@ -8,8 +8,8 @@ Kursiv text:
 
 <br><br>
 
-Ny rad:
-<br>
+Nytt stycke:
+<br><br>
 
 <br><br>
 

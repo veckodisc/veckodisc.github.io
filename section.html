@@ -57,6 +57,9 @@
    	       Text<br>
    	       <textarea style='width:99%' rows="8" type="text" id="article_tab_text" ></textarea>
   	       <br>   
+  	       Position<br>        
+   	       <textarea style='width:10%' rows="1" type="text" id="article_index" >1</textarea>
+   	       <br>
   	       <button class='submit_button' onclick="addArticle()">Lägg till artikel</button> 
 		</fieldset>
  	   	
@@ -276,7 +279,9 @@
 						section = cube.sections[i];
 					}
 				}
-				section.articles.push(article);
+				//section.articles.push(article);
+				let index = Math.max(0, Math.min(section.articles.length, document.getElementById("article_index").value - 1));
+				section.articles.splice(index, 0, article);
 				localStorage.setItem("cubes", JSON.stringify(cubes));
 				document.getElementById("article_title").value = "";
 				document.getElementById("article_tab_title").value = "";
