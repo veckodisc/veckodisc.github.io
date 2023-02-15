@@ -1,3 +1,16 @@
+<b>3/1:</b><br>
+45 min lätt klättring<br>
+30 min campusträning<br>
+30 min core<br>
+<br><br>
+<b>5/1:</b><br>
+2 timmar bouldering<br>
+Klarade en 7a+<br>
+3 x 10 pull-ups utan vikter
+
+
+
+
 <div style='display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; margin: 10px;'>
 	<div style='margin-right: 10px;'>
 		Hej här ska texten stå.

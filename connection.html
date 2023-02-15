@@ -44,6 +44,16 @@
 			}
 
 			let connections = getCurrentConnections();
+			for(let j = connections.length - 1; j >= 0 ; j--) {
+				for(let i = 0; i < connections[j].section_ids.length; i++) {
+					if(connections[j].section_ids[i] != section.id) {
+						let other_sec = getSection(getCurrentCube(), connections[j].section_ids[i]);
+						if(!other_sec.active) {
+							connections.splice(j, 1);
+						}
+					}
+				}
+			}
 			let connection_idx = parseInt(localStorage.getItem("connection_index"));
 			if(connection_idx >= connections.length) {
 				connection_idx = 0;
