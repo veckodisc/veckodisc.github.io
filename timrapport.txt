@@ -30,7 +30,7 @@
 2 timmar: Möte
 4 timmar: Byt plats på Historik och Fakta, Artikelmanual i området högst upp i mitten, Redigera flikar, marginaler, typsnitt
 
-Totalt: 108 timmar
+Totalt: 110 timmar
 
 Möte: 
 - Fotbollslagskub
