@@ -208,7 +208,7 @@
 						}
 					}
 					cube.sections[section_pos].articles[index].archive_date = new Date().toISOString().slice(0, 10);
-					cube.sections[section_pos - 2].articles.push(cube.sections[section_pos].articles[index]);
+					cube.sections[section_pos - 1].articles.push(cube.sections[section_pos].articles[index]);
 					cube.sections[section_pos].articles.splice(index, 1);
 					localStorage.setItem("cubes", JSON.stringify(cubes));
 					location.reload();
@@ -296,7 +296,7 @@
 							document.getElementById("tab_title").value = section.articles[i].tabs[j].title;
 							document.getElementById("tab_text").value = section.articles[i].tabs[j].text;
 							localStorage.setItem("edit_tab", JSON.stringify(section.articles[i].tabs[j].id));
-							document.getElementById('tab_legend').innerHTML = "Ändra flik: " + section.articles[i].tabs[j].title;
+							document.getElementById('tab_legend').innerHTML = "Redigera flik: " + section.articles[i].tabs[j].title;
 						}
 					}
 				}

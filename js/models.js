@@ -94,9 +94,9 @@ function new_std_section(pos) {
 	section.active = 1;
 	title = "";
 	if (pos % 3 == 0) {
-		title += "Tidigare ";
-	} else if (pos % 3 == 1) {
 		title += "Fakta kring ";
+	} else if (pos % 3 == 1) {
+		title += "Tidigare ";
 	}
 	if (Math.floor(pos / 3) % 3 == 0) {
 		title += "förutsättningar ";
@@ -112,6 +112,9 @@ function new_std_section(pos) {
 		title += "målsättningar ";
 		if (pos % 3 == 2) {
 			title = "Målsättningar ";
+			section.articles.push(new_std_article());
+			section.articles.push(new_std_article2());
+			section.articles.push(new_std_article3());
 		}
 	}
 	if (Math.floor(pos / 9) == 0) {
@@ -143,30 +146,62 @@ class Article {
 function new_std_article() {
 	article = new Article(content.std_article);
 	article.id = get_uid();
-	article.title = "Exempelartikel";
+	article.title = "Exempel textformattering";
 	let tab = new_std_tab();
-	tab.title = "Flikar";
-	tab.text = 'En artikel kan innehålla flera flikar och se ut i princip hur som helst. Klicka på flikarna för att se exempel på vad de kan innehålla.';
+	tab.title = "Fet text";
+	tab.text = '<b>Den här texten blir fet</b>';
 	article.tabs.push(tab);
 	tab = new_std_tab();
-	tab.title = "Listor";
-	tab.text = "En artikel kan innehålla punktlistor, t.ex. över vad som ska göras eller har gjorts.<br><ul><li>Använd The Second Brain</li><li>Utveckla din organisation</li><li>Nå framgång</li></ul>";
+	tab.title = "Kursiv text";
+	tab.text = '<i>Den här texten blir kursiv</i>';
 	article.tabs.push(tab);
 	tab = new_std_tab();
-	tab.title = "Länkar";
-	tab.text = "Artikeln kan också innehålla länkar till utbildningar, fakta eller andra viktiga saker.<br><a href='https://veckodisc.github.io/start.html'>The Second Brain</a><br><a href='https://www.zebrain.se/sv/'>Zebrain</a>";
+	tab.title = "Radbrytning";
+	tab.text = 'Såhär görs<br>ny rad.<br><br>Och nytt stycke.';
 	article.tabs.push(tab);
 	tab = new_std_tab();
-	tab.title = "Bilder";
-	tab.text = "Det går att lägga till snygga bilder.<br><div class='fill'><img src='/images/brain-cube.jpg' alt='Brain' /></div>";
+	tab.title = "Storlek";
+	tab.text = "<div style='font-size: 30px'>Stort stycke</div><div style='font-size: 20px'>Mindre stycke</div>";
+	article.tabs.push(tab);
+	
+	return article;
+}
+
+function new_std_article2() {
+	article = new Article(content.std_article);
+	article.id = get_uid();
+	article.title = "Exempel lista och länk";
+	let tab = new_std_tab();
+	tab.title = "Punktlista";
+	tab.text = '<ul><li>Såhär</li><li>Görs</li><li>Punktlistor</li></ul>';
 	article.tabs.push(tab);
 	tab = new_std_tab();
-	tab.title = "Diagram";
-	tab.text = "Eller förklarande diagram.<br><img style='height: 26em;' src='/images/diagram.png' alt='Diagram'>";
+	tab.title = "Numrerad lista";
+	tab.text = '<ol><li>Såhär</li><li>Görs</li><li>Numrerade listor</li></ol>';
 	article.tabs.push(tab);
 	tab = new_std_tab();
-	tab.title = "Video";
-	tab.text = 'Det går också att bädda in videor, t.ex. i utbildningssyfte.<br><iframe width="498" height="280" src="https://www.youtube.com/embed/K7QBnuF6dHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+	tab.title = "Länk";
+	tab.text = "Det här är en länk: <a href='https://www.zebrain.se/'>Zebrain</a>";
+	article.tabs.push(tab);
+	
+	return article;
+}
+
+function new_std_article3() {
+	article = new Article(content.std_article);
+	article.id = get_uid();
+	article.title = "Exempel bild och video";
+	let tab = new_std_tab();
+	tab.title = "Stor bild";
+	tab.text = "Ge bilden rätt namn och skicka till mig så läggs den in i systemet. Den här bilden heter brain.jpg och är redan inlagd, därför fungerar den):<img style='width: 100%; height: 100%; object-fit: cover; ' src='/images/brain.jpg'>";
+	article.tabs.push(tab);
+	tab = new_std_tab();
+	tab.title = "Text och bild";
+	tab.text = "Såhär kan du lägga text och bild bredvid varandra:<div style='display: grid; grid-auto-columns: 1fr; grid-auto-flow: column; margin: 10px;'><div style='margin-right: 10px;'>Här ska texten stå.</div><div><img style='width: 100%; height: 100%; object-fit: cover;' src='/images/brain.jpg'></div></div>";
+	article.tabs.push(tab);
+	tab = new_std_tab();
+	tab.title = "Youtube-video";
+	tab.text = "Såhär görs en inbäddad Youtube-video (ändra K7QBnuF6dHg i länken till koden för videon (finns sist i url:en)):<div style= 'text-align: center; background: #000';><iframe style= 'display: inline-block' width='500' height='300' src='https://www.youtube.com/embed/K7QBnuF6dHg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div>";
 	article.tabs.push(tab);
 	
 	return article;
@@ -218,51 +253,51 @@ function get_uid () {
 function getConnections(sections) {
 	let connections = [];
 
-	connections.push(getConnection(sections, 0, 2, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 0, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 1, 2, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 0, 2, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 1, 2, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 1, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
 	connections.push(getConnection(sections, 2, 5, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 2, 8, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
 	connections.push(getConnection(sections, 2, 11, "Stämmer förutsättningarna på grupp- och individnivå väl överens?"));
 	connections.push(getConnection(sections, 2, 14, "Finns det förutsättningar på individnivå för att handlingsplanerna på grupnivå ska kunna genomföras?"));
-	connections.push(getConnection(sections, 3, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
-	connections.push(getConnection(sections, 4, 5, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 3, 5, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 4, 5, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
 	connections.push(getConnection(sections, 5, 8, "Leder handlingsplanerna till att målsättningarna uppnås?"));
 	connections.push(getConnection(sections, 5, 14, "Stämmer handlingsplanerna på grupp- och individnivå väl överens?"));
 	connections.push(getConnection(sections, 5, 17, "Leder handlingsplanerna på individnivå till att målsättningarna på gruppnivå uppnås?"));
 	connections.push(getConnection(sections, 5, 26, "Leder handlingsplanerna på individnivå till att målsättningarna på organisationsnivå uppnås?"));
-	connections.push(getConnection(sections, 6, 8, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
-	connections.push(getConnection(sections, 7, 8, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 6, 8, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 7, 8, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
 	connections.push(getConnection(sections, 8, 17, "Stämmer målsättningarna på grupp- och individnivå väl överens?"));
 	
-	connections.push(getConnection(sections, 9, 11, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 9, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 10, 11, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 9, 11, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 10, 11, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 10, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
 	connections.push(getConnection(sections, 11, 14, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 11, 17, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
 	connections.push(getConnection(sections, 11, 20, "Stämmer förutsättningarna på grupp- och organisationsnivå väl överens?"));
 	connections.push(getConnection(sections, 11, 26, "Finns det förutsättningar på gruppnivå för att handlingsplanerna på organisationsnivå ska kunna genomföras?"));
-	connections.push(getConnection(sections, 12, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
-	connections.push(getConnection(sections, 13, 14, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 12, 14, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 13, 14, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
 	connections.push(getConnection(sections, 14, 17, "Leder handlingsplanerna till att målsättningarna uppnås?"));
 	connections.push(getConnection(sections, 14, 23, "Stämmer handlingsplanerna på grupp- och organisationsnivå väl överens?"));
 	connections.push(getConnection(sections, 14, 26, "Leder handlingsplanerna på gruppnivå till att målsättningarna på organisationsnivå uppnås?"));
-	connections.push(getConnection(sections, 15, 17, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
-	connections.push(getConnection(sections, 16, 17, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 15, 17, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 16, 17, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
 	connections.push(getConnection(sections, 17, 26, "Stämmer målsättningarna på grupp- och organisationsnivå väl överens?"));
 	
-	connections.push(getConnection(sections, 18, 20, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 18, 23, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
-	connections.push(getConnection(sections, 19, 20, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 18, 20, "Har förutsättningarna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 19, 20, "Har förutsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
+	connections.push(getConnection(sections, 19, 23, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare förutsättningar?"));
 	connections.push(getConnection(sections, 20, 23, "Finns det förutsättningar för att handlingsplanerna ska kunna genomföras?"));
 	connections.push(getConnection(sections, 20, 26, "Finns det förutsättningar för att målsättningarna ska kunna uppnås?"));
 
-	connections.push(getConnection(sections, 21, 23, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
-	connections.push(getConnection(sections, 22, 23, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 21, 23, "Har handlingsplanerna utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 22, 23, "Har handlingsplanerna anpassats utifrån utvärdering och erfarenheter av tidigare handlingsplaner?"));
 	connections.push(getConnection(sections, 23, 26, "Leder handlingsplanerna till att målsättningarna uppnås?"));
 
-	connections.push(getConnection(sections, 24, 26, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
-	connections.push(getConnection(sections, 25, 26, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 24, 26, "Har målsättningar och visioner utformats utifrån forskning och fakta?"));
+	connections.push(getConnection(sections, 25, 26, "Har målsättningarna anpassats utifrån utvärdering och erfarenheter av tidigare målsättningar?"));
 	
 	return connections;
 }

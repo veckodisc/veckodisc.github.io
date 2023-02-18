@@ -59,6 +59,7 @@
 			}
 			document.getElementById("add_button2").addEventListener('click', (() => {
 				document.getElementById("name_input").style.display = 'block';
+				document.getElementById("name_textarea").focus();
 			}));
 			document.getElementById("submit_btn").addEventListener('click', (() => {
 				let cube = new_std_cube(document.getElementById("name_textarea").value);

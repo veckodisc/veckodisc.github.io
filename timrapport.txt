@@ -28,7 +28,7 @@
 2 timmar: Artikelmanual
 5 timmar: Lägg till artikel på index, kopplingar visas inte om de är inaktiva, klättringskub i sparade projekt
 2 timmar: Möte
-2 timmar: Ändra flikar, marginaler, typsnitt
+4 timmar: Byt plats på Historik och Fakta, Artikelmanual i området högst upp i mitten, Redigera flikar, marginaler, typsnitt
 
 Totalt: 108 timmar
 
