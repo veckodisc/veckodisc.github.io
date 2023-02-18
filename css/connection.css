@@ -138,9 +138,10 @@ h2 {
 	border: 1px solid #ccc;
 	border-top: none;
 	color: #000;
-	width: 90%;
+	width: 89%;
 	margin: 0 auto;
 	background-color: #fff;
+	padding-right: 1%;
 	background: rgba(255, 255, 255, 0.95);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	border-bottom-left-radius: 4px;

@@ -79,11 +79,8 @@
 		    document.getElementById('connection').innerHTML = other_section.title;
 		    
 		    for(let k = 0; k < 2; k++) {
-		    
 		    	section = sections[k];
-		    
 				document.getElementById(cols[k]).innerHTML = "<h2>" + section.title + "</h2>";
-				//document.getElementById(cols[k]).innerHTML += "<div class='section_intro'>" + section.intro + "</div>";
 				let html = document.getElementById(cols[k]).innerHTML;
 				for (let i = 0; i < section.articles.length; i++) {
 					html += "<div style='display: flex; width: 90%; margin: 2em auto 1em auto;'><div class='article_header'>" +

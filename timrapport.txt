@@ -27,8 +27,10 @@
 1 timmar: Småfix
 2 timmar: Artikelmanual
 5 timmar: Lägg till artikel på index, kopplingar visas inte om de är inaktiva, klättringskub i sparade projekt
+2 timmar: Möte
+2 timmar: Ändra flikar, marginaler, typsnitt
 
-Totalt: 104 timmar
+Totalt: 108 timmar
 
 Möte: 
 - Fotbollslagskub
@@ -41,7 +43,7 @@ Möte:
 - Texter vs artiklar
 - Guide vs powerpoint
 - Artikelmanual
-- Peters jobb: Lägg in de 27 texterna
+- Peters jobb: Lägg in de 27 texterna och skapa ny github.
 - Jannes jobb:
 1. Färdigställ guiden som du vill ha den
 2. Gör säljslides av befintliga slides

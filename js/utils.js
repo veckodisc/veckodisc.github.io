@@ -56,7 +56,6 @@ function getCurrentSection() {
 }
 
 function getSection(cube, id) {
-	//let cube = getCurrentCube();
     for (let i = 0; i < cube.sections.length; i++) {
     	if(cube.sections[i].id == id) {
     		return cube.sections[i];
@@ -87,7 +86,6 @@ function getCurrentConnections() {
 }
 
 function getSectionConnections(cube, id) {
-	//let cube = getCurrentCube();
 	let connections = [];
 	let section = getSection(cube, id);
     for (let i = 0; i < section.connections.length; i++) {
