@@ -29,8 +29,9 @@
 5 timmar: Lägg till artikel på index, kopplingar visas inte om de är inaktiva, klättringskub i sparade projekt
 2 timmar: Möte
 4 timmar: Byt plats på Historik och Fakta, Artikelmanual i området högst upp i mitten, Redigera flikar, marginaler, typsnitt
+1 timmar: Flytt till the-second-brain.github.io samt tom startkub och HTML-guide kan laddas upp.
 
-Totalt: 110 timmar
+Totalt: 111 timmar
 
 Möte: 
 - Fotbollslagskub

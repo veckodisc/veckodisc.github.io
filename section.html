@@ -101,10 +101,10 @@
 		    		}
 		    	}
 		    	for (let j = 0; j < section.articles[i].tabs.length; j++) {
-		    		s = 'style="margin-right: 0px; border-top-right-radius: 0px;" onclick="';
+		    		s = 'style="margin-right: 0px;" onclick="';
 		    		s += "openTab(event, '" + section.articles[i].tabs[j].id + "', '" + section.articles[i].id + "', [" + tabs_list + "])";
 		    		s += '"';
-		    		html += "<button class='" + section.articles[i].id + "' " + s + ">" + section.articles[i].tabs[j].title + "<button style='width:2.5em; border-top-left-radius: 0px;' class='add_button' id='" + section.articles[i].tabs[j].id + j + "'><img src='/images/edit.png' alt='Edit tab' style='cursor:pointer; height:0.9em;'></button>" + "</button>";
+		    		html += "<button class='" + section.articles[i].id + "' " + s + ">" + section.articles[i].tabs[j].title + "<button style='width:2.5em;' class='add_button' id='" + section.articles[i].tabs[j].id + j + "'><img src='/images/edit.png' alt='Edit tab' style='cursor:pointer; height:0.9em;'></button>" + "</button>";
 		    		
 		    	}
 		    	html +=  "<button style='width:2.5em;' class='add_button' id='" + section.articles[i].id + "'>+<span class='tooltiptext' style='padding-bottom:0.4em;'> Lägg till flik</span></button>";
