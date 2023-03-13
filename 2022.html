@@ -2,7 +2,7 @@
 <html>  
 <head>
 <meta charset="UTF-8">
-<title>Visättra veckodisc 2021</title>
+<title>Visättra veckodisc 2022</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
 table .wide {
@@ -38,7 +38,7 @@ table tr:hover {background-color: #ddd;}
 table th {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #a0cecb;
+  background-color: #99CC99;
   color: white;
   white-space: nowrap;
 }
@@ -48,7 +48,7 @@ table td {
 }
 
 select {
-    background-color: #a0cecb;
+    background-color: #99CC99;
     color: white;
     padding-right: 14px;
     border:0px;
@@ -62,24 +62,24 @@ select {
 }
 
 .center-wrapper{
-    background:#a0cecb;
+    background:#99CC99;
 }
 
 .item{
     display:inline-block; 
-    background:#a0cecb;
+    background:#99CC99;
 }
 .custom-select{
     display:inline-block; 
-    background:#a0cecb;
+    background:#99CC99;
     position: relative;
 }
 
 .custom-select:after {
     content: '\25BC';
     color: white;
-    right: 4px;
-    top: 3px;
+    right: 0.3em;
+    top: 0.25em;
     font-size: 12px;
     position: absolute;
     pointer-events: none;
@@ -96,8 +96,8 @@ select {
     	            <div class="custom-select">
     	                <select class="select" id="year" onchange="changeYear()">
   	                    <option value="https://veckodisc.github.io/">2023</option>
-  	                    <option value="https://veckodisc.github.io/2022">2022</option>
-  	                    <option selected="selected" value="https://veckodisc.github.io/2021">2021</option>
+  	                    <option selected="selected" value="https://veckodisc.github.io/2022">2022</option>
+  	                    <option value="https://veckodisc.github.io/2021">2021</option>
 	            </select>
 	        </div>  
 	    </div>
@@ -125,37 +125,134 @@ function changeYear() {
 }
  
 var start_hcps = {
+	"Mathias Graveleij": -1,
+	"Roger Berin": -1,
+	"Vilgot Rosenberg": 3,
+	"Jānis Dombrovskis": -1,
+	"Peter Skeppstedt": -1,
+	"Kristoffer Nyberg": 0,
+	"Stefan Fagerlund": 3,
+	"Jocke Andersson": 4,
+	"Martin Wejde": 2,
+	"Natan Forslin": 5,
+	"Nima Dadgaranfar": 4,
+	"Mats Eriksson": 4,
+	"Anders Ortfelt": 1,
+	"Elias Hiltunen": 8,
+	"Teemu Salmelin": 4,
+	"Kalle Stillersson": 6,
+	"Jonny Rodriguez": 12,
+	"Magnus Pettersson": 11,
+	"Sebastian Lundbäck": 11,
+	"Oscar Olsson Berglund": 12,
+	"Maria Hermansson": 27,
+	"Sebastian Trygg": 4,
+	"Rickard Karlström": 3,
+	"Daniel Fernström": -1,
+	"Jaak Tähnas": -1,
+	"Alexander Hugo": 1,
+	"Ove Andersson": 3,
+	"Eddie Allde": 5,
+	"Bengt-ola Persson": 3,
+	"Christer Jockinsen": 5,
+	"Johan Ekblom": -1,
+	"Pelle Andersson": 5,
+	"mikael persson": 1,
+	"Roman Kuster": 8,
+	"Magnus Berndtsson": 7,
+	"Peter Berg": 2,
+	"Mikael Engblom": 6,
+	"fritiof fagergren": 0,
+	"David Meiton": 0,
+	"Martin Axelsson": 1,
+	"Elias Stolt": 8,
+	"Robert Ekvall": 1,
+	"Linus Karlsson": 1,
+	"Joel Tjernlund": 1,
+	"Oliver Rosengren": 4,
+	"Benjamin Lagerbäck": 7,
+	"Jan Bäckvall": 9,
+	"Björn S": -1,
+	"Klas Löwbeer": 0,
+	"anders åkergren": 4,
+	"August Netz": 15,
+	"Patrik Martinsson": -1,
+	"Anton Edlund": 5,
+	"Dennis Persson": 10,
+	"Mark Wallström": 5,
+	"Anton Lindén": -2,
+	"Lucas Kristoffersson": 3,
+	"Viktor Gustafsson": 4,
+	"henrik bertilsson": 5,
+	"James Myhrberg": 3,
+	"Fredrik Mäenpää": 6,
+	"Rasmus Klys": -1,
+	"Per Fällgren": 2,
+	"Henrik Fagerlund": 9,
+	"Esse Woods": 9,
+	"joel magnusson": -1,
+	"Benjamin Carlund": -1,
+	"Peter Törnhult": 1,
+	"Jessie Eurenius": 1,
+	"Marcus Linder": 5,
+	"Jonas Gilljam": 5,
+	"Rickard Hellsing": 6,
+	"Marcus Mattsson": 5,
+	"Peter Bygde": -5,
+	"Per Astrom": 1,
+	"Elmer FURUSTIG": 0,
+	"Tomas Håkansson": 3,
+	"nils bryntesson": 5,
+	"Sebastian Hellsing": 4,
+	"Jimmy Högerman": 6,
+	"Håkan Hellsing": 7,
+	"Emanuel Ringbom": 0,
+	"Max Ringbom": 0,
+	"Martin Therus": 2,
+	"Ola Keijer": 3,
+	"Thomas Lindberg": 3,
+	"Marko Bandobranski": 5,
+	"Victor Tarre": 7,
+	"Johannes Aldrin": 2,
+	"Alexander Albrecht": 3,
+	"Jocce Bergström": 3,
+	"Jonas Pihl": 10,
+	"Andreas Andersson": 6,
+	"Simon Höglund": 1,
+	"Jonatan Adolphson": 4,
+	"Jenny Jakobsson": 6,
+	"Dante Myhrberg": 3,
+	"Åsa Myhrberg": 4,
+	"Liam Myhrberg": 6,
+	"Janis Saulitis": 13,
+	"Alexander Gyllensvärd": -1,
+	"Victor Sättberger": 4,
+	"Viktor Penna": 4,
+	"Charles Gilljam": 5,
+	"Alexander Sjöblom": 5,
+	"Yusuf Mahdi": 6,
+	"Fredrik Brusdal": 7,
+	"Frida Sandholm": 12,
 	"Adam Lundqvist": 4,
 	"Alex Kantardjiev": 13,
-	"Alexander Hugo": 3,
 	"Allan Lullu": 10,
-	"Anders Ortfelt": 6,
 	"Anders Prézent": -1,
 	"Andreas Beuger": 13,
-	"AnnaKarin Bergström": 32,	
-	"Anton Edlund": 12,
+	"AnnaKarin Bergström": 32,
 	"Anton Sandström": 10,
 	"Anton Viksten": 0,
 	"Axel Bjärgvide": 3,
-	"Bengt-ola Persson": 0,
-	"Benjamin Lagerbäck": 11,
-	"Björn S": 1,
 	"Christer Andersson": 0,
 	"Christer Gummesson": 4,
 	"Christer Gustavsson": -1,
-	"Christer Jockinsen": 12,	
 	"Conny Sandström": 3,
 	"Daniel Eriksson": 17,
-	"Daniel Fernström": 0,
 	"Daniel Koivunen": -3,
 	"Daniel Pettersson": 2,
 	"Danne Johansson": -3,
 	"David Claesson": 1,
 	"David Höjetun": -3,
-	"Eddie Allde": 0,
-	"Edvin Carlson": 4,	
-	"Elias Hiltunen": 8,
-	"Emanuel Ringbom": 4,
+	"Edvin Carlson": 4,
 	"Emil Vickman": 12,
 	"Erik Boström": 3,
 	"Erik Brandrup-Wognsen": 8,
@@ -163,19 +260,15 @@ var start_hcps = {
 	"Erik Persson": 1,
 	"Frank Ottosson": 9,
 	"Fredrik Bäckstrand": 3,
-	"Fredrik Rosenqvist": 11,	
+	"Fredrik Rosenqvist": 11,
 	"Fredrik Samuelsson": 4,
 	"Fredy Wahter": 8,
-	"fritiof fagergren": 0,
 	"Gerry Jacobsen": 5,
 	"Göran Karlström": 1,
 	"Hans Hult": 7,
 	"Henrik Jakobsson": -2,
-	"Henrik Fagerlund": 7,
-	"Jaak Tähnas": 0,
-	"Jacob M": 3,	
+	"Jacob M": 3,
 	"Jan Lisell": 9,
-	"Jānis Dombrovskis": 0,
 	"Jari Poranen": 6,
 	"Jeanette Ortfelt": 18,
 	"Jessika Edvardsson": 7,
@@ -183,84 +276,49 @@ var start_hcps = {
 	"Joakim Andersson": 0,
 	"Joakim Berglund": 11,
 	"Joel Jerrhag": 2,
-	"Joel Tjernlund": 3,	
 	"Johan Eckerblad": 8,
-	"Johan Ekblom": 4,
 	"Johan Ålund": -1,
 	"John Larsson": 6,
 	"John Persson": 2,
 	"Jon Widmark": 4,
 	"Jonas Bengtsson": 1,
 	"Jonatan Stålberg": 22,
-	"Jonny Rodriguez": 16,
-	"Jörgen Broden": 6,	
+	"Jörgen Broden": 6,
 	"Jörgen Öhman": 0,
-	"Kalle Stillersson": 0,
 	"Keneth B": 3,
 	"Kristjan Allemann": 2,
-	"Kristoffer Nyberg": 5,
 	"Linus Delbert": 12,
 	"Lowe Lindholm": 4,
-	"Magnus Berndtsson": 9,
-	"Magnus Pettersson": 0,
-	"Marcus Linder": 8,	
 	"Marcus Sandberg": 7,
-	"Maria Hermansson": 10,
 	"Markus Pohjolainen": -3,
 	"Markus Åhman": 15,
-	"Martin Axelsson": 6,
-	"Martin Wejde": 0,
-	"Mathias Graveleij": 1,
 	"Mats Enqvist": 3,
-	"Mats Eriksson": 0,
-	"Mats Hartler": 13,	
-	"Max Ringbom": 0,
+	"Mats Hartler": 13,
 	"Miika de Vocht": 3,
-	"Mikael Engblom": 8,
 	"Mikael Jansson": 1,
 	"Mikael Jergefelt": 2,
-	"mikael persson": 0,
-	"Natan Forslin": 0,
 	"Nathan Freeman": 1,
 	"Niklas Berg": 3,
-	"Niklas Åkerlund": 8,	
-	"Nima Dadgaranfar": 0,
+	"Niklas Åkerlund": 8,
 	"Olle Axmark": 7,
-	"Oscar Olsson Berglund": 18,
-	"Ove Andersson": 5,
 	"Patrik Bergqvist": 0,
 	"Patrik Eriksson": 0,
-	"Patrik Martinsson": 0,
-	"Pelle Andersson": 0,
 	"Per Fällgen": 4,
-	"Per Astrom": -1,	
-	"Peter Berg": 0,
 	"Peter Blomgren": 7,
-	"Peter Bygde": -1,
 	"Peter Falk": 12,
 	"Peter Henriksson": 7,
-	"Peter Skeppstedt": 2,
 	"Petter Westberg": -2,
 	"Pontus Bergqvist": 5,
 	"Priidik Raudkivi": 7,
-	"Radio Veskis": 7,	
-	"Rasmus Klys": 0,
-	"Rickard Karlström": 6,
+	"Radio Veskis": 7,
 	"Rikard Fogelholm": 23,
-	"Robert Ekvall": 1,
-	"Roger Berin": 2,
-	"Roman Kuster": 0,	
 	"Sebastian Edbom": 5,
-	"Sebastian Lundbäck": 0,
-	"Sebastian Trygg": 4,
 	"Sebastian Törnblom": 10,
 	"Simon Sawert": 3,
-	"Stefan Fagerlund": 10,
 	"Stefan Jonsson": 8,
 	"Susanne Ringbom": 9,
 	"Taavi Kaljura": 7,
-	"Tanel Bauman": 6,	
-	"Teemu Salmelin": 9,
+	"Tanel Bauman": 6,
 	"Thomas Håkansson": 7,
 	"Thomas Högnabba": 1,
 	"Thomas Jonasson": 2,
@@ -269,12 +327,11 @@ var start_hcps = {
 	"Victor Björkman": 2,
 	"Victor Nyhuus": 2,
 	"Viktor Wallström": -1,
-	"Vilgot Rosenberg": 2,	
 	"William Gummesson": -2
 }
 var double_ids = {'41966': '41968'};
 var js;
-$.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858', 
+$.getJSON('https://discgolfmetrix.com/api.php?content=result&id=2051234', 
     function(data) {
         js = data;
 	var idSet = new Set();
@@ -452,20 +509,18 @@ function get_hcp(index, name, diffs) {
 	    diff_sum += diffs[i - 1];
 	    num_comps += 1;
 	}
-	if (num_comps == 6) {
+	if (num_comps == 5) {
 	    return Math.round((diff_sum / num_comps) * 0.8);
 	}
     }
-    if (name in start_hcps && num_comps !== 5) {
+    if (num_comps == 0 && name in start_hcps) {
+	return start_hcps[name];
+    }
+    if (name in start_hcps) {
         diff_sum += start_hcps[name];
-        num_comps += 1;	
-    } else if (num_comps !== 5) {
         num_comps += 1;
     }
     if (num_comps > 0) {
-	if (num_comps == 1) {
-	    return diff_sum;
-	}
 	return Math.round((diff_sum / num_comps) * 0.8);
     } else {
 	return 0;
