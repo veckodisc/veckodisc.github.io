@@ -272,7 +272,7 @@ var start_hcps = {
 	"Vilgot Rosenberg": 2,	
 	"William Gummesson": -2
 }
-var double_ids = {'41966': '41968'};
+
 var js;
 $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858', 
     function(data) {
@@ -290,13 +290,10 @@ $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858',
 		last_comp_index = i;
 	    }
 	    for (var j = 0; j < js.Competition.SubCompetitions[i].Results.length; j++) {
-		idSet.add(js.Competition.SubCompetitions[i].Results[j].UserID);
+			idSet.add(generateUniqueId(js.Competition.SubCompetitions[i].Results[j].Name));
 	    }
 	}
-	for (id in double_ids) {
-	    idSet.delete(double_ids[id]);
-        }
-        var ids = Array.from(idSet);
+    var ids = Array.from(idSet);
 	var mod_throws_matrix = [];
 	for(var i = 0; i < ids.length; i++)  {
 	    var mod_throws_list = [];
@@ -394,11 +391,11 @@ $.getJSON('https://discgolfmetrix.com/api.php?content=result&id=1617858',
 
 function get_name(js, id) {
     for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
-	for (var j = 0; j < js.Competition.SubCompetitions[i].Results.length; j++) {
-		if (js.Competition.SubCompetitions[i].Results[j].UserID === id) {
-		    return js.Competition.SubCompetitions[i].Results[j].Name;	
+		for (var j = 0; j < js.Competition.SubCompetitions[i].Results.length; j++) {
+			if (generateUniqueId(js.Competition.SubCompetitions[i].Results[j].Name) === id) {
+				return js.Competition.SubCompetitions[i].Results[j].Name;	
+			}
 		}
-	}
     }
 }
 
@@ -406,19 +403,16 @@ function get_scores(js, id) {
     results = [];
     for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
         var score = get_score(js.Competition.SubCompetitions[i], id);
-	if (score == -100 && id in double_ids) {
-	    score = get_score(js.Competition.SubCompetitions[i], double_ids[id]);
-	}
-	results.push(score);
+		results.push(score);
     }
     return results;
 }
 
 function get_score(subcomp, id) {
     for (var i = 0; i < subcomp.Results.length; i++) {
-	if (subcomp.Results[i].UserID === id) {
-	    return subcomp.Results[i].Sum;	
-	}
+		if (generateUniqueId(subcomp.Results[i].Name) === id) {
+			return subcomp.Results[i].Sum;	
+		}
     }
     return -100;
 }
@@ -426,20 +420,17 @@ function get_score(subcomp, id) {
 function get_diffs(js, id) {
     diffs = [];
     for (var i = 0; i < js.Competition.SubCompetitions.length; i++) {
-	var diff = get_diff(js.Competition.SubCompetitions[i], id);
-	if (diff == -100 && id in double_ids) {
-	    diff = get_diff(js.Competition.SubCompetitions[i], double_ids[id]);
-	}
-	diffs.push(diff);
+		var diff = get_diff(js.Competition.SubCompetitions[i], id);
+		diffs.push(diff);
     }
     return diffs;
 }
 
 function get_diff(subcomp, id) {
     for (var i = 0; i < subcomp.Results.length; i++) {
-	if (subcomp.Results[i].UserID === id) {
-	    return subcomp.Results[i].Diff;	
-	}
+		if (generateUniqueId(subcomp.Results[i].Name) === id) {
+			return subcomp.Results[i].Diff;	
+		}
     }
     return -100;
 }
@@ -543,6 +534,15 @@ function add_table_rank(rank_col) {
 	name_cell = table.rows[r].cells[0];
 	name_cell.innerHTML = rank + ". " + name_cell.innerHTML.substring(name_cell.innerHTML.indexOf(". ") + 1);
     }
+}
+
+function generateUniqueId(name) {
+  let id = 0;
+  for (let i = 0; i < name.length; i++) {
+    id = ((id << 5) - id) + name.charCodeAt(i);
+    id |= 0; // Convert to a 32-bit integer
+  }
+  return Math.abs(id).toString();
 }
 
 const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
