@@ -39,14 +39,31 @@ h1 {
 	pointer-events: none;
 }
 
+h3 {
+	font-size:20px;
+}
+
 .info {
 	position: absolute;
 	left:72%;
 	margin-left:auto;
 	margin-right:auto;
 	padding-right: 2em;
-	margin-top: 6em;
+	margin-top: 5em;
 	max-width: 25%;
+	color: #fff;
+	font-family: 'Modernist';
+	z-index: 1;
+}
+
+.info-demo {
+	position: absolute;
+	left:3%;
+	margin-left:auto;
+	margin-right:auto;
+	padding-right: 2em;
+	margin-top: 5em;
+	max-width: 28%;
 	color: #fff;
 	font-family: 'Modernist';
 	z-index: 1;
@@ -66,11 +83,11 @@ h1 {
 
 .close_button {
   	position: absolute;
-  	right: 0;
+  	left: 31%;
 	margin-left: auto;
 	margin-right: 3em;
 	width: 2em;
-	margin-top: 3em;
+	margin-top: 3.8em;
   	z-index: 2;
   	display: none;
   	cursor: pointer;
@@ -81,6 +98,13 @@ h1 {
 	height: 3em;;
 	width: 100%;
 	margin: 0 auto;
+}
+
+.connection-container-demo {
+	display: flex;
+	height: 3em;;
+	width: 100%;
+	margin: auto 0;
 }
 
 .arrow {
@@ -138,8 +162,8 @@ h1 {
 	position: absolute;
 	font-family: 'ModernistBold';
 	color: #fff;
-	padding:0.5em;
-	margin:0.5em;
+	padding:0.7em;
+	margin:1em;
 	cursor: pointer;
 }
 

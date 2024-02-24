@@ -9,10 +9,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 	</head>
     <body>
-    	<div class="home-container" onclick="location.href='start.html';">
-			<div class="home_1">The</div>
-			<div class="home_2">SECOND</div>
-			<div class="home_3">BRAIN</div>
+    	<div class="home-container" onclick="location.href='https://the-second-brain.github.io/';">
+			<div class="home_2">QBrain</div>
 		</div>
     	<img class="home-button" id="home" src="/favicon.ico" alt="Go home">
     	<h1 id='title'></h1>
@@ -65,11 +63,9 @@
  	   	
 		<div id='articles'></div>
 		
-		<canvas id="background"; class="background"></canvas>
-		
 		<script>
 			document.getElementById('home').addEventListener('click', (() => {
-			 		window.location.href = "brain.html";
+			 		window.location.href = "brain";
 			}));
 		
 		    let section = getCurrentSection();
@@ -123,7 +119,7 @@
 				
 			document.getElementById('open_connections').addEventListener('click', (() => {
 			 		localStorage.setItem("connection_index", "0");
-			 		window.location.href = "connection.html";
+			 		window.location.href = "connection";
 			}));
 				
 			document.getElementById('radio-one').addEventListener("click", (() => {
@@ -184,18 +180,6 @@
 					document.getElementsByClassName(section.articles[i].id)[0].click();
 				}
 			}
-			
-			let num_particles = window.innerHeight * window.innerWidth / 5000;
-			window.onload = function() {
-			  Particles.init({
-			    selector: '.background',
-			    maxParticles: num_particles.toFixed(0),
-		        color: '#777777',
-		        connectParticles: true,
-		        speed: 0,
-			  }).pauseAnimation();
-			  document.getElementById('background').style.position = "fixed";
-			};
 			
 			function confirm_archive(index, section_pos) {
 				let text = "Är du säker på att du vill arkivera artikeln?\nArtikeln flyttas till historiken.";

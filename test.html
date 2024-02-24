@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/section.css">
+		<title>AI - Lektion 1</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="js/utils.js"></script> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+	</head>
+    <body>
+		<h1 id='title'>Lektion 1</h1>
+		<p id='intro' class="intro">Här är introt till lektion 1. </p>
+			
+		<div id='articles'>
+			<div style='display: flex; width: 60%; margin: 2em auto 1em auto;'>
+				<div class='article_header'>Artificiell intelligens</div>
+			</div>
+			<div class='tab'>
+				<button class="b1 active" style="margin-right: 0px;" onclick="openTab(event, 't1', 'b1', ['t1'])">Artificiell intelligens</button>
+			</div>
+			<div id="t1" class="tabcontent" style="display: block;">
+				<p>En dator eller maskin som <b>uppvisar intelligens eller mänskliga förmågor</b>. Ett intelligent system kan dra slutsatser, lösa problem, planera och vara självlärande. Det mesta som i dagligt tal kallas AI uppfyller dock inte alla kriterier. AI handlar idag om enstaka, ganska snäva förmågor, som bildigenkänning och diagnosställande.</p>
+			</div>
+			
+			<div style='display: flex; width: 60%; margin: 2em auto 1em auto;'>
+				<div class='article_header'>Maskininlärning</div>
+			</div>
+			<div class='tab'>
+				<button class="b2 active" style="margin-right: 0px;" onclick="openTab(event, 't2', 'b2', ['t2'])">Maskininlärning</button>
+			</div>
+			<div id="t2" class="tabcontent" style="display: block;">
+				<p>Går förenklat ut på att träna ett datorprogram, ofta i form av ett neuronnätverk/neuralt nätverk, till att klara en viss uppgift. Det kan vara att känna igen en katt eller att kunna skilja fordon från fotgängare. För att träna <b>matas systemet med mängder av data</b> (exempelvis bilder på katter ur olika vinklar och med olika utseenden) och parametrarna optimeras.</p>
+			</div>
+		</div>
+		<p id='intro' class="intro"><br>Källa: <a href="https://www.lu.se/artikel/allt-du-skulle-vilja-veta-om-ai">Lunds universitet</a></p>
+		
+		<div style='display: flex; width: 60%; margin: 2em auto 1em auto;'>
+				<div class='article_header'>Maskininlärning</div>
+			</div>
+			<div class='tab'>
+				<button class="b7 active" style="margin-right: 0px;" onclick="openTab(event, 't7', 'b7', ['t7'])">Maskininlärning</button>
+			</div>
+			<div id="t7" class="tabcontent" style="display: block;">
+				<p><div style= 'text-align: center; background: #000';><iframe style= 'display: inline-block' width='500' height='300' src='https://www.youtube.com/embed/K7QBnuF6dHg' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe></div></p>
+			</div>
+		</div>
+		
+		<script>
+			function openTab(evt, tabId, buttonId, tabs) {
+				var i, tablinks;
+				for (i = 0; i < tabs.length; i++) {
+					document.getElementById(tabs[i]).style.display = "none";
+				}
+				tablinks = document.getElementsByClassName(buttonId);
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(tabId).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+		</script>
+		
+	</body>
+</html>

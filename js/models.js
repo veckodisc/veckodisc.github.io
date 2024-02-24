@@ -91,7 +91,7 @@ function new_std_section(pos) {
 	section = new Section(content.std_section);
 	section.id = get_uid();
 	section.pos = pos;
-	section.active = 1;
+	section.active = 0;
 	title = "";
 	if (pos % 3 == 0) {
 		title += "Fakta kring ";
@@ -119,6 +119,7 @@ function new_std_section(pos) {
 	}
 	if (Math.floor(pos / 9) == 0) {
 		title += "på individnivå";
+		section.active = 1;
 	} else if (Math.floor(pos / 9) == 1) {
 		title += "på gruppnivå";
 	} else {
@@ -126,7 +127,6 @@ function new_std_section(pos) {
 	}
 	section.title = title;
 	section.intro = 'Här finns en kort beskrivning av området "' + title + '". Texten förklarar området och beskriver arbetet som ska utföras här.';
-	//section.articles.push(new_std_article());
 	
 	return section;
 }
