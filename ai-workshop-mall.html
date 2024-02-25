@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--Skapa en hemsida i html och javascript som går att klistra in i ett textdokument och sedan öppnas i en webläsare. Hemsidan ska ha en knapp och när användaren trycker på knappen ska den få en glad och peppande text. Det ska slumpmässigt väljas olika texter varje gång (10 stycken). Hemsidan ska vara fin och glad, använd css för att göra den fin på olika sätt.-->
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glad och peppande hemsida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ffc700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Glad och peppande hemsida</h1>
+        <p>Klicka på knappen nedan för att få en slumpmässig glad text:</p>
+        <button onclick="showRandomText()">Visa text</button>
+        <p id="randomText"></p>
+    </div>
+
+    <script>
+        const texts = [
+            "Du är fantastisk!",
+            "Livet är underbart!",
+            "Små steg leder till stora framsteg.",
+            "Varje dag är en ny möjlighet.",
+            "Sprid glädje omkring dig.",
+            "Du är starkare än du tror.",
+            "Tänk positivt!",
+            "Ge aldrig upp!",
+            "Ditt leende är smittsamt.",
+            "Du är en stjärna!"
+        ];
+
+        function showRandomText() {
+            const randomIndex = Math.floor(Math.random() * texts.length);
+            document.getElementById("randomText").textContent = texts[randomIndex];
+        }
+    </script>
+</body>
+</html>
+
