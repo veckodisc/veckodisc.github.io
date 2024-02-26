@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        /* Styla canvas */
+        #gameCanvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const gridSize = 10; // Storlek på rutnätet
+        const width = canvas.width / gridSize;
+        const height = canvas.height / gridSize;
+        const dead = false;
+
+        let snake = [{ x: 15, y: 15 }]; // Startposition för ormen
+        let dx = 1; // Storlek på varje steg
+        let dy = 0; // Rörelseriktning (horisontell)
+
+        let appleIndex = 0; // Index för äpplet
+        let score = 0; // Spelarens poäng
+
+        function createApple() {
+            // Slumpmässigt placera äpplet på spelplanen
+            appleIndex = Math.floor(Math.random() * (width * height));
+        }
+
+        function advanceSnake(ctx) {
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+            snake.unshift(head); // Lägg till ny huvudposition
+
+            // Kolla om ormen äter äpplet
+            if (snake[0].x === appleIndex % width && snake[0].y === Math.floor(appleIndex / width)) {
+                snake.push({ x: snake[0].x, y: snake[0].y });
+                score += 10; // Öka poängen
+                createApple(); // Skapa nytt äpple
+            } else {
+                snake.pop(); // Ta bort sista elementet (svansen)
+            }
+
+            // Kolla om ormen träffar kanten
+            if (snake[0].x < 0 || snake[0].x >= width || snake[0].y < 0 || snake[0].y >= height) {
+                // Ormen har träffat kanten, avsluta spelet
+                dead = true;
+            }
+        }
+
+        function changeDirection(event) {
+            const key = event.key;
+            if (key === "ArrowUp" && dy === 0) {
+                dx = 0;
+                dy = -1; // Uppåt
+            } else if (key === "ArrowDown" && dy === 0) {
+                dx = 0;
+                dy = 1; // Nedåt
+            } else if (key === "ArrowLeft" && dx === 0) {
+                dx = -1;
+                dy = 0; // Vänster
+            } else if (key === "ArrowRight" && dx === 0) {
+                dx = 1;
+                dy = 0; // Höger
+            }
+        }
+
+        function drawSnake() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw the score
+			ctx.fillStyle = 'black';
+			ctx.font = '16px Arial';
+			ctx.fillText('Score: ' + score, 10, 20);
+
+            // Rita äpplet
+            ctx.fillStyle = "red";
+            ctx.fillRect((appleIndex % width) * gridSize, Math.floor(appleIndex / width) * gridSize, gridSize, gridSize);
+
+            // Rita ormen
+            ctx.fillStyle = "green";
+            for (const segment of snake) {
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+            }
+        }
+
+        createApple(); // Placera första äpplet
+        document.addEventListener("keydown", changeDirection);
+        if (!dead) {
+        	setInterval(() => {
+		        advanceSnake();
+		        drawSnake();
+		    }, 100); // Uppdatera var 100 ms
+        }
+        
+    </script>
+</body>
+</html>
+

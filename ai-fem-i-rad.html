@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luffarschack</title>
+<style>
+  .board {
+    display: grid;
+    grid-template-columns: repeat(20, 30px);
+    grid-template-rows: repeat(20, 30px);
+    gap: 2px;
+  }
+  .cell {
+    background-color: #eee;
+    border: 1px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="board" id="board">
+  <!-- Skapar 20x20 celler -->
+  <!-- onclick-funktionen är dynamiskt genererad baserat på cellens position -->
+</div>
+
+<script>
+  let currentPlayer = 'X';
+  let board = Array.from({ length: 20 }, () => Array(20).fill(''));
+
+  function initializeBoard() {
+    let boardElement = document.getElementById('board');
+    for (let i = 0; i < 20; i++) {
+      for (let j = 0; j < 20; j++) {
+        let cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.dataset.row = i;
+        cell.dataset.col = j;
+        cell.addEventListener('click', function() {
+          makeMove(parseInt(this.dataset.row), parseInt(this.dataset.col));
+        });
+        boardElement.appendChild(cell);
+      }
+    }
+  }
+
+  function makeMove(row, col) {
+    if (board[row][col] === '') {
+      board[row][col] = currentPlayer;
+      document.querySelector(`.cell[data-row='${row}'][data-col='${col}']`).innerText = currentPlayer;
+      if (checkWinner(row, col)) {
+        alert(currentPlayer + ' vinner!');
+        resetBoard();
+      } else if (checkDraw()) {
+        alert('Oavgjort!');
+        resetBoard();
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+      }
+    }
+  }
+
+  function checkWinner(row, col) {
+    let directions = [[1, 0], [0, 1], [1, 1], [1, -1]]; // riktningarna att kontrollera
+    for (let [dx, dy] of directions) {
+      let count = 1; // räkna den nuvarande spelarens markeringar
+      count += countInDirection(row, col, dx, dy);
+      count += countInDirection(row, col, -dx, -dy);
+      if (count >= 5) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function countInDirection(row, col, dx, dy) {
+    let count = 0;
+    let r = row + dx;
+    let c = col + dy;
+    while (r >= 0 && r < 20 && c >= 0 && c < 20 && board[r][c] === currentPlayer) {
+      count++;
+      r += dx;
+      c += dy;
+    }
+    return count;
+  }
+
+  function checkDraw() {
+    for (let row of board) {
+      for (let cell of row) {
+        if (cell === '') {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  function resetBoard() {
+    board = Array.from({ length: 20 }, () => Array(20).fill(''));
+    currentPlayer = 'X';
+    for (let cell of document.getElementsByClassName('cell')) {
+      cell.innerText = '';
+    }
+  }
+
+  initializeBoard();
+</script>
+
+</body>
+</html>
+
