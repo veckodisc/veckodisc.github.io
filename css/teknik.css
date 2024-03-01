@@ -17,6 +17,10 @@ body {
 		border-radius: 10px;
 		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 	}
+	
+	.header {
+    margin: -40px -40px 0px -40px;
+}
 }
 
 h3 {
@@ -65,4 +69,10 @@ ul li {
 
 .flex-container > div {
   width: 400px;
+}
+
+
+img {
+    width: 100%;
+    height: auto;
 }
