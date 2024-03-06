@@ -10,7 +10,7 @@
 
 <div class="container">
 <div class="header">
-    <img src="images/ai.png" alt="AI Bild">
+    <img id="page_image" alt="AI Bild">
 </div>
 	<div class="flex-container">
 		<div style="text-align: left"><h1>Teknik årskurs 7</h1></div>
@@ -36,6 +36,13 @@
     <h3>Bedömning</h3>
     <p><ul><li>Ni skapar en egen <a href="ai-guide.pdf">AI-guide</a> som får användas på ett skriftligt prov som prövar lärandemål 1-3. En genomarbetad guide kan påverka bedömningen i viss utsträckning, men det är främst det skriftliga provet som avgör hur väl ni uppfyller lärandemål 1-3.</li><li>För att uppnå lärandemål 4-5 hålls en <a href="ai-workshop">workshop</a> som ska genomföras för godkänt betyg. Genomförandet kan inte påverka slutbetyget negativt, men ett väl utfört arbete kan höja betyget i viss utsträckning.</li><li>Ni genomför ett <a href="konstruktionsarbete">konstruktionsarbete</a> av en pendelklocka och dokumenterar arbetet i en rapport. Rapporten ligger till grund för bedömningen av hur väl ni uppfyller lärandemål 6-8.</li><li>Era frågor och diskussioner kan inte påverka slutbetyget negativt, däremot kan muntliga resonemang under lektionerna bidra till att höja betyget i viss utsträckning. Så var inte rädda för att ställa frågor och diskutera på lektionerna!</li></ul></p>
 </div>
+
+<script>
+	images = ["images/ai.png", "images/ai2.png", "images/ai3.png"]
+	const index = Math.floor(Math.random() * images.length);
+    const image = images[index];
+    document.getElementById("page_image").src = image;
+</script>
 </body>
 </html>
 

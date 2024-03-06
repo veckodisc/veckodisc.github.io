@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 <div class="header">
-    <img src="images/ai.png" alt="AI Bild">
+    <img id="page_image" alt="AI Bild">
 </div>
 	<div class="flex-container">
 		<div style="text-align: left"><h1>Teknik - Planering</h1></div>
@@ -53,6 +53,13 @@
     <h3 style="cursor: pointer" onclick="location.href='konstruktionsarbete-rapportmall.pdf';">Konstruktionsarbete - Rapportmall →</h3>
     <p>Rapporten delas ut i pappersform, men finns också här som pdf. Din ifyllda rapport ska vara läslig, eftersom den ligger till grund för bedömningen av konstruktionsarbetet.</p>
 </div>
+
+<script>
+	images = ["images/ai.png", "images/ai2.png", "images/ai3.png"]
+	const index = Math.floor(Math.random() * images.length);
+    const image = images[index];
+    document.getElementById("page_image").src = image;
+</script>
 </body>
 </html>
 
