@@ -40,7 +40,7 @@ h1 {
 }
 
 a {
-    color: #0d58a3;;
+    color: #0d58a3;
     text-decoration: none;
 }
 
@@ -81,5 +81,5 @@ img {
     .header {
     	margin-left: -20px;
     	margin-right: -20px;
-    	margin-top: -40px;
+    	margin-top: -20px;
     }
