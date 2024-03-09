@@ -37,6 +37,9 @@ h1 {
     h1 {
     	font-size: 22px;
     }
+    body {
+    	background-color: #fcfcfc;
+    }
 }
 
 a {
